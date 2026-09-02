@@ -139,7 +139,7 @@ body {
 	font-size: 14px;
 }
 
-.usuario-info span {
+.usuario-info{
 	font-size: 12px;
 	color: #6b7280;
 }
@@ -176,18 +176,19 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	color: #6b7280;
-	font-size: 14px;
+	font-size: 15px;
 }
 
 .icone {
 	color: #1683d8;
 	font-weight: bold;
+    font-size: 25px;
 }
 
 .resumo strong {
 	display: block;
 	margin-top: 15px;
-	font-size: 26px;
+	font-size: 35px;
 	color: #111827;
 }
 
