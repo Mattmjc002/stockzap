@@ -1,0 +1,19 @@
+# VS Code
+.vscode/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+
+# Arquivos de configuração locais
+.env
+.env.*
+
+# Arquivos compactados
+*.zip
+*.rar

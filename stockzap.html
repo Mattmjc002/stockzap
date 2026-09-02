@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ZapChat - StockZap</title>
+        <link rel="stylesheet" href="css/stockzap.css">
+    </head>
+    <body>
+
+        <header class="header">
+            <div class="container-header">
+                <a href="#">
+                    <img src="imagens/StockZap_logo.svg" alt="Logo StockZap" class="logo">
+                </a>
+
+                <nav class="menu">
+                    <a href="#inicio">Início</a>
+                    <a href="#funcionalidades">Funcionalidades</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+
+                <div class="botoes-topo">
+                    <a href="login.html" class="btn-login">Entrar</a>
+                    <a href="cadastro.html" class="btn-cadastro">Criar conta</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- BANNER INICIAL -->
+        <div class="banner" id="inicio">
+            <h1>ZapChat</h1>
+            <h2>Conheça o StockZap</h2>
+            <p>A solução simples e prática para organizar seu estoque e vendas.</p>
+        </div>
+
+        <main class="container">
+
+            <!-- CARTÕES DE MENU -->
+            <section id="funcionalidades">
+                <h2 class="titulo-secao">Funcionalidades</h2>
+
+                <div class="grid-cartoes">
+                    <a href="#registro_de_produtos" class="cartao">Registro de produto</a>
+                    <a href="#analise_de_fluxo_de_caixa" class="cartao">Análise de fluxo de caixa</a>
+                    <a href="#mapeamento_de_produtos" class="cartao">Mapeamento de produtos</a>
+                    <a href="#gerenciamento_de_estoque" class="cartao">Gerenciamento de estoque</a>
+                    <a href="#controle_financeiro" class="cartao">Controle financeiro</a>
+                    <a href="#acompanhamento_de_prazos" class="cartao">Acompanhamento de prazos</a>
+                    <a href="#dashboard_interativo" class="cartao">Dashboard interativo</a>
+                    <a href="#controle_da_equipe" class="cartao">Controle da equipe</a>
+                </div>
+            </section>
+
+            <!-- SEÇÕES INFORMATIVAS -->
+            <section id="registro_de_produtos" class="caixa">
+                <h2>Registro de produtos</h2>
+                <p>Cadastre seus produtos com facilidade informando nome, código e preços.</p>
+            </section>
+
+            <section id="analise_de_fluxo_de_caixa" class="caixa">
+                <h2>Análise de fluxo de caixa</h2>
+                <p>Acompanhe o que entra e o que sai da sua conta com clareza.</p>
+            </section>
+
+            <section id="mapeamento_de_produtos" class="caixa">
+                <h2>Mapeamento de produtos</h2>
+                <p>Organize em qual prateleira ou setor seus itens estão guardados.</p>
+            </section>
+
+            <section id="gerenciamento_de_estoque" class="caixa">
+                <h2>Gerenciamento de estoque</h2>
+                <p>Receba avisos quando o estoque de um produto estiver acabando.</p>
+            </section>
+
+            <section id="controle_financeiro" class="caixa">
+                <h2>Controle financeiro</h2>
+                <p>Gestão das suas contas a pagar e receitas do dia a dia.</p>
+            </section>
+
+            <section id="acompanhamento_de_prazos" class="caixa">
+                <h2>Acompanhamento de prazos/clientes</h2>
+                <p>Controle datas de entrega para não atrasar nenhum pedido.</p>
+            </section>
+
+            <section id="dashboard_interativo" class="caixa">
+                <h2>Dashboard interativo</h2>
+                <p>Resumo gráfico com os principais números da sua loja.</p>
+            </section>
+
+            <section id="controle_da_equipe" class="caixa">
+                <h2>Controle da equipe</h2>
+                <p>Gerencie o acesso de cada funcionário no sistema.</p>
+            </section>
+
+            <!-- CONTATO -->
+            <section id="contato" class="caixa">
+                <h2>Contato</h2>
+                <p>Fale conosco para tirar dúvidas sobre o projeto.</p>
+
+                <form action="#" method="post" class="formulario">
+                    <label for="nome">Seu Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                    <label for="email">Seu E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="nome@email.com" required>
+
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem..."></textarea>
+
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                </form>
+            </section>
+
+        </main>
+
+        <!-- RODAPÉ -->
+        <footer class="rodape">
+            <p>&copy; 2026 StockZap</p>
+            <p class="autores">Desenvolvido por Matheus Milagres | Felipe Garrido | Davi Freitas | Cauê Mathias | Manuela Valone</p>
+        </footer>
+
+    </body>
+</html>

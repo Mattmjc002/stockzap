@@ -1,0 +1,112 @@
+/* CONFIGURAÇÕES GERAIS DA TELA DE LOGIN/CADASTRO */
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7fafc;
+    color: #1a202c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* CONTAINER CENTRALIZADO */
+.container-login{
+    width: 100%;
+    max-width: 400px;
+}
+
+/* ÁREA DA LOGO */
+.topo-logo{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.topo-logo img{
+    width: 160px;
+    height: auto;
+}
+
+/* CAIXA DO FORMULÁRIO */
+.caixa-login{
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 30px 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.caixa-login h2{
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #021f59;
+    border-bottom: 2px solid #39bf68;
+    padding-bottom: 8px;
+}
+
+/* CAMPOS DO FORMULÁRIO */
+.form-login{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login label{
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.form-login input{
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.form-login input:focus{
+    outline: none;
+    border-color: #39bf68;
+}
+
+/* BOTÃO DE ENVIAR */
+.botao-login{
+    margin-top: 20px;
+    background-color: #021f59;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.botao-login:hover {
+    background-color: #39bf68;
+}
+
+/* LINK NO RODAPÉ DO CARD */
+.texto-rodape{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.texto-rodape a{
+    color: #39bf68;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.texto-rodape a:hover{
+    text-decoration: underline;
+}
