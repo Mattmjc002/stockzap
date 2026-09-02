@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>StockZap - Produtos</title>
+
+		<link rel="stylesheet" href="../css/produtos.css" />
+	</head>
+
+	<body>
+		<!-- MENU LATERAL -->
+		<aside class="sidebar">
+			<div class="logo-area">
+				<img src="../imagens/StockZap_logo.svg" alt="Logo StockZap" />
+			</div>
+
+			<nav class="menu-dashboard">
+				<a href="dashboard.html" class="menu-item">
+					<span>▦</span>
+					Dashboard
+				</a>
+				<a href="produtos.html" class="menu-item ativo">
+					<span>▤</span>
+					Produtos
+				</a>
+				<a href="#" class="menu-item">
+					<span>▣</span>
+					Estoque
+				</a>
+				<a href="#" class="menu-item">
+					<span>R$</span>
+					Financeiro
+				</a>
+				<a href="#" class="menu-item">
+					<span>◷</span>
+					Prazos
+				</a>
+				<a href="#" class="menu-item">
+					<span>♙</span>
+					Equipe
+				</a>
+			</nav>
+
+			<div class="menu-inferior">
+				<a href="#" class="menu-item">
+					<span>⚙</span>
+					Configurações
+				</a>
+				<a href="stockzap.html" class="menu-item sair">
+					<span>↪</span>
+					Sair
+				</a>
+			</div>
+		</aside>
+
+		<main class="main-content">
+			<!-- CABEÇALHO -->
+			<header class="topbar">
+				<div>
+					<h1>Produtos</h1>
+					<p>Gerencie os produtos cadastrados no seu negócio</p>
+				</div>
+
+				<div class="usuario">
+					<div class="avatar">U</div>
+
+					<div class="usuario-info">
+						<strong>Usuário</strong>
+						<span>Administrador</span>
+					</div>
+				</div>
+			</header>
+
+			<!-- CONTEÚDO -->
+			<section class="produtos-content">
+				<!-- CARDS DE RESUMO -->
+				<div class="cards-resumo">
+					<div class="card resumo">
+						<span class="resumo-titulo">Total de produtos</span>
+						<strong id="total-produtos">0</strong>
+						<span class="resumo-descricao"
+							>Produtos cadastrados</span
+						>
+					</div>
+
+					<div class="card resumo">
+						<span class="resumo-titulo">Produtos em estoque</span>
+						<strong id="produtos-estoque">0</strong>
+						<span class="resumo-descricao"
+							>Com quantidade disponível</span
+						>
+					</div>
+
+					<div class="card resumo alerta">
+						<span class="resumo-titulo">Estoque baixo</span>
+						<strong id="produtos-baixos">0</strong>
+						<span class="resumo-descricao"
+							>Precisam de reposição</span
+						>
+					</div>
+
+					<div class="card resumo">
+						<span class="resumo-titulo">Categorias</span>
+						<strong id="total-categorias">0</strong>
+						<span class="resumo-descricao"
+							>Categorias cadastradas</span
+						>
+					</div>
+				</div>
+
+				<!-- BARRA DE FERRAMENTAS -->
+				<div class="barra-ferramentas">
+					<div class="pesquisa">
+						<span>⌕</span>
+
+						<input
+							type="search"
+							id="pesquisa-produto"
+							placeholder="Pesquisar produto ou código..."
+						/>
+					</div>
+
+					<select id="filtro-categoria">
+						<option value="">Todas as categorias</option>
+					</select>
+
+					<button class="botao-principal" id="abrir-modal">
+						+ Novo produto
+					</button>
+				</div>
+
+				<!-- TABELA -->
+				<section class="card tabela-container">
+					<div class="cabecalho-tabela">
+						<div>
+							<h2>Produtos cadastrados</h2>
+							<p id="quantidade-resultados">
+								0 produtos encontrados
+							</p>
+						</div>
+					</div>
+
+					<div class="tabela-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>Produto</th>
+									<th>Código</th>
+									<th>Categoria</th>
+									<th>Preço</th>
+									<th>Estoque</th>
+									<th>Status</th>
+									<th>Ações</th>
+								</tr>
+							</thead>
+
+							<tbody id="lista-produtos"></tbody>
+						</table>
+					</div>
+
+					<!-- MENSAGEM QUANDO NÃO HÁ PRODUTOS -->
+					<div class="sem-produtos" id="sem-produtos">
+						<div class="sem-produtos-icone">▤</div>
+
+						<h3>Nenhum produto encontrado</h3>
+
+						<p>
+							Cadastre um produto ou altere os filtros da
+							pesquisa.
+						</p>
+
+						<button class="botao-principal" id="abrir-modal-vazio">
+							+ Cadastrar produto
+						</button>
+					</div>
+				</section>
+			</section>
+		</main>
+
+		<!-- MODAL DE PRODUTO -->
+		<div class="modal-overlay" id="modal">
+			<div class="modal">
+				<div class="modal-cabecalho">
+					<div>
+						<h2 id="titulo-modal">Novo produto</h2>
+						<p>Preencha as informações do produto.</p>
+					</div>
+
+					<button class="fechar-modal" id="fechar-modal">×</button>
+				</div>
+
+				<form id="form-produto">
+					<input type="hidden" id="produto-id" />
+
+					<div class="campo">
+						<label for="nome"> Nome do produto </label>
+
+						<input
+							type="text"
+							id="nome"
+							placeholder="Ex.: Arroz 5kg"
+							required
+						/>
+					</div>
+
+					<div class="linha-campos">
+						<div class="campo">
+							<label for="codigo"> Código </label>
+
+							<input
+								type="text"
+								id="codigo"
+								placeholder="Ex.: 001"
+								required
+							/>
+						</div>
+
+						<div class="campo">
+							<label for="categoria"> Categoria </label>
+
+							<input
+								type="text"
+								id="categoria"
+								placeholder="Ex.: Alimentos"
+								required
+							/>
+						</div>
+					</div>
+
+					<div class="linha-campos">
+						<div class="campo">
+							<label for="preco"> Preço (R$) </label>
+
+							<input
+								type="number"
+								id="preco"
+								min="0"
+								step="0.01"
+								placeholder="0,00"
+								required
+							/>
+						</div>
+
+						<div class="campo">
+							<label for="estoque"> Quantidade em estoque </label>
+
+							<input
+								type="number"
+								id="estoque"
+								min="0"
+								step="1"
+								placeholder="0"
+								required
+							/>
+						</div>
+					</div>
+
+					<div class="campo">
+						<label for="estoque-minimo"> Estoque mínimo </label>
+
+						<input
+							type="number"
+							id="estoque-minimo"
+							min="0"
+							step="1"
+							value="5"
+							required
+						/>
+
+						<small>
+							O sistema exibirá um alerta quando o estoque estiver
+							igual ou abaixo desse valor.
+						</small>
+					</div>
+
+					<div class="modal-acoes">
+						<button
+							type="button"
+							class="botao-cancelar"
+							id="cancelar-modal"
+						>
+							Cancelar
+						</button>
+
+						<button type="submit" class="botao-principal">
+							Salvar produto
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="../js/produtos.js"></script>
+	</body>
+</html>
