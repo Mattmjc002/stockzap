@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>StockZap - Dashboard</title>
+		<link rel="stylesheet" href="../css/dashboard.css" />
+	</head>
+
+	<body>
+		<!-- MENU LATERAL -->
+		<aside class="sidebar">
+			<div class="logo-area">
+				<img src="../imagens/StockZap_logo.svg" alt="Logo StockZap" />
+			</div>
+
+			<nav class="menu-dashboard">
+				<a href="#" class="menu-item ativo">
+					<span>▦</span>
+					Dashboard
+				</a>
+				<a href="#" class="menu-item">
+					<span>▤</span>
+					Produtos
+				</a>
+				<a href="#" class="menu-item">
+					<span>▣</span>
+					Estoque
+				</a>
+				<a href="#" class="menu-item">
+					<span>R$</span>
+					Financeiro
+				</a>
+				<a href="#" class="menu-item">
+					<span>◷</span>
+					Prazos
+				</a>
+				<a href="#" class="menu-item">
+					<span>♙</span>
+					Equipe
+				</a>
+			</nav>
+
+			<div class="menu-inferior">
+				<a href="#" class="menu-item">
+					<span>⚙</span>
+					Configurações
+				</a>
+
+				<a href="../stockzap.html" class="menu-item sair">
+					<span>↪</span>
+					Sair
+				</a>
+			</div>
+		</aside>
+
+		<main class="main-content">
+			<header class="topbar">
+				<div>
+					<h1>Dashboard</h1>
+					<p>Visão geral do seu negócio</p>
+				</div>
+
+				<div class="usuario">
+					<div class="avatar">U</div>
+
+					<div class="usuario-info">
+						<strong>Usuário</strong>
+						<span>Administrador</span>
+					</div>
+				</div>
+			</header>
+
+			<!-- CONTEÚDO -->
+			<section class="dashboard-content">
+				<!-- CARDS PRINCIPAIS -->
+				<div class="cards-resumo">
+					<div class="card resumo">
+						<div class="card-titulo">
+							<span>Produtos</span>
+							<span class="icone">▤</span>
+						</div>
+
+						<strong>125</strong>
+
+						<p>Produtos cadastrados</p>
+					</div>
+
+					<div class="card resumo">
+						<div class="card-titulo">
+							<span>Estoque</span>
+							<span class="icone">▣</span>
+						</div>
+
+						<strong>38</strong>
+
+						<p>Itens em estoque</p>
+					</div>
+
+					<div class="card resumo">
+						<div class="card-titulo">
+							<span>Vendas</span>
+							<span class="icone">R$</span>
+						</div>
+
+						<strong>R$ 12.450</strong>
+
+						<p>Vendas neste mês</p>
+					</div>
+
+					<div class="card resumo alerta">
+						<div class="card-titulo">
+							<span>Estoque baixo</span>
+							<span class="icone">!</span>
+						</div>
+
+						<strong>8</strong>
+
+						<p>Produtos precisam de atenção</p>
+					</div>
+				</div>
+
+				<!-- SEGUNDA ÁREA -->
+				<div class="grid-dashboard">
+					<!-- VENDAS -->
+					<section class="card vendas">
+						<div class="cabecalho-card">
+							<div>
+								<h2>Vendas</h2>
+								<p>Resumo das vendas recentes</p>
+							</div>
+
+							<select>
+								<option>Este mês</option>
+								<option>Últimos 3 meses</option>
+								<option>Este ano</option>
+							</select>
+						</div>
+
+						<div class="grafico">
+							<div class="barra" style="height: 45%">
+								<span>Seg</span>
+							</div>
+
+							<div class="barra" style="height: 65%">
+								<span>Ter</span>
+							</div>
+
+							<div class="barra" style="height: 50%">
+								<span>Qua</span>
+							</div>
+
+							<div class="barra" style="height: 80%">
+								<span>Qui</span>
+							</div>
+
+							<div class="barra" style="height: 60%">
+								<span>Sex</span>
+							</div>
+
+							<div class="barra" style="height: 90%">
+								<span>Sáb</span>
+							</div>
+
+							<div class="barra" style="height: 35%">
+								<span>Dom</span>
+							</div>
+						</div>
+					</section>
+
+					<!-- ESTOQUE BAIXO -->
+					<section class="card estoque-baixo">
+						<div class="cabecalho-card">
+							<div>
+								<h2>Estoque baixo</h2>
+								<p>Produtos que precisam de reposição</p>
+							</div>
+
+							<a href="#">Ver todos</a>
+						</div>
+
+						<div class="produto">
+							<div>
+								<strong>Arroz 5kg</strong>
+								<span>Código: 001</span>
+							</div>
+
+							<span class="quantidade">3 un.</span>
+						</div>
+
+						<div class="produto">
+							<div>
+								<strong>Feijão 1kg</strong>
+								<span>Código: 002</span>
+							</div>
+
+							<span class="quantidade">5 un.</span>
+						</div>
+
+						<div class="produto">
+							<div>
+								<strong>Macarrão</strong>
+								<span>Código: 003</span>
+							</div>
+
+							<span class="quantidade">2 un.</span>
+						</div>
+
+						<button class="botao-secundario">
+							Gerenciar estoque
+						</button>
+					</section>
+				</div>
+
+				<!-- ÚLTIMAS ATIVIDADES -->
+				<section class="card atividades">
+					<div class="cabecalho-card">
+						<div>
+							<h2>Atividades recentes</h2>
+							<p>Últimas movimentações do sistema</p>
+						</div>
+
+						<a href="#">Ver histórico</a>
+					</div>
+
+					<div class="atividade">
+						<div class="atividade-icone">+</div>
+
+						<div>
+							<strong>Novo produto cadastrado</strong>
+							<span
+								>Produto "Café 500g" foi adicionado ao
+								estoque.</span
+							>
+						</div>
+
+						<time>Hoje, 08:32</time>
+					</div>
+
+					<div class="atividade">
+						<div class="atividade-icone">↓</div>
+
+						<div>
+							<strong>Estoque atualizado</strong>
+							<span
+								>Quantidade do produto "Arroz 5kg" foi
+								alterada.</span
+							>
+						</div>
+
+						<time>Hoje, 08:15</time>
+					</div>
+
+					<div class="atividade">
+						<div class="atividade-icone">R$</div>
+
+						<div>
+							<strong>Nova venda registrada</strong>
+							<span>Venda no valor de R$ 250,00 registrada.</span>
+						</div>
+
+						<time>Ontem, 17:42</time>
+					</div>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>
