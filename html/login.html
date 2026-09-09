@@ -1,38 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StockZap - Login</title>
-    <link rel="stylesheet" href="../css/paginaslogin.css">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <div class="container-login">
-        <div class="topo-logo">
-            <a href="../stockzap.html">
-                <img src="../imagens/StockZap_logo.svg" alt="Logo StockZap">
-            </a>
-        </div>
+		<title>StockZap - Entrar</title>
 
-        <div class="caixa-login">
-            <h2>Acessar Conta</h2>
+		<link rel="stylesheet" href="../css/base.css" />
+		<link rel="stylesheet" href="../css/paginaslogin.css" />
+	</head>
 
-            <form action="#" method="post" class="form-login">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+	<body class="pagina-conta">
+		<main class="conta-layout">
+			<section class="conta-apresentacao">
+				<a href="../stockzap.html" class="conta-logo">
+					<img src="../imagens/StockZap_logo.svg" alt="StockZap" />
+				</a>
 
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
+				<div class="conta-mensagem">
+					<span class="conta-label">STOCKZAP</span>
 
-                <button type="submit" class="botao-login">Entrar</button>
-            </form>
+					<h1>Gestão organizada para o seu negócio.</h1>
 
-            <p class="texto-rodape">
-                Ainda não tem conta? <a href="cadastro.html">Criar conta</a>
-            </p>
-        </div>
-    </div>
+					<p>
+						Acesse sua conta para acompanhar produtos, estoque e as
+						principais informações da sua operação.
+					</p>
+				</div>
 
-</body>
+				<div class="conta-rodape">
+					<span>Gestão simples.</span>
+					<span>Mais controle.</span>
+				</div>
+			</section>
+
+			<section class="conta-formulario">
+				<div class="formulario-conteudo">
+					<div class="formulario-cabecalho">
+						<span class="formulario-label">ACESSO</span>
+
+						<h2>Entrar na sua conta</h2>
+
+						<p>Informe seus dados para continuar.</p>
+					</div>
+
+					<form action="#" method="post" class="form-login">
+						<div class="campo-formulario">
+							<label for="email">E-mail</label>
+
+							<input
+								type="email"
+								id="email"
+								name="email"
+								placeholder="seu@email.com"
+								autocomplete="email"
+								required
+							/>
+						</div>
+
+						<div class="campo-formulario">
+							<div class="label-linha">
+								<label for="senha">Senha</label>
+							</div>
+
+							<input
+								type="password"
+								id="senha"
+								name="senha"
+								placeholder="Digite sua senha"
+								autocomplete="current-password"
+								required
+							/>
+						</div>
+
+						<button type="submit" class="botao-login">
+							Entrar
+						</button>
+					</form>
+
+					<div class="divisor-form">
+						<span>ou</span>
+					</div>
+
+					<p class="texto-rodape">
+						Ainda não possui uma conta?
+						<a href="cadastro.html">Criar conta</a>
+					</p>
+				</div>
+			</section>
+		</main>
+	</body>
 </html>

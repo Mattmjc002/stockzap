@@ -1,124 +1,305 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ZapChat - StockZap</title>
-        <link rel="stylesheet" href="css/stockzap.css">
-    </head>
-    <body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>StockZap - Gestão simples para o seu negócio</title>
 
-        <header class="header">
-            <div class="container-header">
-                <a href="#">
-                    <img src="imagens/StockZap_logo.svg" alt="Logo StockZap" class="logo">
-                </a>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/stockzap.css" />
+	</head>
 
-                <nav class="menu">
-                    <a href="#inicio">Início</a>
-                    <a href="#funcionalidades">Funcionalidades</a>
-                    <a href="#contato">Contato</a>
-                </nav>
+	<body>
+		<header class="header">
+			<div class="container-header">
+				<a href="stockzap.html" class="logo-link">
+					<img
+						src="imagens/StockZap_logo.svg"
+						alt="StockZap"
+						class="logo"
+					/>
+				</a>
 
-                <div class="botoes-topo">
-                    <a href="html/login.html" class="btn-login">Entrar</a>
-                    <a href="html/cadastro.html" class="btn-cadastro">Criar conta</a>
-                </div>
-            </div>
-        </header>
+				<nav class="menu">
+					<a href="#inicio">Início</a>
+					<a href="#solucao">A solução</a>
+					<a href="#funcionalidades">Funcionalidades</a>
+					<a href="#contato">Contato</a>
+				</nav>
 
-        <!-- BANNER INICIAL -->
-        <div class="banner" id="inicio">
-            <h1>ZapChat</h1>
-            <h2>Conheça o StockZap</h2>
-            <p>A solução simples e prática para organizar seu estoque e vendas.</p>
-        </div>
+				<div class="botoes-topo">
+					<a href="html/login.html" class="btn-login">Entrar</a>
+					<a href="html/cadastro.html" class="btn-cadastro"
+						>Criar conta</a
+					>
+				</div>
+			</div>
+		</header>
 
-        <main class="container">
+		<main>
+			<!-- HERO -->
+			<section class="hero" id="inicio">
+				<div class="hero-conteudo">
+					<span class="hero-tag">GESTÃO DE ESTOQUE E NEGÓCIO</span>
 
-            <!-- CARTÕES DE MENU -->
-            <section id="funcionalidades">
-                <h2 class="titulo-secao">Funcionalidades</h2>
+					<h1>
+						Tenha controle do seu negócio
+						<span>sem complicar.</span>
+					</h1>
 
-                <div class="grid-cartoes">
-                    <a href="#registro_de_produtos" class="cartao">Registro de produto</a>
-                    <a href="#analise_de_fluxo_de_caixa" class="cartao">Análise de fluxo de caixa</a>
-                    <a href="#mapeamento_de_produtos" class="cartao">Mapeamento de produtos</a>
-                    <a href="#gerenciamento_de_estoque" class="cartao">Gerenciamento de estoque</a>
-                    <a href="#controle_financeiro" class="cartao">Controle financeiro</a>
-                    <a href="#acompanhamento_de_prazos" class="cartao">Acompanhamento de prazos</a>
-                    <a href="#dashboard_interativo" class="cartao">Dashboard interativo</a>
-                    <a href="#controle_da_equipe" class="cartao">Controle da equipe</a>
-                </div>
-            </section>
+					<p>
+						O StockZap ajuda você a organizar produtos, acompanhar o
+						estoque e visualizar as principais informações do
+						negócio em um só lugar.
+					</p>
 
-            <!-- SEÇÕES INFORMATIVAS -->
-            <section id="registro_de_produtos" class="caixa">
-                <h2>Registro de produtos</h2>
-                <p>Cadastre seus produtos com facilidade informando nome, código e preços.</p>
-            </section>
+					<div class="hero-botoes">
+						<a href="html/cadastro.html" class="btn-hero-principal">
+							Criar minha conta
+						</a>
 
-            <section id="analise_de_fluxo_de_caixa" class="caixa">
-                <h2>Análise de fluxo de caixa</h2>
-                <p>Acompanhe o que entra e o que sai da sua conta com clareza.</p>
-            </section>
+						<a href="#solucao" class="btn-hero-secundario">
+							Conhecer o StockZap
+						</a>
+					</div>
 
-            <section id="mapeamento_de_produtos" class="caixa">
-                <h2>Mapeamento de produtos</h2>
-                <p>Organize em qual prateleira ou setor seus itens estão guardados.</p>
-            </section>
+					<div class="hero-observacao">
+						<span class="check">✓</span>
+						Organização simples para a rotina do seu negócio
+					</div>
+				</div>
 
-            <section id="gerenciamento_de_estoque" class="caixa">
-                <h2>Gerenciamento de estoque</h2>
-                <p>Receba avisos quando o estoque de um produto estiver acabando.</p>
-            </section>
+				<!-- PAINEL VISUAL -->
+				<div class="hero-painel">
+					<div class="painel-topo">
+						<div>
+							<span class="painel-label">VISÃO GERAL</span>
+							<strong>Seu negócio hoje</strong>
+						</div>
 
-            <section id="controle_financeiro" class="caixa">
-                <h2>Controle financeiro</h2>
-                <p>Gestão das suas contas a pagar e receitas do dia a dia.</p>
-            </section>
+						<span class="painel-status"> <i></i> Atualizado </span>
+					</div>
 
-            <section id="acompanhamento_de_prazos" class="caixa">
-                <h2>Acompanhamento de prazos/clientes</h2>
-                <p>Controle datas de entrega para não atrasar nenhum pedido.</p>
-            </section>
-            
-            <section id="dashboard_interativo" class="caixa">
-                <h2>Dashboard interativo</h2>
-                <p>Resumo gráfico com os principais números da sua loja.</p>
-            </section>
+					<div class="painel-indicadores">
+						<div class="indicador">
+							<span>Produtos</span>
+							<strong>125</strong>
+							<small>cadastrados</small>
+						</div>
 
-            <section id="controle_da_equipe" class="caixa">
-                <h2>Controle da equipe</h2>
-                <p>Gerencie o acesso de cada funcionário no sistema.</p>
-            </section>
+						<div class="indicador">
+							<span>Estoque</span>
+							<strong>117</strong>
+							<small>disponíveis</small>
+						</div>
 
-            <!-- CONTATO -->
-            <section id="contato" class="caixa">
-                <h2>Contato</h2>
-                <p>Fale conosco para tirar dúvidas sobre o projeto.</p>
+						<div class="indicador destaque">
+							<span>Vendas</span>
+							<strong>R$ 12.450</strong>
+							<small>neste mês</small>
+						</div>
+					</div>
 
-                <form action="#" method="post" class="formulario">
-                    <label for="nome">Seu Nome:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+					<div class="painel-estoque">
+						<div class="painel-secao-titulo">
+							<strong>Produtos que precisam de atenção</strong>
+							<a href="html/login.html">Acessar sistema</a>
+						</div>
 
-                    <label for="email">Seu E-mail:</label>
-                    <input type="email" id="email" name="email" placeholder="nome@email.com" required>
+						<div class="estoque-linha">
+							<div>
+								<strong>Arroz 5kg</strong>
+								<span>Código 001</span>
+							</div>
+							<b>3 un.</b>
+						</div>
 
-                    <label for="mensagem">Mensagem:</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem..."></textarea>
+						<div class="estoque-linha">
+							<div>
+								<strong>Feijão 1kg</strong>
+								<span>Código 002</span>
+							</div>
+							<b>5 un.</b>
+						</div>
 
-                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
-                </form>
-            </section>
+						<div class="estoque-linha">
+							<div>
+								<strong>Café 500g</strong>
+								<span>Código 003</span>
+							</div>
+							<b class="normal">18 un.</b>
+						</div>
+					</div>
+				</div>
+			</section>
 
-        </main>
+			<!-- SOLUÇÃO -->
+			<section class="solucao" id="solucao">
+				<div class="section-intro">
+					<div>
+						<span class="section-label">A SOLUÇÃO</span>
 
-        <!-- RODAPÉ -->
-        <footer class="rodape">
-            <p>&copy; 2026 StockZap</p>
-            <p class="autores">Desenvolvido por Matheus Milagres | Felipe Garrido | Davi Freitas | Cauê Mathias | Manuela Valone</p>
-        </footer>
+						<h2>Feito para deixar a gestão mais organizada.</h2>
+					</div>
 
-    </body>
+					<p>
+						O StockZap reúne as informações mais importantes da
+						operação para que você não precise depender de planilhas
+						espalhadas ou controles difíceis de acompanhar.
+					</p>
+				</div>
+
+				<div class="solucao-grid">
+					<article class="solucao-item">
+						<span class="numero">01</span>
+						<h3>Organize seus produtos</h3>
+						<p>
+							Cadastre produtos, códigos, preços e quantidades de
+							forma rápida e centralizada.
+						</p>
+					</article>
+
+					<article class="solucao-item">
+						<span class="numero">02</span>
+						<h3>Acompanhe o estoque</h3>
+						<p>
+							Saiba o que está disponível e identifique produtos
+							que precisam de reposição.
+						</p>
+					</article>
+
+					<article class="solucao-item">
+						<span class="numero">03</span>
+						<h3>Veja o que importa</h3>
+						<p>
+							Tenha uma visão geral das informações do negócio
+							através do dashboard.
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<!-- FUNCIONALIDADES -->
+			<section class="funcionalidades" id="funcionalidades">
+				<div class="section-header">
+					<span>FUNCIONALIDADES</span>
+
+					<h2>As ferramentas que você precisa, no mesmo lugar.</h2>
+
+					<p>
+						Comece pelo essencial e tenha uma gestão mais
+						organizada.
+					</p>
+				</div>
+
+				<div class="funcionalidades-grid">
+					<article class="funcionalidade">
+						<div class="funcionalidade-numero">01</div>
+						<div>
+							<h3>Produtos</h3>
+							<p>
+								Cadastre e mantenha seus produtos organizados.
+							</p>
+						</div>
+					</article>
+
+					<article class="funcionalidade">
+						<div class="funcionalidade-numero">02</div>
+						<div>
+							<h3>Estoque</h3>
+							<p>
+								Acompanhe entradas, saídas e níveis de estoque.
+							</p>
+						</div>
+					</article>
+
+					<article class="funcionalidade">
+						<div class="funcionalidade-numero">03</div>
+						<div>
+							<h3>Financeiro</h3>
+							<p>
+								Organize as movimentações financeiras do
+								negócio.
+							</p>
+						</div>
+					</article>
+
+					<article class="funcionalidade">
+						<div class="funcionalidade-numero">04</div>
+						<div>
+							<h3>Prazos</h3>
+							<p>Acompanhe datas importantes e entregas.</p>
+						</div>
+					</article>
+
+					<article class="funcionalidade">
+						<div class="funcionalidade-numero">05</div>
+						<div>
+							<h3>Dashboard</h3>
+							<p>
+								Visualize os principais números em um só painel.
+							</p>
+						</div>
+					</article>
+
+					<article class="funcionalidade">
+						<div class="funcionalidade-numero">06</div>
+						<div>
+							<h3>Equipe</h3>
+							<p>Gerencie os usuários que utilizam o sistema.</p>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<!-- CTA -->
+			<section class="cta" id="contato">
+				<div class="cta-conteudo">
+					<span>COMECE PELO ESSENCIAL</span>
+
+					<h2>Organize seu negócio com o StockZap.</h2>
+
+					<p>
+						Crie sua conta e comece a centralizar as informações da
+						sua operação.
+					</p>
+				</div>
+
+				<a href="html/cadastro.html" class="btn-cta"> Criar conta </a>
+			</section>
+		</main>
+
+		<footer class="rodape">
+			<div class="rodape-conteudo">
+				<div class="rodape-marca">
+					<img src="imagens/StockZap_logo.svg" alt="StockZap" />
+					<p>
+						Gestão de estoque simples para ajudar seu negócio a
+						crescer.
+					</p>
+				</div>
+
+				<div class="rodape-coluna">
+					<h3>Produto</h3>
+					<a href="#solucao">A solução</a>
+					<a href="#funcionalidades">Funcionalidades</a>
+				</div>
+
+				<div class="rodape-coluna">
+					<h3>Conta</h3>
+					<a href="html/login.html">Entrar</a>
+					<a href="html/cadastro.html">Criar conta</a>
+				</div>
+			</div>
+
+			<div class="rodape-final">
+				<p>© 2026 StockZap. Todos os direitos reservados.</p>
+
+				<p class="autores">
+					Desenvolvido por Matheus Milagres | Felipe Garrido | Davi
+					Freitas | Cauê Mathias | Manuela Valone
+				</p>
+			</div>
+		</footer>
+	</body>
 </html>
