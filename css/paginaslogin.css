@@ -1,112 +1,361 @@
-/* CONFIGURAÇÕES GERAIS DA TELA DE LOGIN/CADASTRO */
-*{
-    box-sizing: border-box;
+/* ===== LOGIN / CADASTRO ===== */
+
+.pagina-conta {
+	min-height: 100vh;
+	background: #fff;
 }
 
-body{
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f7fafc;
-    color: #1a202c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+.conta-layout {
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 45% 55%;
 }
 
-/* CONTAINER CENTRALIZADO */
-.container-login{
-    width: 100%;
-    max-width: 400px;
+/* ===== LADO DA MARCA ===== */
+
+.conta-apresentacao {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 48px 8%;
+	background: var(--secondary);
+	color: #fff;
+	overflow: hidden;
 }
 
-/* ÁREA DA LOGO */
-.topo-logo{
-    text-align: center;
-    margin-bottom: 20px;
+.conta-apresentacao::after {
+	content: "";
+	position: absolute;
+	right: -110px;
+	bottom: -110px;
+	width: 300px;
+	height: 300px;
+	border: 55px solid rgba(4, 191, 69, 0.12);
+	border-radius: 50%;
 }
 
-.topo-logo img{
-    width: 160px;
-    height: auto;
+.conta-logo {
+	position: relative;
+	z-index: 1;
+	display: inline-flex;
+	width: max-content;
 }
 
-/* CAIXA DO FORMULÁRIO */
-.caixa-login{
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 30px 25px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+.conta-logo img {
+	width: 150px;
+	filter: brightness(0) invert(1);
 }
 
-.caixa-login h2{
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #021f59;
-    border-bottom: 2px solid #39bf68;
-    padding-bottom: 8px;
+.conta-mensagem {
+	position: relative;
+	z-index: 1;
+	max-width: 500px;
+	margin: auto 0;
 }
 
-/* CAMPOS DO FORMULÁRIO */
-.form-login{
-    display: flex;
-    flex-direction: column;
+.conta-label {
+	display: inline-block;
+	margin-bottom: 19px;
+	color: var(--green-light);
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 1px;
 }
 
-.form-login label{
-    font-weight: bold;
-    margin-top: 12px;
-    margin-bottom: 5px;
-    font-size: 14px;
+.conta-mensagem h1 {
+	max-width: 500px;
+	color: #fff;
+	font-size: clamp(38px, 4vw, 55px);
+	line-height: 1.08;
+	letter-spacing: -1.5px;
 }
 
-.form-login input{
-    padding: 10px;
-    border: 1px solid #cbd5e0;
-    border-radius: 6px;
-    font-size: 14px;
-    font-family: inherit;
+.conta-mensagem > p {
+	max-width: 480px;
+	margin-top: 22px;
+	color: #d3dcea;
+	font-size: 16px;
+	line-height: 1.7;
 }
 
-.form-login input:focus{
-    outline: none;
-    border-color: #39bf68;
+.conta-rodape {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	gap: 18px;
+	color: #9eacc2;
+	font-size: 12px;
 }
 
-/* BOTÃO DE ENVIAR */
-.botao-login{
-    margin-top: 20px;
-    background-color: #021f59;
-    color: #ffffff;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 15px;
-    cursor: pointer;
+.conta-rodape span:first-child {
+	color: var(--green-light);
+	font-weight: 700;
+}
+
+.beneficios-conta {
+	margin-top: 35px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.beneficios-conta div {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.beneficios-conta span {
+	width: 27px;
+	height: 27px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgba(130, 217, 160, 0.45);
+	color: var(--green-light);
+	font-size: 10px;
+	font-weight: 800;
+}
+
+.beneficios-conta p {
+	color: #d3dcea;
+	font-size: 13px;
+}
+
+/* ===== LADO DO FORMULÁRIO ===== */
+
+.conta-formulario {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px 7%;
+	background: var(--background);
+}
+
+.formulario-conteudo {
+	width: min(430px, 100%);
+}
+
+.formulario-cabecalho {
+	margin-bottom: 30px;
+}
+
+.formulario-label {
+	color: var(--primary);
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.9px;
+}
+
+.formulario-cabecalho h2 {
+	margin-top: 9px;
+	color: var(--secondary);
+	font-size: 29px;
+	line-height: 1.2;
+	letter-spacing: -0.6px;
+}
+
+.formulario-cabecalho p {
+	margin-top: 8px;
+	color: var(--text-secondary);
+	font-size: 14px;
+}
+
+/* ===== CAMPOS ===== */
+
+.form-login {
+	display: flex;
+	flex-direction: column;
+	gap: 19px;
+}
+
+.campo-formulario {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+}
+
+.campo-formulario label {
+	color: var(--secondary);
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.label-linha {
+	display: flex;
+	justify-content: space-between;
+}
+
+.campo-formulario input {
+	width: 100%;
+	height: 47px;
+	padding: 0 13px;
+	border: 1px solid #cfd7e1;
+	border-radius: 5px;
+	background: #fff;
+	color: var(--secondary);
+	font-size: 14px;
+	outline: none;
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s;
+}
+
+.campo-formulario input::placeholder {
+	color: #9aa5b3;
+}
+
+.campo-formulario input:hover {
+	border-color: #aebac8;
+}
+
+.campo-formulario input:focus {
+	border-color: var(--primary);
+	box-shadow: 0 0 0 3px rgba(4, 191, 69, 0.1);
+}
+
+/* ===== BOTÃO ===== */
+
+.botao-login {
+	width: 100%;
+	min-height: 47px;
+	margin-top: 4px;
+	border: 0;
+	border-radius: 5px;
+	color: #fff;
+	background: var(--primary);
+	font-size: 14px;
+	font-weight: 800;
+	cursor: pointer;
+	transition:
+		background 0.2s,
+		transform 0.2s;
 }
 
 .botao-login:hover {
-    background-color: #39bf68;
+	background: var(--primary-hover);
+	transform: translateY(-1px);
 }
 
-/* LINK NO RODAPÉ DO CARD */
-.texto-rodape{
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #4a5568;
+/* ===== RODAPÉ DO FORMULÁRIO ===== */
+
+.divisor-form {
+	position: relative;
+	margin: 27px 0 20px;
+	text-align: center;
 }
 
-.texto-rodape a{
-    color: #39bf68;
-    font-weight: bold;
-    text-decoration: none;
+.divisor-form::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	height: 1px;
+	background: var(--border);
 }
 
-.texto-rodape a:hover{
-    text-decoration: underline;
+.divisor-form span {
+	position: relative;
+	z-index: 1;
+	padding: 0 12px;
+	color: var(--text-muted);
+	background: var(--background);
+	font-size: 12px;
+}
+
+.texto-rodape {
+	text-align: center;
+	color: var(--text-secondary);
+	font-size: 13px;
+}
+
+.texto-rodape a {
+	color: var(--primary);
+	text-decoration: none;
+	font-weight: 800;
+}
+
+.texto-rodape a:hover {
+	text-decoration: underline;
+}
+
+/* ===== CADASTRO ===== */
+
+.cadastro-conteudo {
+	max-width: 450px;
+}
+
+.cadastro-conteudo .formulario-cabecalho {
+	margin-bottom: 25px;
+}
+
+.cadastro-conteudo .form-login {
+	gap: 15px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 850px) {
+	.conta-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.conta-apresentacao {
+		min-height: 330px;
+		padding: 32px;
+	}
+
+	.conta-mensagem {
+		margin: 55px 0 40px;
+	}
+
+	.conta-mensagem h1 {
+		font-size: 38px;
+	}
+
+	.conta-rodape {
+		margin-top: auto;
+	}
+
+	.conta-formulario {
+		min-height: auto;
+		padding: 55px 7%;
+	}
+}
+
+@media (max-width: 500px) {
+	.conta-apresentacao {
+		padding: 28px 22px;
+	}
+
+	.conta-logo img {
+		width: 125px;
+	}
+
+	.conta-mensagem {
+		margin: 45px 0 35px;
+	}
+
+	.conta-mensagem h1 {
+		font-size: 34px;
+	}
+
+	.conta-mensagem > p {
+		font-size: 14px;
+	}
+
+	.conta-rodape {
+		flex-direction: column;
+		gap: 3px;
+	}
+
+	.conta-formulario {
+		padding: 40px 22px;
+	}
+
+	.formulario-cabecalho h2 {
+		font-size: 25px;
+	}
 }

@@ -1,44 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StockZap - Cadastro</title>
-    <link rel="stylesheet" href="../css/paginaslogin.css">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <div class="container-login">
-        <div class="topo-logo">
-            <a href="../stockzap.html">
-                <img src="../imagens/StockZap_logo.svg" alt="Logo StockZap">
-            </a>
-        </div>
+		<title>StockZap - Criar conta</title>
 
-        <div class="caixa-login">
-            <h2>Criar Conta</h2>
+		<link rel="stylesheet" href="../css/base.css" />
+		<link rel="stylesheet" href="../css/paginaslogin.css" />
+	</head>
 
-            <form action="#" method="post" class="form-login">
-                <label for="nome_user">Seu nome:</label>
-                <input type="text" id="nome_user" name="nome_user" placeholder="Digite seu nome" required>
+	<body class="pagina-conta">
+		<main class="conta-layout">
+			<section class="conta-apresentacao">
+				<a href="../stockzap.html" class="conta-logo">
+					<img src="../imagens/StockZap_logo.svg" alt="StockZap" />
+				</a>
 
-                <label for="nome_empresa">Sua empresa:</label>
-                <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Nome da empresa" required>
+				<div class="conta-mensagem">
+					<span class="conta-label">COMECE PELO ESSENCIAL</span>
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+					<h1>Coloque a gestão do seu negócio em ordem.</h1>
 
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+					<p>
+						Crie sua conta no StockZap e tenha um espaço para
+						organizar produtos, estoque e as informações da sua
+						operação.
+					</p>
 
-                <button type="submit" class="botao-login">Cadastrar</button>
-            </form>
+					<div class="beneficios-conta">
+						<div>
+							<span>01</span>
+							<p>Produtos organizados</p>
+						</div>
 
-            <p class="texto-rodape">
-                Já possui uma conta? <a href="login.html">Entrar</a>
-            </p>
-        </div>
-    </div>
+						<div>
+							<span>02</span>
+							<p>Controle de estoque</p>
+						</div>
 
-</body>
+						<div>
+							<span>03</span>
+							<p>Visão geral do negócio</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="conta-rodape">
+					<span>StockZap</span>
+					<span>Gestão simples para o dia a dia.</span>
+				</div>
+			</section>
+
+			<section class="conta-formulario">
+				<div class="formulario-conteudo cadastro-conteudo">
+					<div class="formulario-cabecalho">
+						<span class="formulario-label">NOVA CONTA</span>
+
+						<h2>Criar sua conta</h2>
+
+						<p>Preencha os dados abaixo para começar.</p>
+					</div>
+
+					<form action="#" method="post" class="form-login">
+						<div class="campo-formulario">
+							<label for="nome_user">Seu nome</label>
+
+							<input
+								type="text"
+								id="nome_user"
+								name="nome_user"
+								placeholder="Digite seu nome"
+								autocomplete="name"
+								required
+							/>
+						</div>
+
+						<div class="campo-formulario">
+							<label for="nome_empresa">Sua empresa</label>
+
+							<input
+								type="text"
+								id="nome_empresa"
+								name="nome_empresa"
+								placeholder="Nome da empresa"
+								autocomplete="organization"
+								required
+							/>
+						</div>
+
+						<div class="campo-formulario">
+							<label for="email">E-mail</label>
+
+							<input
+								type="email"
+								id="email"
+								name="email"
+								placeholder="seu@email.com"
+								autocomplete="email"
+								required
+							/>
+						</div>
+
+						<div class="campo-formulario">
+							<label for="senha">Senha</label>
+
+							<input
+								type="password"
+								id="senha"
+								name="senha"
+								placeholder="Crie uma senha"
+								autocomplete="new-password"
+								required
+							/>
+						</div>
+
+						<button type="submit" class="botao-login">
+							Criar conta
+						</button>
+					</form>
+
+                    <div class="divisor-form">
+						<span>ou</span>
+					</div>
+
+					<p class="texto-rodape">
+						Já possui uma conta?
+						<a href="login.html">Entrar</a>
+					</p>
+				</div>
+			</section>
+		</main>
+	</body>
 </html>
