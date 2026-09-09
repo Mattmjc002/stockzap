@@ -30,7 +30,7 @@ body{
     padding: 12px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 15px;
 }
@@ -47,6 +47,7 @@ body{
     text-decoration: none;
     font-weight: bold;
     margin: 0 10px;
+    align-items: center;
 }
 
 .menu a:hover{
