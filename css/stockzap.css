@@ -507,6 +507,36 @@
 	line-height: 1.65;
 }
 
+/* ===== BOTÃO SAIBA MAIS ===== */
+
+.funcionalidade {
+    position: relative;
+}
+
+.funcionalidade-saiba-mais {
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+
+    padding: 6px 12px;
+
+    background: var(--green-medium);
+    color: var(--text-primary);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-decoration: none;
+    border-radius: 5px;
+
+    transition: 0.2s ease;
+}
+
+.funcionalidade-saiba-mais:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
 /* ===== CTA ===== */
 
 .cta {
