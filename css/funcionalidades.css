@@ -532,10 +532,10 @@
 }
 
 .whatsapp-logo {
-	width: 48px;
-	height: 48px;
+	width: 200px;
+	height: 100px;
 	display: block;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .funcionalidade-whatsapp-header > span {
