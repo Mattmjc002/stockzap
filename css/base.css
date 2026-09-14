@@ -62,3 +62,9 @@ textarea {
 	outline: 3px solid rgba(4, 191, 69, 0.2);
 	outline-offset: 2px;
 }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+}

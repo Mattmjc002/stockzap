@@ -510,31 +510,31 @@
 /* ===== BOTÃO SAIBA MAIS ===== */
 
 .funcionalidade {
-    position: relative;
+	position: relative;
 }
 
 .funcionalidade-saiba-mais {
-    position: absolute;
-    right: 20px;
-    bottom: 16px;
+	position: absolute;
+	right: 20px;
+	bottom: 16px;
 
-    padding: 6px 12px;
+	padding: 6px 12px;
 
-    background: var(--green-medium);
-    color: var(--text-primary);
+	background: var(--green-medium);
+	color: #fff;
 
-    font-size: 11px;
-    font-weight: 700;
+	font-size: 11px;
+	font-weight: 700;
 
-    text-decoration: none;
-    border-radius: 5px;
+	text-decoration: none;
+	border-radius: 5px;
 
-    transition: 0.2s ease;
+	transition: 0.2s ease;
 }
 
 .funcionalidade-saiba-mais:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+	transform: translateY(-2px);
+	opacity: 0.9;
 }
 
 /* ===== CTA ===== */
@@ -661,38 +661,73 @@
 	}
 
 	.hero {
+		width: calc(100% - 50px);
 		grid-template-columns: 1fr;
 		gap: 45px;
-		padding: 65px 0;
+		padding: 60px 0;
 	}
 
 	.hero-conteudo {
 		max-width: 700px;
 	}
 
+	.hero h1 {
+		font-size: clamp(38px, 6vw, 52px);
+		line-height: 1.1;
+		letter-spacing: -1.5px;
+	}
+
+	.hero-conteudo > p {
+		max-width: 650px;
+		font-size: 16px;
+		line-height: 1.6;
+	}
+
 	.section-intro {
-		grid-template-columns: 1fr;
-		gap: 20px;
+		grid-template-columns: 1fr 1fr;
+		gap: 45px;
+		margin-bottom: 42px;
+	}
+
+	.section-intro h2 {
+		font-size: 32px;
+		line-height: 1.2;
+	}
+
+	.section-intro > p {
+		font-size: 15px;
+		line-height: 1.65;
+	}
+
+	.solucao {
+		width: calc(100% - 50px);
+		padding: 70px 0;
 	}
 
 	.solucao-grid {
-		grid-template-columns: 1fr;
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 	.solucao-item,
 	.solucao-item:not(:first-child) {
-		min-height: auto;
-		padding: 28px 0;
-		border-right: 0;
+		min-height: 190px;
+		padding: 25px 25px 25px 0;
+		border-right: 1px solid var(--border);
 		border-bottom: 1px solid var(--border);
 	}
 
-	.solucao-item:last-child {
-		border-bottom: 0;
+	.solucao-item:nth-child(even) {
+		padding-left: 25px;
+		padding-right: 0;
+		border-right: 0;
 	}
 
 	.solucao-item h3 {
-		margin-top: 20px;
+		margin-top: 25px;
+	}
+
+	.solucao-item p {
+		max-width: 100%;
 	}
 
 	.funcionalidades-grid {
@@ -702,6 +737,31 @@
 	.cta {
 		align-items: flex-start;
 		flex-direction: column;
+	}
+}
+
+@media (max-width: 700px) {
+	.section-intro {
+		grid-template-columns: 1fr;
+		gap: 18px;
+		margin-bottom: 35px;
+	}
+
+	.solucao-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.solucao-item,
+	.solucao-item:not(:first-child),
+	.solucao-item:nth-child(even) {
+		min-height: auto;
+		padding: 24px 0;
+		border-right: 0;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.solucao-item:last-child {
+		border-bottom: 0;
 	}
 }
 
@@ -725,13 +785,21 @@
 		width: calc(100% - 30px);
 	}
 
+	.hero {
+		min-height: auto;
+		padding: 45px 0;
+		gap: 35px;
+	}
+
 	.hero h1 {
-		font-size: 40px;
-		letter-spacing: -1.4px;
+		font-size: 34px;
+		line-height: 1.12;
+		letter-spacing: -1px;
 	}
 
 	.hero-conteudo > p {
-		font-size: 16px;
+		font-size: 15px;
+		line-height: 1.6;
 	}
 
 	.hero-botoes {
@@ -758,9 +826,17 @@
 		border-bottom: 0;
 	}
 
+	.solucao {
+		padding: 50px 0;
+	}
+
 	.section-intro h2,
 	.section-header h2 {
 		font-size: 29px;
+	}
+
+	.solucao-item h3 {
+		margin-top: 18px;
 	}
 
 	.funcionalidade {
@@ -784,84 +860,5 @@
 	.rodape-final {
 		width: calc(100% - 30px);
 		flex-direction: column;
-	}
-}
-
-/* ===== AJUSTES RESPONSIVOS DA HOME ===== */
-
-@media (max-width: 900px) {
-	.hero {
-		width: 90%;
-		grid-template-columns: 1fr;
-		gap: 45px;
-		padding: 60px 0;
-	}
-
-	.hero-content {
-		max-width: 700px;
-	}
-
-	.hero h1 {
-		font-size: clamp(36px, 6vw, 48px);
-		line-height: 1.1;
-	}
-
-	.hero p {
-		font-size: 17px;
-		line-height: 1.6;
-		max-width: 650px;
-	}
-
-	.solucao {
-		width: 90%;
-		padding: 65px 0;
-	}
-
-	.solucao h2 {
-		font-size: 32px;
-		line-height: 1.2;
-	}
-
-	.solucao > p {
-		font-size: 16px;
-		line-height: 1.6;
-		max-width: 700px;
-	}
-}
-
-@media (max-width: 700px) {
-	.solucao-grid {
-		grid-template-columns: 1fr;
-		gap: 25px;
-	}
-}
-
-@media (max-width: 600px) {
-	.hero {
-		width: 88%;
-		padding: 45px 0;
-		gap: 35px;
-	}
-
-	.hero h1 {
-		font-size: 34px;
-	}
-
-	.hero p {
-		font-size: 16px;
-		line-height: 1.55;
-	}
-
-	.solucao {
-		width: 88%;
-		padding: 50px 0;
-	}
-
-	.solucao h2 {
-		font-size: 28px;
-	}
-
-	.solucao > p {
-		font-size: 15px;
 	}
 }
