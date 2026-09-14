@@ -1,80 +1,108 @@
 <!doctype html>
+
 <html lang="pt-BR">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 		<title>StockZap - Produtos</title>
-
-		<link rel="stylesheet" href="../css/base.css" />
-		<link rel="stylesheet" href="../css/produtos.css" />
-		
+		<link href="../css/base.css" rel="stylesheet" />
+		<link href="../css/produtos.css" rel="stylesheet" />
 	</head>
 
 	<body>
 		<!-- MENU LATERAL -->
 		<aside class="sidebar">
 			<div class="logo-area">
-				<img src="../imagens/StockZap_logo.svg" alt="Logo StockZap" />
+				<img alt="Logo StockZap" src="../imagens/StockZap_logo.svg" />
 			</div>
-
 			<nav class="menu-dashboard">
-				<a href="dashboard.html" class="menu-item">
-					<span>▦</span>
-					Dashboard
-				</a>
-				<a href="produtos.html" class="menu-item ativo">
-					<span>▤</span>
-					Produtos
-				</a>
-				<a href="#" class="menu-item">
-					<span>▣</span>
-					Estoque
-				</a>
-				<a href="#" class="menu-item">
-					<span>R$</span>
-					Financeiro
-				</a>
-				<a href="#" class="menu-item">
-					<span>◷</span>
-					Prazos
-				</a>
-				<a href="#" class="menu-item">
-					<span>♙</span>
-					Equipe
-				</a>
+				<a class="menu-item" href="dashboard.html"
+					><img
+						src="../imagens/icones/home-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/><span>Dashboard</span></a
+				>
+				<a class="menu-item ativo" href="produtos.html"
+					><img
+						src="../imagens/icones/package-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/><span>Produtos</span></a
+				>
+				<a class="menu-item" href="#"
+					><img
+						src="../imagens/icones/packages-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/><span>Estoque</span></a
+				>
+				<a class="menu-item" href="#"
+					><img
+						src="../imagens/icones/cash-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/><span>Financeiro</span></a
+				>
+				<a class="menu-item" href="#"
+					><img
+						src="../imagens/icones/calendar-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/><span>Prazos</span></a
+				>
+				<a class="menu-item" href="#"
+					><img
+						src="../imagens/icones/users-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/><span>Equipe</span></a
+				>
 			</nav>
-
 			<div class="menu-inferior">
-				<a href="#" class="menu-item">
-					<span>⚙</span>
-					Configurações
-				</a>
-				<a href="../stockzap.html" class="menu-item sair">
-					<span>↪</span>
-					Sair
-				</a>
+				<a class="menu-item" href="#"
+					><img
+						src="../imagens/icones/settings-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/><span>Configurações</span></a
+				>
+				<a class="menu-item sair" href="../stockzap.html"
+					><img
+						src="../imagens/icones/logout-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/><span>Sair</span></a
+				>
 			</div>
 		</aside>
-
 		<main class="main-content">
 			<!-- CABEÇALHO -->
 			<header class="topbar">
-				<div>
-					<h1>Produtos</h1>
-					<p>Gerencie os produtos cadastrados no seu negócio</p>
+				<button aria-label="Abrir menu" class="botao-menu">
+					<img src="../imagens/icones/menu-navy.svg" alt="" />
+				</button>
+				<div class="linha-container">
+					<h1>Produtos</h1> 
 				</div>
-
-				<div class="usuario">
-					<div class="avatar">U</div>
-
-					<div class="usuario-info">
-						<strong>Usuário</strong>
-						<span>Administrador</span>
+				<div class="topbar-direita">
+					<button aria-label="Notificações" class="notificacoes">
+						<img src="../imagens/icones/bell-navy.svg" alt="" />
+						<span class="notificacao-ponto"></span>
+					</button>
+					<div class="usuario-topbar">
+						<div class="avatar">FG</div>
+						<div class="usuario-info">
+							<strong>Felipe Garrido</strong>
+						</div>
+						<img
+							src="../imagens/icones/chevron-navy.svg"
+							class="chevron"
+							alt=""
+						/>
 					</div>
 				</div>
 			</header>
-
 			<!-- CONTEÚDO -->
 			<section class="produtos-content">
 				<!-- CARDS DE RESUMO -->
@@ -86,7 +114,6 @@
 							>Produtos cadastrados</span
 						>
 					</div>
-
 					<div class="card resumo">
 						<span class="resumo-titulo">Produtos em estoque</span>
 						<strong id="produtos-estoque">0</strong>
@@ -94,7 +121,6 @@
 							>Com quantidade disponível</span
 						>
 					</div>
-
 					<div class="card resumo alerta">
 						<span class="resumo-titulo">Estoque baixo</span>
 						<strong id="produtos-baixos">0</strong>
@@ -102,7 +128,6 @@
 							>Precisam de reposição</span
 						>
 					</div>
-
 					<div class="card resumo">
 						<span class="resumo-titulo">Categorias</span>
 						<strong id="total-categorias">0</strong>
@@ -111,28 +136,32 @@
 						>
 					</div>
 				</div>
-
 				<!-- BARRA DE FERRAMENTAS -->
 				<div class="barra-ferramentas">
 					<div class="pesquisa">
-						<span>⌕</span>
-
+						<img
+							src="../imagens/icones/search-muted.svg"
+							class="pesquisa-icone"
+							alt=""
+						/>
 						<input
-							type="search"
 							id="pesquisa-produto"
 							placeholder="Pesquisar produto ou código..."
+							type="search"
 						/>
 					</div>
-
 					<select id="filtro-categoria">
 						<option value="">Todas as categorias</option>
 					</select>
-
 					<button class="botao-principal" id="abrir-modal">
-						+ Novo produto
+						<img
+							src="../imagens/icones/plus-white.svg"
+							class="botao-icone"
+							alt=""
+						/>
+						Novo produto
 					</button>
 				</div>
-
 				<!-- TABELA -->
 				<section class="card tabela-container">
 					<div class="cabecalho-tabela">
@@ -143,7 +172,6 @@
 							</p>
 						</div>
 					</div>
-
 					<div class="tabela-wrapper">
 						<table>
 							<thead>
@@ -157,30 +185,35 @@
 									<th>Ações</th>
 								</tr>
 							</thead>
-
 							<tbody id="lista-produtos"></tbody>
 						</table>
 					</div>
-
 					<!-- MENSAGEM QUANDO NÃO HÁ PRODUTOS -->
 					<div class="sem-produtos" id="sem-produtos">
-						<div class="sem-produtos-icone">▤</div>
-
+						<div class="sem-produtos-icone">
+							<img
+								src="../imagens/icones/package-green.svg"
+								class="sem-produtos-svg"
+								alt=""
+							/>
+						</div>
 						<h3>Nenhum produto encontrado</h3>
-
 						<p>
 							Cadastre um produto ou altere os filtros da
 							pesquisa.
 						</p>
-
 						<button class="botao-principal" id="abrir-modal-vazio">
-							+ Cadastrar produto
+							<img
+								src="../imagens/icones/plus-white.svg"
+								class="botao-icone"
+								alt=""
+							/>
+							Cadastrar produto
 						</button>
 					</div>
 				</section>
 			</section>
 		</main>
-
 		<!-- MODAL DE PRODUTO -->
 		<div class="modal-overlay" id="modal">
 			<div class="modal">
@@ -189,111 +222,93 @@
 						<h2 id="titulo-modal">Novo produto</h2>
 						<p>Preencha as informações do produto.</p>
 					</div>
-
 					<button class="fechar-modal" id="fechar-modal">×</button>
 				</div>
-
 				<form id="form-produto">
-					<input type="hidden" id="produto-id" />
-
+					<input id="produto-id" type="hidden" />
 					<div class="campo">
 						<label for="nome"> Nome do produto </label>
-
 						<input
-							type="text"
 							id="nome"
 							placeholder="Ex.: Arroz 5kg"
-							required
+							required=""
+							type="text"
 						/>
 					</div>
-
 					<div class="linha-campos">
 						<div class="campo">
 							<label for="codigo"> Código </label>
-
 							<input
-								type="text"
 								id="codigo"
 								placeholder="Ex.: 001"
-								required
+								required=""
+								type="text"
 							/>
 						</div>
-
 						<div class="campo">
 							<label for="categoria"> Categoria </label>
-
 							<input
-								type="text"
 								id="categoria"
 								placeholder="Ex.: Alimentos"
-								required
+								required=""
+								type="text"
 							/>
 						</div>
 					</div>
-
 					<div class="linha-campos">
 						<div class="campo">
 							<label for="preco"> Preço (R$) </label>
-
 							<input
-								type="number"
 								id="preco"
 								min="0"
-								step="0.01"
 								placeholder="0,00"
-								required
+								required=""
+								step="0.01"
+								type="number"
 							/>
 						</div>
-
 						<div class="campo">
 							<label for="estoque"> Quantidade em estoque </label>
-
 							<input
-								type="number"
 								id="estoque"
 								min="0"
-								step="1"
 								placeholder="0"
-								required
+								required=""
+								step="1"
+								type="number"
 							/>
 						</div>
 					</div>
-
 					<div class="campo">
 						<label for="estoque-minimo"> Estoque mínimo </label>
-
 						<input
-							type="number"
 							id="estoque-minimo"
 							min="0"
+							required=""
 							step="1"
+							type="number"
 							value="5"
-							required
 						/>
-
 						<small>
 							O sistema exibirá um alerta quando o estoque estiver
 							igual ou abaixo desse valor.
 						</small>
 					</div>
-
 					<div class="modal-acoes">
 						<button
-							type="button"
 							class="botao-cancelar"
 							id="cancelar-modal"
+							type="button"
 						>
 							Cancelar
 						</button>
-
-						<button type="submit" class="botao-principal">
+						<button class="botao-principal" type="submit">
 							Salvar produto
 						</button>
 					</div>
 				</form>
 			</div>
 		</div>
-
 		<script src="../js/produtos.js"></script>
 	</body>
 </html>

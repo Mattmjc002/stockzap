@@ -1,269 +1,311 @@
 <!doctype html>
+
 <html lang="pt-BR">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 		<title>StockZap - Dashboard</title>
-		<link rel="stylesheet" href="../css/base.css" />
-		<link rel="stylesheet" href="../css/dashboard.css" />
+		<link href="../css/base.css" rel="stylesheet" />
+		<link href="../css/dashboard.css" rel="stylesheet" />
 	</head>
-
 	<body>
 		<!-- MENU LATERAL -->
 		<aside class="sidebar">
 			<div class="logo-area">
-				<img src="../imagens/StockZap_logo.svg" alt="Logo StockZap" />
+				<img alt="Logo StockZap" src="../imagens/StockZap_logo.svg" />
 			</div>
-
 			<nav class="menu-dashboard">
-				<a href="#" class="menu-item ativo">
-					<span>▦</span>
-					Dashboard
+				<a class="menu-item ativo" href="dashboard.html">
+					<img
+						src="../imagens/icones/home-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/>
+					<span>Dashboard</span>
 				</a>
-				<a href="produtos.html" class="menu-item">
-					<span>▤</span>
-					Produtos
+				<a class="menu-item" href="produtos.html">
+					<img
+						src="../imagens/icones/package-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/>
+					<span>Produtos</span>
 				</a>
-				<a href="#" class="menu-item">
-					<span>▣</span>
-					Estoque
+				<a class="menu-item" href="#">
+					<img
+						src="../imagens/icones/packages-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/>
+					<span>Estoque</span>
 				</a>
-				<a href="#" class="menu-item">
-					<span>R$</span>
-					Financeiro
+				<a class="menu-item" href="#">
+					<img
+						src="../imagens/icones/cash-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/>
+					<span>Financeiro</span>
 				</a>
-				<a href="#" class="menu-item">
-					<span>◷</span>
-					Prazos
+				<a class="menu-item" href="#">
+					<img
+						src="../imagens/icones/calendar-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/>
+					<span>Prazos</span>
 				</a>
-				<a href="#" class="menu-item">
-					<span>♙</span>
-					Equipe
+				<a class="menu-item" href="#">
+					<img
+						src="../imagens/icones/users-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/>
+					<span>Equipe</span>
 				</a>
 			</nav>
-
 			<div class="menu-inferior">
-				<a href="#" class="menu-item">
-					<span>⚙</span>
-					Configurações
+				<a href="#" class="menu-item configuracoes">
+					<img
+						src="../imagens/icones/settings-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/>
+					<span>Configurações</span>
 				</a>
-
-				<a href="../stockzap.html" class="menu-item sair">
-					<span>↪</span>
-					Sair
+				<a class="menu-item sair" href="../stockzap.html">
+					<img
+						src="../imagens/icones/logout-sidebar.svg"
+						class="menu-icon"
+						alt=""
+					/>
+					<span>Sair</span>
 				</a>
 			</div>
 		</aside>
-
+		<!-- ÁREA PRINCIPAL -->
 		<main class="main-content">
 			<header class="topbar">
-				<div>
-					<h1>Dashboard</h1>
-					<p>Visão geral do seu negócio</p>
-				</div>
-
-				<div class="usuario">
-					<div class="avatar">U</div>
-
-					<div class="usuario-info">
-						<strong>Usuário</strong>
-						<span>Administrador</span>
+				<button aria-label="Abrir menu" class="botao-menu">
+					<img src="../imagens/icones/menu-navy.svg" alt="" />
+				</button>
+				<div class="topbar-direita">
+					<button aria-label="Notificações" class="notificacoes">
+						<img src="../imagens/icones/bell-navy.svg" alt="" />
+						<span class="notificacao-ponto"></span>
+					</button>
+					<div class="usuario-topbar">
+						<div class="avatar">FG</div>
+						<div class="usuario-info">
+							<strong>Felipe Garrido</strong>
+						</div>
+						<img
+							src="../imagens/icones/chevron-navy.svg"
+							class="chevron"
+							alt=""
+						/>
 					</div>
 				</div>
 			</header>
-
-			<!-- CONTEÚDO -->
 			<section class="dashboard-content">
-				<!-- CARDS PRINCIPAIS -->
-				<div class="cards-resumo">
-					<div class="card resumo">
-						<div class="card-titulo">
-							<span>Produtos</span>
-							<span class="icone">▤</span>
-						</div>
-
-						<strong>125</strong>
-
-						<p>Produtos cadastrados</p>
+				<div class="dashboard-cabecalho">
+					<div>
+						<p class="saudacao">Bem-vindo de volta,</p>
+						<h1>Felipe Garrido</h1>
+						<p class="subtitulo">
+							Aqui está um resumo do seu negócio hoje.
+						</p>
 					</div>
-
-					<div class="card resumo">
-						<div class="card-titulo">
-							<span>Estoque</span>
-							<span class="icone">▣</span>
-						</div>
-
-						<strong>38</strong>
-
-						<p>Itens em estoque</p>
-					</div>
-
-					<div class="card resumo">
-						<div class="card-titulo">
-							<span>Vendas</span>
-							<span class="icone">R$</span>
-						</div>
-
-						<strong>R$ 12.450</strong>
-
-						<p>Vendas neste mês</p>
-					</div>
-
-					<div class="card resumo alerta">
-						<div class="card-titulo">
-							<span>Estoque baixo</span>
-							<span class="icone">!</span>
-						</div>
-
-						<strong>8</strong>
-
-						<p>Produtos precisam de atenção</p>
+					<div class="data-atual">
+						<img
+							src="../imagens/icones/calendar-muted.svg"
+							alt=""
+						/>
+						<span id="data-dashboard">14 de setembro de 2026</span>
 					</div>
 				</div>
-
-				<!-- SEGUNDA ÁREA -->
+				<!-- INDICADORES -->
+				<div class="cards-resumo">
+					<article class="card resumo">
+						<div class="icone-card verde">
+							<img
+								src="../imagens/icones/package-green.svg"
+								alt=""
+							/>
+						</div>
+						<div class="resumo-conteudo">
+							<span>Produtos cadastrados</span>
+							<strong id="dashboard-total-produtos">125</strong>
+							<p class="variacao positiva">
+								<span>↑ +5%</span>
+								<small>em relação ao mês anterior</small>
+							</p>
+						</div>
+					</article>
+					<article class="card resumo">
+						<div class="icone-card azul">
+							<img
+								src="../imagens/icones/packages-blue.svg"
+								alt=""
+							/>
+						</div>
+						<div class="resumo-conteudo">
+							<span>Itens em estoque</span>
+							<strong id="dashboard-itens-estoque">117</strong>
+							<p class="variacao positiva">
+								<span>↑ +3%</span>
+								<small>em relação ao mês anterior</small>
+							</p>
+						</div>
+					</article>
+					<article class="card resumo">
+						<div class="icone-card verde">
+							<img
+								src="../imagens/icones/cash-green.svg"
+								alt=""
+							/>
+						</div>
+						<div class="resumo-conteudo">
+							<span>Vendas no mês</span>
+							<strong id="dashboard-vendas-mes"
+								>R$ 12.450,00</strong
+							>
+							<p class="variacao positiva">
+								<span>↑ +12%</span>
+								<small>em relação ao mês anterior</small>
+							</p>
+						</div>
+					</article>
+					<article class="card resumo">
+						<div class="icone-card amarelo">
+							<img
+								src="../imagens/icones/warning-yellow.svg"
+								alt=""
+							/>
+						</div>
+						<div class="resumo-conteudo">
+							<span>Produtos em estoque baixo</span>
+							<strong id="dashboard-estoque-baixo">8</strong>
+							<p class="variacao alerta">
+								<span>→ +2</span>
+								<small>em relação ao mês anterior</small>
+							</p>
+						</div>
+					</article>
+				</div>
+				<!-- GRÁFICO + ESTOQUE -->
 				<div class="grid-dashboard">
-					<!-- VENDAS -->
 					<section class="card vendas">
 						<div class="cabecalho-card">
-							<div>
+							<div class="titulo-com-icone">
+								<img
+									src="../imagens/icones/chart-green.svg"
+									class="icone-titulo verde-texto"
+									alt=""
+								/>
 								<h2>Vendas</h2>
-								<p>Resumo das vendas recentes</p>
 							</div>
+							<div class="controles-grafico">
+								<select
+									id="periodo-grafico"
+									aria-label="Período"
+								>
+									<option value="7dias">
+										Últimos 7 dias
+									</option>
+									<option value="mes">Este mês</option>
+									<option value="3meses">
+										Últimos 3 meses
+									</option>
+									<option value="ano">Este ano</option>
+								</select>
 
-							<select>
-								<option>Este mês</option>
-								<option>Últimos 3 meses</option>
-								<option>Este ano</option>
-							</select>
+								<div
+									class="seletor-tipo-grafico"
+									aria-label="Tipo de gráfico"
+								>
+									<button
+										type="button"
+										class="tipo-grafico ativo"
+										data-tipo="linha"
+									>
+										Linha
+									</button>
+									<button
+										type="button"
+										class="tipo-grafico"
+										data-tipo="barras"
+									>
+										Barras
+									</button>
+								</div>
+							</div>
 						</div>
-
-						<div class="grafico">
-							<div class="barra" style="height: 45%">
-								<span>Seg</span>
-							</div>
-
-							<div class="barra" style="height: 65%">
-								<span>Ter</span>
-							</div>
-
-							<div class="barra" style="height: 50%">
-								<span>Qua</span>
-							</div>
-
-							<div class="barra" style="height: 80%">
-								<span>Qui</span>
-							</div>
-
-							<div class="barra" style="height: 60%">
-								<span>Sex</span>
-							</div>
-
-							<div class="barra" style="height: 90%">
-								<span>Sáb</span>
-							</div>
-
-							<div class="barra" style="height: 35%">
-								<span>Dom</span>
+						<div class="grafico-container">
+							<div class="eixo-y" id="eixo-y-grafico"></div>
+							<div class="grafico-area" id="grafico-area">
+								<div
+									class="linhas-grade"
+									id="linhas-grade"
+								></div>
+								<div
+									class="grafico-visual"
+									id="grafico-visual"
+								></div>
+								<div class="eixo-x" id="eixo-x-grafico"></div>
 							</div>
 						</div>
 					</section>
-
-					<!-- ESTOQUE BAIXO -->
 					<section class="card estoque-baixo">
 						<div class="cabecalho-card">
-							<div>
+							<div class="titulo-com-icone">
+								<img
+									src="../imagens/icones/warning-yellow.svg"
+									class="icone-titulo alerta-texto"
+									alt=""
+								/>
 								<h2>Estoque baixo</h2>
-								<p>Produtos que precisam de reposição</p>
 							</div>
-
-							<a href="#">Ver todos</a>
+							<a href="#">Ver todos <span>›</span></a>
 						</div>
-
-						<div class="produto">
-							<div>
-								<strong>Arroz 5kg</strong>
-								<span>Código: 001</span>
-							</div>
-
-							<span class="quantidade">3 un.</span>
+						<div class="estoque-cabecalho">
+							<span>Produto</span>
+							<span>Estoque</span>
+							<span>Status</span>
 						</div>
-
-						<div class="produto">
-							<div>
-								<strong>Feijão 1kg</strong>
-								<span>Código: 002</span>
-							</div>
-
-							<span class="quantidade">5 un.</span>
-						</div>
-
-						<div class="produto">
-							<div>
-								<strong>Macarrão</strong>
-								<span>Código: 003</span>
-							</div>
-
-							<span class="quantidade">2 un.</span>
-						</div>
-
-						<button class="botao-secundario">
-							Gerenciar estoque
-						</button>
+						<div id="lista-estoque-baixo-dashboard"></div>
 					</section>
 				</div>
-
-				<!-- ÚLTIMAS ATIVIDADES -->
-				<section class="card atividades">
+				<!-- ÚLTIMOS LANÇAMENTOS -->
+				<section class="card lancamentos">
 					<div class="cabecalho-card">
-						<div>
-							<h2>Atividades recentes</h2>
-							<p>Últimas movimentações do sistema</p>
+						<div class="titulo-com-icone">
+							<img
+								src="../imagens/icones/document-green.svg"
+								class="icone-titulo verde-texto"
+								alt=""
+							/>
+							<h2>Últimos lançamentos</h2>
 						</div>
-
-						<a href="#">Ver histórico</a>
+						<a href="#">Ver todos <span>›</span></a>
 					</div>
-
-					<div class="atividade">
-						<div class="atividade-icone">+</div>
-
-						<div>
-							<strong>Novo produto cadastrado</strong>
-							<span
-								>Produto "Café 500g" foi adicionado ao
-								estoque.</span
-							>
-						</div>
-
-						<time>Hoje, 08:32</time>
-					</div>
-
-					<div class="atividade">
-						<div class="atividade-icone">↓</div>
-
-						<div>
-							<strong>Estoque atualizado</strong>
-							<span
-								>Quantidade do produto "Arroz 5kg" foi
-								alterada.</span
-							>
-						</div>
-
-						<time>Hoje, 08:15</time>
-					</div>
-
-					<div class="atividade">
-						<div class="atividade-icone">R$</div>
-
-						<div>
-							<strong>Nova venda registrada</strong>
-							<span>Venda no valor de R$ 250,00 registrada.</span>
-						</div>
-
-						<time>Ontem, 17:42</time>
+					<div class="tabela-lancamentos-wrapper">
+						<table class="tabela-lancamentos">
+							<thead>
+								<tr>
+									<th>Data</th>
+									<th>Produto</th>
+									<th>Tipo</th>
+									<th>Quantidade</th>
+									<th>Valor</th>
+								</tr>
+							</thead>
+							<tbody id="lista-lancamentos-dashboard"></tbody>
+						</table>
 					</div>
 				</section>
 			</section>
 		</main>
+		<script src="../js/dashboard.js"></script>
 	</body>
 </html>
