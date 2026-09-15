@@ -1084,13 +1084,38 @@ function obterNumeroPergunta(chave) {
    SALVAR
 ========================================= */
 
-function salvarRespostas() {
+async function salvarRespostas() {
+	const {
+		data: { user },
+		error: erroUsuario
+	} = await stockzapSupabase.auth.getUser();
 
-	localStorage.setItem(
-		"stockzap_zapchat",
-		JSON.stringify(respostas)
-	);
+	if (erroUsuario) {
+		console.error("Erro ao identificar usuário:", erroUsuario);
+		return false;
+	}
 
+	if (!user) {
+		console.error("Nenhum usuário está logado.");
+		alert("Sua sessão não foi encontrada. Faça login novamente.");
+		return false;
+	}
+
+	const { error } = await stockzapSupabase
+		.from("respostas_zapchat")
+		.insert({
+			usuario_id: user.id,
+			respostas: respostas
+		});
+
+	if (error) {
+		console.error("Erro ao salvar respostas:", error);
+		alert("Não foi possível salvar suas respostas.");
+		return false;
+	}
+
+	console.log("Respostas salvas no Supabase!");
+	return true;
 }
 
 
@@ -1365,9 +1390,54 @@ function gerarConfiguracao() {
    FINALIZAÇÃO
 ========================================= */
 
-function finalizarZapChat() {
+async function finalizarZapChat() {
+	
+	console.log("1. Iniciando salvamento...");
 
-	salvarRespostas();
+	const {
+		data: { user },
+		error: erroUsuario
+	} = await stockzapSupabase.auth.getUser();
+
+	console.log("2. Usuário encontrado:", user);
+	console.log("3. Erro do usuário:", erroUsuario);
+
+	if (erroUsuario) {
+		console.error("Erro ao identificar usuário:", erroUsuario);
+		return false;
+	}
+
+	if (!user) {
+		console.error("Nenhum usuário está logado.");
+		alert("Sua sessão não foi encontrada. Faça login novamente.");
+		return false;
+	}
+
+	const { error } = await stockzapSupabase
+		.from("respostas_zapchat")
+		.insert({
+			usuario_id: user.id,
+			respostas: respostas
+		});
+
+	console.log("4. Resultado do salvamento:", error);
+
+	if (error) {
+		console.error("Erro ao salvar respostas:", error);
+		alert("Não foi possível salvar suas respostas.");
+		return false;
+	}
+
+	console.log("5. Respostas salvas no Supabase!");
+
+	return true;
+}
+
+	const salvou = await salvarRespostas();
+
+	if (!salvou) {
+		return;
+	}
 
 
 	const configuracao =
