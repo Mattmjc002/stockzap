@@ -971,7 +971,6 @@ function selecionarOpcao(chave, valor, elemento) {
 	respostas[chave] = valor;
 
 
-	salvarRespostas();
 
 
 	setTimeout(() => {
@@ -1002,8 +1001,6 @@ function confirmarMultipla(chave) {
 
 	}
 
-
-	salvarRespostas();
 
 	proximaPergunta();
 
@@ -1391,47 +1388,8 @@ function gerarConfiguracao() {
 ========================================= */
 
 async function finalizarZapChat() {
-	
+
 	console.log("1. Iniciando salvamento...");
-
-	const {
-		data: { user },
-		error: erroUsuario
-	} = await stockzapSupabase.auth.getUser();
-
-	console.log("2. Usuário encontrado:", user);
-	console.log("3. Erro do usuário:", erroUsuario);
-
-	if (erroUsuario) {
-		console.error("Erro ao identificar usuário:", erroUsuario);
-		return false;
-	}
-
-	if (!user) {
-		console.error("Nenhum usuário está logado.");
-		alert("Sua sessão não foi encontrada. Faça login novamente.");
-		return false;
-	}
-
-	const { error } = await stockzapSupabase
-		.from("respostas_zapchat")
-		.insert({
-			usuario_id: user.id,
-			respostas: respostas
-		});
-
-	console.log("4. Resultado do salvamento:", error);
-
-	if (error) {
-		console.error("Erro ao salvar respostas:", error);
-		alert("Não foi possível salvar suas respostas.");
-		return false;
-	}
-
-	console.log("5. Respostas salvas no Supabase!");
-
-	return true;
-}
 
 	const salvou = await salvarRespostas();
 
@@ -1439,26 +1397,22 @@ async function finalizarZapChat() {
 		return;
 	}
 
+	console.log("Respostas salvas. Gerando configuração...");
 
-	const configuracao =
-		gerarConfiguracao();
-
+	const configuracao = gerarConfiguracao();
 
 	localStorage.setItem(
 		"stockzap_configuracao",
 		JSON.stringify(configuracao)
 	);
 
-
 	progresso.style.width = "100%";
 
 	etapaAtual.textContent =
 		construirFluxo().length;
 
-
 	botaoVoltar.style.visibility =
 		"hidden";
-
 
 	container.innerHTML = `
 
@@ -1477,7 +1431,6 @@ async function finalizarZapChat() {
 				com base nas suas respostas.
 			</p>
 
-
 			<div class="perfil-grid">
 
 				<div class="perfil-item">
@@ -1487,14 +1440,12 @@ async function finalizarZapChat() {
 					</strong>
 				</div>
 
-
 				<div class="perfil-item">
 					<span>Segmento</span>
 					<strong>
 						${configuracao.perfil.segmento}
 					</strong>
 				</div>
-
 
 				<div class="perfil-item">
 					<span>Modelo</span>
@@ -1503,7 +1454,6 @@ async function finalizarZapChat() {
 					</strong>
 				</div>
 
-
 				<div class="perfil-item">
 					<span>Maturidade</span>
 					<strong>
@@ -1511,14 +1461,12 @@ async function finalizarZapChat() {
 					</strong>
 				</div>
 
-
 				<div class="perfil-item">
 					<span>WhatsApp</span>
 					<strong>
 						${configuracao.perfil.whatsapp}
 					</strong>
 				</div>
-
 
 				<div class="perfil-item">
 					<span>Prioridade</span>
@@ -1528,7 +1476,6 @@ async function finalizarZapChat() {
 				</div>
 
 			</div>
-
 
 			<div class="configuracao">
 
@@ -1550,7 +1497,6 @@ async function finalizarZapChat() {
 
 			</div>
 
-
 			<button
 				class="botao-finalizar"
 				onclick="entrarNoStockZap()"
@@ -1571,13 +1517,6 @@ async function finalizarZapChat() {
 
 function entrarNoStockZap() {
 
-	/*
-		Por enquanto vamos para a página principal.
-
-		Depois podemos trocar isso pela página
-		inicial do sistema/dashboard.
-	*/
-
 	window.location.href =
 		"../stockzap.html";
 
@@ -1595,19 +1534,14 @@ function carregarRespostas() {
 			"stockzap_zapchat"
 		);
 
-
 	if (!dados) {
-
 		return;
-
 	}
-
 
 	try {
 
 		const recuperadas =
 			JSON.parse(dados);
-
 
 		Object.assign(
 			respostas,
@@ -1625,16 +1559,13 @@ function carregarRespostas() {
 
 }
 
-
-/* =========================================
-   INICIALIZAÇÃO
-========================================= */
-
 /* =========================================
    INICIALIZAÇÃO
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+	console.log("DOM carregado. Iniciando ZapChat...");
 
 	carregarRespostas();
 

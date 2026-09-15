@@ -26,8 +26,9 @@ formCadastro.addEventListener("submit", async (evento) => {
 	}
 
 	console.log("Usuário criado:", data);
+	console.log("Sessão criada:", data.session);
 
-	alert("Conta criada com sucesso!");
+	alert("Conta criada com sucesso! Enviando para o ZapChat...");
 
 	window.location.href = "zapchat.html";
 });
