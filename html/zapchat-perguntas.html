@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>ZapChat - Personalização</title>
+
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/zapchat-perguntas.css">
+</head>
+
+<body>
+
+	<header class="zapchat-header">
+
+		<a href="../stockzap.html" class="logo-link">
+			<img
+				src="../imagens/StockZap_logo.svg"
+				alt="StockZap"
+			>
+		</a>
+
+		<div class="progresso-container">
+
+			<div class="progresso-texto">
+				<span id="etapaAtual">1</span>
+				de
+				<span id="totalEtapas">8</span>
+			</div>
+
+			<div class="progresso-barra">
+				<div
+					class="progresso-preenchido"
+					id="progressoPreenchido"
+				></div>
+			</div>
+
+		</div>
+
+	</header>
+
+
+	<main class="zapchat-main">
+
+		<section class="zapchat-card" id="zapchatCard">
+
+			<div class="zapchat-badge">
+				ZAPCHAT
+			</div>
+
+			<div id="perguntaContainer">
+				<!-- O JavaScript coloca a pergunta aqui -->
+			</div>
+
+		</section>
+
+
+		<button
+			class="botao-voltar"
+			id="botaoVoltar"
+			onclick="voltarPergunta()"
+		>
+			← Voltar
+		</button>
+
+	</main>
+
+
+	<script src="../js/zapchat.js"></script>
+
+</body>
+
+</html>

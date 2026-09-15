@@ -1,0 +1,678 @@
+/* =========================================
+   ZAPCHAT - PERGUNTAS
+========================================= */
+
+body {
+	min-height: 100vh;
+	background: var(--background);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.zapchat-header {
+	height: 78px;
+
+	background: var(--surface);
+
+	border-bottom: 1px solid var(--border-light);
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: 0 6%;
+
+	position: relative;
+	z-index: 10;
+}
+
+
+.logo-link {
+	display: flex;
+	align-items: center;
+}
+
+
+.logo-link img {
+	width: 145px;
+	height: auto;
+}
+
+
+/* =========================================
+   PROGRESSO
+========================================= */
+
+.progresso-container {
+	width: 230px;
+}
+
+
+.progresso-texto {
+	font-size: 12px;
+	font-weight: 600;
+
+	color: var(--text-secondary);
+
+	text-align: right;
+
+	margin-bottom: 7px;
+}
+
+
+.progresso-barra {
+	width: 100%;
+	height: 5px;
+
+	background: var(--border-light);
+
+	border-radius: 20px;
+
+	overflow: hidden;
+}
+
+
+.progresso-preenchido {
+	width: 12.5%;
+	height: 100%;
+
+	background: var(--primary);
+
+	border-radius: 20px;
+
+	transition: width 0.3s ease;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.zapchat-main {
+	min-height: calc(100vh - 78px);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding: 70px 20px 60px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.zapchat-card {
+	width: 100%;
+	max-width: 760px;
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
+
+.zapchat-badge {
+	display: inline-flex;
+
+	align-items: center;
+
+	padding: 7px 13px;
+
+	background: var(--primary-light);
+
+	color: var(--primary);
+
+	border-radius: 30px;
+
+	font-size: 11px;
+	font-weight: 700;
+
+	letter-spacing: 0.8px;
+
+	margin-bottom: 22px;
+}
+
+
+/* =========================================
+   PERGUNTA
+========================================= */
+
+.pergunta-numero {
+	font-size: 12px;
+
+	font-weight: 700;
+
+	color: var(--primary);
+
+	margin-bottom: 10px;
+
+	text-transform: uppercase;
+
+	letter-spacing: 0.6px;
+}
+
+
+.pergunta-titulo {
+	font-size: clamp(30px, 4vw, 44px);
+
+	line-height: 1.12;
+
+	letter-spacing: -1px;
+
+	color: var(--text-primary);
+
+	margin-bottom: 15px;
+}
+
+
+.pergunta-descricao {
+	max-width: 650px;
+
+	font-size: 16px;
+
+	line-height: 1.7;
+
+	color: var(--text-secondary);
+
+	margin-bottom: 34px;
+}
+
+
+/* =========================================
+   OPÇÕES
+========================================= */
+
+.opcoes {
+	display: flex;
+
+	flex-direction: column;
+
+	gap: 12px;
+}
+
+
+.opcao {
+	width: 100%;
+
+	display: flex;
+
+	align-items: center;
+
+	gap: 16px;
+
+	padding: 19px 20px;
+
+	background: var(--surface);
+
+	border: 1px solid var(--border);
+
+	border-radius: var(--radius-md);
+
+	box-shadow: var(--shadow-sm);
+
+	cursor: pointer;
+
+	text-align: left;
+
+	transition:
+		transform 0.2s ease,
+		border-color 0.2s ease,
+		box-shadow 0.2s ease,
+		background 0.2s ease;
+}
+
+
+.opcao:hover {
+	transform: translateY(-2px);
+
+	border-color: var(--green-medium);
+
+	box-shadow: var(--shadow-md);
+}
+
+
+.opcao.selecionada {
+	border-color: var(--primary);
+
+	background: var(--primary-light);
+}
+
+
+.opcao-icone {
+	width: 44px;
+	height: 44px;
+
+	flex-shrink: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: var(--primary-light);
+
+	color: var(--primary);
+
+	border-radius: var(--radius-sm);
+
+	font-size: 18px;
+
+	font-weight: 700;
+}
+
+
+.opcao-conteudo {
+	flex: 1;
+
+	display: flex;
+	flex-direction: column;
+
+	gap: 4px;
+}
+
+
+.opcao-conteudo strong {
+	font-size: 15px;
+
+	color: var(--text-primary);
+}
+
+
+.opcao-conteudo span {
+	font-size: 13px;
+
+	line-height: 1.5;
+
+	color: var(--text-secondary);
+}
+
+
+.opcao-seta {
+	font-size: 20px;
+
+	color: var(--text-muted);
+
+	transition: 0.2s ease;
+}
+
+
+.opcao:hover .opcao-seta {
+	color: var(--primary);
+
+	transform: translateX(4px);
+}
+
+
+/* =========================================
+   MULTI SELECT
+========================================= */
+
+.opcao-multi {
+	position: relative;
+}
+
+
+.checkbox {
+	width: 20px;
+	height: 20px;
+
+	flex-shrink: 0;
+
+	border: 2px solid var(--border);
+
+	border-radius: 5px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: white;
+
+	font-size: 12px;
+
+	transition: 0.2s ease;
+}
+
+
+.opcao-multi.selecionada .checkbox {
+	background: var(--primary);
+
+	border-color: var(--primary);
+}
+
+
+/* =========================================
+   BOTÃO CONTINUAR
+========================================= */
+
+.botao-continuar {
+	width: 100%;
+
+	margin-top: 20px;
+
+	padding: 15px 20px;
+
+	border: none;
+
+	border-radius: var(--radius-md);
+
+	background: var(--primary);
+
+	color: white;
+
+	font-size: 15px;
+
+	font-weight: 700;
+
+	cursor: pointer;
+
+	transition: 0.2s ease;
+}
+
+
+.botao-continuar:hover {
+	background: var(--primary-hover);
+
+	transform: translateY(-1px);
+}
+
+
+.botao-continuar:disabled {
+	opacity: 0.5;
+
+	cursor: not-allowed;
+
+	transform: none;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-group {
+	display: flex;
+	flex-direction: column;
+
+	gap: 8px;
+}
+
+
+.input-group label {
+	font-size: 13px;
+
+	font-weight: 600;
+
+	color: var(--text-secondary);
+}
+
+
+.input-group input,
+.input-group select {
+	width: 100%;
+
+	padding: 14px 15px;
+
+	border: 1px solid var(--border);
+
+	border-radius: var(--radius-md);
+
+	background: var(--surface);
+
+	color: var(--text-primary);
+
+	outline: none;
+}
+
+
+.input-group input:focus,
+.input-group select:focus {
+	border-color: var(--primary);
+}
+
+
+/* =========================================
+   VOLTAR
+========================================= */
+
+.botao-voltar {
+	margin-top: 30px;
+
+	border: none;
+
+	background: transparent;
+
+	color: var(--text-secondary);
+
+	font-size: 13px;
+
+	cursor: pointer;
+
+	transition: 0.2s ease;
+}
+
+
+.botao-voltar:hover {
+	color: var(--primary);
+}
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+.resultado {
+	background: var(--surface);
+
+	border: 1px solid var(--border);
+
+	border-radius: var(--radius-lg);
+
+	padding: 30px;
+
+	box-shadow: var(--shadow-md);
+}
+
+
+.resultado-sucesso {
+	width: 55px;
+	height: 55px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: var(--primary-light);
+
+	color: var(--primary);
+
+	border-radius: 50%;
+
+	font-size: 25px;
+
+	font-weight: 700;
+
+	margin-bottom: 20px;
+}
+
+
+.resultado h2 {
+	font-size: 30px;
+
+	margin-bottom: 10px;
+}
+
+
+.resultado-intro {
+	color: var(--text-secondary);
+
+	margin-bottom: 25px;
+}
+
+
+.perfil-grid {
+	display: grid;
+
+	grid-template-columns: repeat(2, 1fr);
+
+	gap: 12px;
+
+	margin-bottom: 25px;
+}
+
+
+.perfil-item {
+	padding: 15px;
+
+	background: var(--surface-secondary);
+
+	border: 1px solid var(--border-light);
+
+	border-radius: var(--radius-md);
+}
+
+
+.perfil-item span {
+	display: block;
+
+	font-size: 11px;
+
+	font-weight: 700;
+
+	color: var(--text-muted);
+
+	text-transform: uppercase;
+
+	margin-bottom: 4px;
+}
+
+
+.perfil-item strong {
+	font-size: 14px;
+
+	color: var(--text-primary);
+}
+
+
+.configuracao {
+	padding: 20px;
+
+	background: var(--primary-light);
+
+	border-radius: var(--radius-md);
+}
+
+
+.configuracao h3 {
+	font-size: 16px;
+
+	margin-bottom: 12px;
+}
+
+
+.configuracao ul {
+	padding-left: 20px;
+
+	color: var(--text-secondary);
+
+	font-size: 14px;
+}
+
+
+.configuracao li {
+	margin-bottom: 7px;
+}
+
+
+.botao-finalizar {
+	width: 100%;
+
+	margin-top: 25px;
+
+	padding: 15px;
+
+	border: none;
+
+	border-radius: var(--radius-md);
+
+	background: var(--primary);
+
+	color: white;
+
+	font-weight: 700;
+
+	cursor: pointer;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 700px) {
+
+	.zapchat-header {
+		height: 70px;
+
+		padding: 0 20px;
+	}
+
+
+	.logo-link img {
+		width: 125px;
+	}
+
+
+	.progresso-container {
+		width: 150px;
+	}
+
+
+	.zapchat-main {
+		padding: 45px 18px 50px;
+	}
+
+
+	.pergunta-titulo {
+		font-size: 31px;
+	}
+
+
+	.pergunta-descricao {
+		font-size: 15px;
+	}
+
+
+	.opcao {
+		padding: 16px;
+	}
+
+
+	.perfil-grid {
+		grid-template-columns: 1fr;
+	}
+
+}
+
+
+@media (max-width: 480px) {
+
+	.progresso-container {
+		width: 110px;
+	}
+
+
+	.progresso-texto {
+		font-size: 10px;
+	}
+
+
+	.pergunta-titulo {
+		font-size: 28px;
+	}
+
+}

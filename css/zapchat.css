@@ -1,0 +1,516 @@
+/* =========================================
+   ZAPCHAT — Página de introdução
+   ========================================= */
+
+.zapchat-page {
+	min-height: 100vh;
+	background:
+		radial-gradient(
+			circle at 85% 15%,
+			rgba(4, 191, 69, 0.08),
+			transparent 30%
+		),
+		var(--background);
+
+	display: flex;
+	flex-direction: column;
+}
+
+.zapchat-header {
+	height: 76px;
+	padding: 0 7%;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	background: rgba(255, 255, 255, 0.9);
+	border-bottom: 1px solid var(--border-light);
+}
+
+.logo-link img {
+	width: 142px;
+	height: auto;
+	display: block;
+}
+
+.etapa-indicador {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+
+	color: var(--text-muted);
+	font-size: 14px;
+}
+
+.etapa-atual {
+	width: 28px;
+	height: 28px;
+
+	border-radius: 50%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: var(--primary-light);
+	color: var(--primary);
+
+	font-weight: 700;
+}
+
+.zapchat-container {
+	width: min(1160px, 88%);
+	margin: auto;
+
+	padding: 70px 0 55px;
+
+	display: grid;
+	grid-template-columns: 0.9fr 1.1fr;
+
+	align-items: center;
+	gap: 90px;
+
+	flex: 1;
+}
+
+.zapchat-intro {
+	max-width: 500px;
+}
+
+.zapchat-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+
+	color: var(--primary);
+
+	font-size: 12px;
+	font-weight: 800;
+	letter-spacing: 1.5px;
+
+	margin-bottom: 20px;
+}
+
+.badge-ponto {
+	width: 8px;
+	height: 8px;
+
+	background: var(--primary);
+	border-radius: 50%;
+
+	box-shadow: 0 0 0 5px var(--primary-light);
+}
+
+.zapchat-intro h1 {
+	font-size: clamp(42px, 5vw, 64px);
+	line-height: 1.02;
+	letter-spacing: -2px;
+
+	margin-bottom: 24px;
+
+	color: var(--secondary);
+}
+
+.intro-text {
+	max-width: 470px;
+
+	font-size: 17px;
+	line-height: 1.7;
+
+	color: var(--text-secondary);
+
+	margin-bottom: 34px;
+}
+
+.intro-info {
+	display: flex;
+	flex-direction: column;
+	gap: 19px;
+
+	margin-bottom: 35px;
+}
+
+.info-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+}
+
+.info-icon {
+	width: 31px;
+	height: 31px;
+
+	flex-shrink: 0;
+
+	border-radius: 9px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: var(--primary-light);
+	color: var(--primary);
+
+	font-weight: 800;
+}
+
+.info-item strong {
+	display: block;
+
+	font-size: 14px;
+
+	margin-bottom: 2px;
+}
+
+.info-item span {
+	display: block;
+
+	font-size: 13px;
+	color: var(--text-secondary);
+}
+
+.btn-primary {
+	border: 0;
+	border-radius: var(--radius-md);
+
+	padding: 14px 20px;
+	min-width: 150px;
+
+	background: var(--primary);
+	color: white;
+
+	font-weight: 700;
+
+	cursor: pointer;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	gap: 15px;
+
+	box-shadow: var(--shadow-md);
+
+	transition: 0.2s ease;
+}
+
+.btn-primary:hover {
+	background: var(--primary-hover);
+	transform: translateY(-1px);
+}
+
+.tempo-estimado {
+	margin-top: 12px;
+
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+.zapchat-visual {
+	position: relative;
+
+	min-height: 560px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.visual-card-main {
+	width: min(470px, 100%);
+
+	background: var(--surface);
+
+	border: 1px solid var(--border);
+	border-radius: 22px;
+
+	box-shadow: var(--shadow-lg);
+
+	overflow: hidden;
+
+	transform: rotate(1deg);
+}
+
+.chat-top {
+	height: 76px;
+
+	padding: 0 23px;
+
+	display: flex;
+	align-items: center;
+
+	gap: 13px;
+
+	border-bottom: 1px solid var(--border-light);
+}
+
+.chat-avatar {
+	width: 40px;
+	height: 40px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 12px;
+
+	background: var(--primary);
+	color: white;
+
+	font-weight: 800;
+}
+
+.chat-top strong {
+	display: block;
+
+	font-size: 14px;
+}
+
+.chat-top span {
+	display: block;
+
+	font-size: 11px;
+	color: var(--text-muted);
+}
+
+.online-dot {
+	width: 9px;
+	height: 9px;
+
+	margin-left: auto;
+
+	background: var(--primary);
+
+	border-radius: 50%;
+}
+
+.chat-content {
+	padding: 27px;
+}
+
+.message {
+	max-width: 85%;
+
+	padding: 13px 15px;
+
+	border-radius: 13px;
+
+	font-size: 13px;
+	line-height: 1.5;
+
+	margin-bottom: 11px;
+}
+
+.message-zap {
+	background: var(--surface-secondary);
+	color: var(--text-primary);
+
+	border-bottom-left-radius: 4px;
+}
+
+.question-label {
+	font-size: 15px;
+	font-weight: 700;
+
+	margin: 25px 0 13px;
+}
+
+.option-preview {
+	display: flex;
+	flex-direction: column;
+
+	gap: 8px;
+}
+
+.preview-option {
+	padding: 12px 14px;
+
+	border: 1px solid var(--border);
+	border-radius: 10px;
+
+	font-size: 12px;
+
+	color: var(--text-secondary);
+
+	background: white;
+}
+
+.preview-option:first-child {
+	border-color: rgba(4, 191, 69, 0.45);
+
+	background: var(--primary-light);
+
+	color: var(--secondary);
+}
+
+.floating-card {
+	position: absolute;
+
+	display: flex;
+	align-items: center;
+
+	gap: 11px;
+
+	padding: 13px 15px;
+
+	background: white;
+
+	border: 1px solid var(--border);
+	border-radius: 13px;
+
+	box-shadow: var(--shadow-md);
+}
+
+.floating-card strong {
+	display: block;
+
+	font-size: 12px;
+
+	margin-bottom: 2px;
+}
+
+.floating-card span:not(.floating-icon) {
+	display: block;
+
+	font-size: 10px;
+
+	color: var(--text-muted);
+}
+
+.floating-icon {
+	width: 28px;
+	height: 28px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 8px;
+
+	background: var(--primary-light);
+	color: var(--primary);
+
+	font-weight: 800;
+}
+
+.floating-card-one {
+	top: 70px;
+	right: 5px;
+}
+
+.floating-card-two {
+	bottom: 70px;
+	left: 5px;
+}
+
+.zapchat-footer {
+	padding: 22px 7%;
+
+	display: flex;
+	justify-content: center;
+
+	gap: 9px;
+
+	color: var(--text-muted);
+
+	font-size: 12px;
+
+	border-top: 1px solid var(--border-light);
+
+	background: rgba(255, 255, 255, 0.6);
+}
+
+.zapchat-footer span:first-child {
+	color: var(--secondary);
+	font-weight: 700;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+	.zapchat-container {
+		grid-template-columns: 1fr;
+
+		gap: 45px;
+
+		padding-top: 55px;
+	}
+
+	.zapchat-intro {
+		max-width: 650px;
+
+		margin: 0 auto;
+
+		text-align: center;
+	}
+
+	.intro-text {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.intro-info {
+		text-align: left;
+
+		max-width: 470px;
+
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.zapchat-visual {
+		min-height: 500px;
+	}
+
+	.floating-card-one {
+		right: 0;
+	}
+
+	.floating-card-two {
+		left: 0;
+	}
+}
+
+
+@media (max-width: 600px) {
+
+	.zapchat-header {
+		padding: 0 5%;
+	}
+
+	.logo-link img {
+		width: 120px;
+	}
+
+	.zapchat-container {
+		width: 90%;
+
+		padding-top: 40px;
+	}
+
+	.zapchat-intro h1 {
+		font-size: 42px;
+		letter-spacing: -1.5px;
+	}
+
+	.intro-text {
+		font-size: 15px;
+	}
+
+	.zapchat-visual {
+		min-height: 430px;
+	}
+
+	.visual-card-main {
+		transform: none;
+	}
+
+	.floating-card {
+		display: none;
+	}
+}

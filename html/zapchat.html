@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="view-transition" content="same-origin">
+	<title>ZapChat — Personalize seu StockZap</title>
+
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/zapchat.css">
+</head>
+
+<body>
+	<main class="zapchat-page">
+
+		<header class="zapchat-header">
+			<a href="../stockzap.html" class="logo-link">
+				<img src="../imagens/StockZap_logo.svg" alt="StockZap">
+			</a>
+
+			<div class="etapa-indicador">
+				<span class="etapa-atual">1</span>
+				<span>de 8 etapas</span>
+			</div>
+		</header>
+
+		<section class="zapchat-container">
+
+			<div class="zapchat-intro">
+				<div class="zapchat-badge">
+					<span class="badge-ponto"></span>
+					ZAPCHAT
+				</div>
+
+				<h1>Vamos entender<br>o seu negócio.</h1>
+
+				<p class="intro-text">
+					Antes de começar, queremos conhecer um pouco melhor
+					como sua empresa funciona. Assim, o StockZap consegue
+					se adaptar à sua realidade.
+				</p>
+
+				<div class="intro-info">
+
+					<div class="info-item">
+						<div class="info-icon">✓</div>
+						<div>
+							<strong>Perguntas rápidas</strong>
+							<span>Responda apenas o que se aplica ao seu negócio.</span>
+						</div>
+					</div>
+
+					<div class="info-item">
+						<div class="info-icon">⚙</div>
+						<div>
+							<strong>Experiência personalizada</strong>
+							<span>Suas respostas ajudam a configurar seu StockZap.</span>
+						</div>
+					</div>
+
+					<div class="info-item">
+						<div class="info-icon">→</div>
+						<div>
+							<strong>Sem complicação</strong>
+							<span>O ZapChat vai conduzir você passo a passo.</span>
+						</div>
+					</div>
+
+				</div>
+
+				<button class="btn-primary" onclick="iniciarZapChat()">
+					Começar
+					<span>→</span>
+				</button>
+
+				<p class="tempo-estimado">
+					Leva apenas alguns minutos.
+				</p>
+			</div>
+
+			<div class="zapchat-visual">
+
+				<div class="visual-card visual-card-main">
+
+					<div class="chat-top">
+
+						<div class="chat-avatar">
+							Z
+						</div>
+
+						<div>
+							<strong>ZapChat</strong>
+							<span>Configuração inicial</span>
+						</div>
+
+						<div class="online-dot"></div>
+
+					</div>
+
+					<div class="chat-content">
+
+						<div class="message message-zap">
+							Olá! 👋<br>
+							Vamos configurar o StockZap para a realidade do seu negócio.
+						</div>
+
+						<div class="message message-zap">
+							Primeiro, me conta:
+						</div>
+
+						<div class="question-label">
+							Como funciona o seu negócio?
+						</div>
+
+						<div class="option-preview">
+
+							<div class="preview-option">
+								Tenho um local fixo
+							</div>
+
+							<div class="preview-option">
+								Meu negócio é móvel
+							</div>
+
+							<div class="preview-option">
+								Tenho um local fixo e também vendo em outros lugares
+							</div>
+
+							<div class="preview-option">
+								Meu negócio é principalmente online
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="floating-card floating-card-one">
+
+					<span class="floating-icon">✦</span>
+
+					<div>
+						<strong>Perfil do negócio</strong>
+						<span>Identificado pelas suas respostas</span>
+					</div>
+
+				</div>
+
+				<div class="floating-card floating-card-two">
+
+					<span class="floating-icon">✓</span>
+
+					<div>
+						<strong>StockZap personalizado</strong>
+						<span>Configuração inicial adaptada</span>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<footer class="zapchat-footer">
+			<span>StockZap</span>
+			<span>•</span>
+			<span>Seu negócio. Do seu jeito.</span>
+		</footer>
+
+	</main>
+
+	<script>
+		function iniciarZapChat() {
+			window.location.href = "zapchat-perguntas.html";
+		}
+	</script>
+
+</body>
+</html>
