@@ -862,19 +862,18 @@ function renderizarPergunta(chave) {
 
 				</div>
 
-				${
-					pergunta.tipo === "multi"
-						? `
+				${pergunta.tipo === "multi"
+				? `
 							<div class="checkbox">
 								${selecionada ? "✓" : ""}
 							</div>
 						`
-						: `
+				: `
 							<div class="opcao-seta">
 								→
 							</div>
 						`
-				}
+			}
 
 			</button>
 
@@ -1486,12 +1485,12 @@ async function finalizarZapChat() {
 				<ul>
 
 					${configuracao.funcionalidades
-						.map(
-							item =>
-								`<li>${item}</li>`
-						)
-						.join("")
-					}
+			.map(
+				item =>
+					`<li>${item}</li>`
+			)
+			.join("")
+		}
 
 				</ul>
 
@@ -1562,10 +1561,41 @@ function carregarRespostas() {
 /* =========================================
    INICIALIZAÇÃO
 ========================================= */
+async function verificarAutenticacao() {
 
-document.addEventListener("DOMContentLoaded", () => {
+	const {
+		data,
+		error
+	} = await stockzapSupabase.auth.getSession();
+
+	if (error) {
+		console.error("Erro ao verificar autenticação:", error);
+		window.location.href = "autenticando.html";
+		return false;
+	}
+
+	if (!data.session) {
+		console.warn("Usuário não autenticado. Redirecionando...");
+		window.location.href = "autenticando.html";
+		return false;
+	}
+
+	console.log("Usuário autenticado:", data.session.user.id);
+
+	return true;
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
 
 	console.log("DOM carregado. Iniciando ZapChat...");
+
+	const autenticado = await verificarAutenticacao();
+
+	if (!autenticado) {
+		return;
+	}
+
+	console.log("Usuário autenticado. Iniciando perguntas...");
 
 	carregarRespostas();
 
