@@ -531,21 +531,14 @@
 	margin-bottom: 42px;
 }
 
-.whatsapp-logo-titulo {
-	display: flex;
-	align-items: center;
-	gap: 14px;
-	margin-bottom: 10px;
-}
-
 .whatsapp-logo {
 	width: 200px;
 	height: 100px;
 	display: block;
-	object-fit: contain;
+	margin-bottom: 10px;
 }
 
-.whatsapp-logo-titulo > span {
+.funcionalidade-whatsapp-header > span {
 	color: var(--primary);
 	font-size: 12px;
 	font-weight: 800;
@@ -554,6 +547,7 @@
 
 .funcionalidade-whatsapp-header h2 {
 	margin-top: 10px;
+
 	color: var(--secondary);
 	font-size: 34px;
 	line-height: 1.2;
@@ -562,6 +556,7 @@
 
 .funcionalidade-whatsapp-header p {
 	margin-top: 13px;
+
 	color: var(--text-secondary);
 	font-size: 15px;
 	line-height: 1.7;
