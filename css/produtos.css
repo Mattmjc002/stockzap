@@ -1,3 +1,8 @@
+/* =========================================================
+   ESTRUTURA PRINCIPAL
+   Padrão compartilhado com Dashboard e Configurações
+   ========================================================= */
+
 body {
 	background: #f5f8fc;
 	color: var(--text-primary);
@@ -46,8 +51,8 @@ body {
 	font-weight: 600;
 	transition:
 		background 0.2s ease,
-		color 0.2s ease;
-		transform: 0.2s ease;
+		color 0.2s ease,
+		transform 0.2s ease;
 }
 
 .menu-item span {
@@ -139,19 +144,21 @@ body {
 
 .linha-container {
 	display: flex;
-  	align-items: center;
-  	gap: 10px;
+	align-items: center;
+	gap: 10px;
 }
 
 .topbar h1 {
-	font-size: 23px;
-	line-height: 1.15;
+	margin: 0;
+	font-size: 22px;
+	line-height: 1.2;
+	font-weight: 700;
 	color: var(--secondary);
 }
 
 .topbar p {
 	margin-top: 4px;
-	font-size: 16px;
+	font-size: 14px;
 	color: var(--text-secondary);
 	line-height: 1.4;
 }
@@ -1003,25 +1010,35 @@ img.acao-icone {
 	object-fit: contain;
 }
 
-/* =========================================
+/* =========================================================
    TEMA ESCURO
-   ========================================= */
+   Mesmo padrão do Dashboard e Configurações
+   ========================================================= */
 
 body.tema-escuro {
-	background: #111827;
-	color: #f1f5f9;
+	background: #0f1720;
+	color: #e8edf3;
 }
 
-/* Área principal */
+/* ===== ÁREA PRINCIPAL ===== */
+
 body.tema-escuro .main-content {
-	background: #111827;
-	color: #f1f5f9;
+	background: #0f1720;
+	color: #e8edf3;
 }
 
-/* Topbar */
+/* ===== SIDEBAR ===== */
+
+body.tema-escuro .sidebar {
+	background: #071426;
+	border-right-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== TOPBAR ===== */
+
 body.tema-escuro .topbar {
-	background: #182235;
-	border-color: #293548;
+	background: #151f2b;
+	border-bottom-color: #263442;
 }
 
 body.tema-escuro .topbar h1,
@@ -1032,7 +1049,7 @@ body.tema-escuro .usuario-info strong {
 
 body.tema-escuro .topbar p,
 body.tema-escuro .usuario-info span {
-	color: #a8b3c2;
+	color: #aebdcd;
 }
 
 body.tema-escuro .botao-menu,
@@ -1046,13 +1063,14 @@ body.tema-escuro .notificacoes:hover {
 }
 
 body.tema-escuro .notificacao-ponto {
-	border-color: #182235;
+	border-color: #151f2b;
 }
 
-/* Cards */
+/* ===== CARDS ===== */
+
 body.tema-escuro .card {
-	background: #182235;
-	border-color: #293548;
+	background: #151f2b;
+	border-color: #293747;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
@@ -1091,10 +1109,11 @@ body.tema-escuro .icone-card.amarelo {
 	color: #f2bb45;
 }
 
-/* Pesquisa */
+/* ===== PESQUISA ===== */
+
 body.tema-escuro .pesquisa {
-	background: #182235;
-	border-color: #293548;
+	background: #151f2b;
+	border-color: #293747;
 }
 
 body.tema-escuro .pesquisa input {
@@ -1102,26 +1121,29 @@ body.tema-escuro .pesquisa input {
 }
 
 body.tema-escuro .pesquisa input::placeholder {
-	color: #7f8da1;
+	color: #91a2b5;
 }
 
-/* Filtro */
+/* ===== FILTRO ===== */
+
 body.tema-escuro #filtro-categoria {
-	background: #182235;
-	border-color: #293548;
+	background: #151f2b;
+	border-color: #293747;
 	color: #f1f5f9;
 }
 
-/* Botão cancelar */
+/* ===== BOTÃO CANCELAR ===== */
+
 body.tema-escuro .botao-cancelar {
-	background: #182235;
-	border-color: #293548;
-	color: #a8b3c2;
+	background: #151f2b;
+	border-color: #293747;
+	color: #aebdcd;
 }
 
-/* Tabela */
+/* ===== TABELA ===== */
+
 body.tema-escuro .cabecalho-tabela {
-	border-color: #293548;
+	border-color: #293747;
 }
 
 body.tema-escuro .cabecalho-tabela h2 {
@@ -1129,24 +1151,24 @@ body.tema-escuro .cabecalho-tabela h2 {
 }
 
 body.tema-escuro .cabecalho-tabela p {
-	color: #7f8da1;
+	color: #91a2b5;
 }
 
 body.tema-escuro thead {
-	background: #202b3d;
+	background: #1d2937;
 }
 
 body.tema-escuro th {
-	color: #a8b3c2;
+	color: #aebdcd;
 }
 
 body.tema-escuro td {
-	border-color: #293548;
+	border-color: #293747;
 	color: #c5cfdb;
 }
 
 body.tema-escuro tbody tr:hover {
-	background: #202b3d;
+	background: #1d2937;
 }
 
 body.tema-escuro .produto-nome strong {
@@ -1154,13 +1176,14 @@ body.tema-escuro .produto-nome strong {
 }
 
 body.tema-escuro .produto-nome span {
-	color: #7f8da1;
+	color: #91a2b5;
 }
 
-/* Botões de ação */
+/* ===== BOTÕES DE AÇÃO ===== */
+
 body.tema-escuro .botao-acao {
-	background: #182235;
-	border-color: #293548;
+	background: #151f2b;
+	border-color: #293747;
 }
 
 body.tema-escuro .botao-editar {
@@ -1176,22 +1199,24 @@ body.tema-escuro .botao-excluir:hover {
 	background: rgba(217, 54, 69, 0.14);
 }
 
-/* Sem produtos */
+/* ===== SEM PRODUTOS ===== */
+
 body.tema-escuro .sem-produtos h3 {
 	color: #f1f5f9;
 }
 
 body.tema-escuro .sem-produtos p {
-	color: #7f8da1;
+	color: #91a2b5;
 }
 
-/* Modal */
+/* ===== MODAL ===== */
+
 body.tema-escuro .modal {
-	background: #182235;
+	background: #151f2b;
 }
 
 body.tema-escuro .modal-cabecalho {
-	border-color: #293548;
+	border-color: #293747;
 }
 
 body.tema-escuro .modal-cabecalho h2 {
@@ -1199,11 +1224,11 @@ body.tema-escuro .modal-cabecalho h2 {
 }
 
 body.tema-escuro .modal-cabecalho p {
-	color: #7f8da1;
+	color: #91a2b5;
 }
 
 body.tema-escuro .fechar-modal {
-	color: #a8b3c2;
+	color: #aebdcd;
 }
 
 body.tema-escuro .fechar-modal:hover {
@@ -1211,34 +1236,29 @@ body.tema-escuro .fechar-modal:hover {
 	color: #f1f5f9;
 }
 
-/* Formulário */
+/* ===== FORMULÁRIO ===== */
+
 body.tema-escuro .campo label {
 	color: #f1f5f9;
 }
 
 body.tema-escuro .campo input {
-	background: #111827;
-	border-color: #293548;
+	background: #0f1720;
+	border-color: #293747;
 	color: #f1f5f9;
 }
 
 body.tema-escuro .campo input::placeholder {
-	color: #7f8da1;
+	color: #91a2b5;
 }
 
 body.tema-escuro .campo small {
-	color: #7f8da1;
+	color: #91a2b5;
 }
 
-/* Modal overlay */
+/* ===== MODAL OVERLAY ===== */
+
 body.tema-escuro .modal-overlay {
 	background: rgba(0, 0, 0, 0.65);
 }
 
-body.tema-escuro .card,
-body.tema-escuro .config-card,
-body.tema-escuro .produto-card {
-	background: #182235;
-	color: #f1f5f9;
-	border-color: #293548;
-}
