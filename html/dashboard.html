@@ -95,9 +95,9 @@
 						<span class="notificacao-ponto"></span>
 					</button>
 					<div class="usuario-topbar">
-						<div class="avatar">FG</div>
+						<div class="avatar" id="avatar-usuario">US</div>
 						<div class="usuario-info">
-							<strong>Felipe Garrido</strong>
+							<strong id="nome-usuario-topbar">Usuário</strong>
 						</div>
 						<img
 							src="../imagens/icones/chevron-navy.svg"
@@ -111,7 +111,7 @@
 				<div class="dashboard-cabecalho">
 					<div>
 						<p class="saudacao">Bem-vindo de volta,</p>
-						<h1>Felipe Garrido</h1>
+						<h1 id="nome-usuario-dashboard">Usuário</h1>
 						<p class="subtitulo">
 							Aqui está um resumo do seu negócio hoje.
 						</p>
@@ -306,6 +306,8 @@
 				</section>
 			</section>
 		</main>
-		<script src="../js/dashboard.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="../js/supabase.js"></script>
+	<script src="../js/dashboard.js"></script>
 	</body>
 </html>

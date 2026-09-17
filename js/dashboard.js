@@ -418,7 +418,52 @@ window.addEventListener("storage", (event) => {
 	}
 });
 
+async function carregarDadosUsuario() {
+	const {
+		data: { user },
+		error,
+	} = await stockzapSupabase.auth.getUser();
+
+	if (error) {
+		console.error("Erro ao carregar usuário:", error);
+		return;
+	}
+
+	if (!user) {
+		console.warn("Nenhum usuário autenticado.");
+		return;
+	}
+
+	const nome = user.user_metadata?.nome || "Usuário";
+
+	const nomeTopbar = document.getElementById("nome-usuario-topbar");
+	const nomeDashboard = document.getElementById("nome-usuario-dashboard");
+	const avatarUsuario = document.getElementById("avatar-usuario");
+
+	if (nomeTopbar) {
+		nomeTopbar.textContent = nome;
+	}
+
+	if (nomeDashboard) {
+		nomeDashboard.textContent = nome;
+	}
+
+	if (avatarUsuario) {
+		const iniciais = nome
+			.split(" ")
+			.filter(Boolean)
+			.slice(0, 2)
+			.map((parte) => parte[0])
+			.join("")
+			.toUpperCase();
+
+		avatarUsuario.textContent = iniciais || "US";
+	}
+}
+
 // INICIALIZAÇÃO
+
+carregarDadosUsuario();
 
 periodoGrafico.value = periodoAtual;
 atualizarData();

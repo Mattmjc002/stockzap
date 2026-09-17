@@ -14,10 +14,16 @@ formCadastro.addEventListener("submit", async (evento) => {
 		email
 	});
 
-	const { data, error } = await stockzapSupabase.auth.signUp({
-		email: email,
-		password: senha
-	});
+const { data, error } = await stockzapSupabase.auth.signUp({
+	email: email,
+	password: senha,
+	options: {
+		data: {
+			nome: nome,
+			empresa: empresa
+		}
+	}
+});
 
 	if (error) {
 		console.error("Erro ao criar conta:", error);
