@@ -1517,7 +1517,7 @@ async function finalizarZapChat() {
 function entrarNoStockZap() {
 
 	window.location.href =
-		"../stockzap.html";
+		"../html/dashboard.html";
 
 }
 
