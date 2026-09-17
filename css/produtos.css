@@ -936,19 +936,201 @@ body.tema-escuro {
 	color: #f1f5f9;
 }
 
-body.tema-escuro main {
+/* Área principal */
+body.tema-escuro .main-content {
 	background: #111827;
 	color: #f1f5f9;
 }
 
+/* Topbar */
 body.tema-escuro .topbar {
 	background: #182235;
 	border-color: #293548;
 }
 
-body.tema-escuro .main-content {
-	background: #111827;
+body.tema-escuro .topbar h1,
+body.tema-escuro .usuario-topbar,
+body.tema-escuro .usuario-info strong {
 	color: #f1f5f9;
+}
+
+body.tema-escuro .topbar p,
+body.tema-escuro .usuario-info span {
+	color: #a8b3c2;
+}
+
+body.tema-escuro .botao-menu,
+body.tema-escuro .notificacoes {
+	color: #f1f5f9;
+}
+
+body.tema-escuro .botao-menu:hover,
+body.tema-escuro .notificacoes:hover {
+	background: #243044;
+}
+
+body.tema-escuro .notificacao-ponto {
+	border-color: #182235;
+}
+
+/* Cards */
+body.tema-escuro .card {
+	background: #182235;
+	border-color: #293548;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+body.tema-escuro .resumo-titulo,
+body.tema-escuro .resumo-descricao {
+	color: #a8b3c2;
+}
+
+body.tema-escuro .resumo strong {
+	color: #f1f5f9;
+}
+
+/* Pesquisa */
+body.tema-escuro .pesquisa {
+	background: #182235;
+	border-color: #293548;
+}
+
+body.tema-escuro .pesquisa input {
+	color: #f1f5f9;
+}
+
+body.tema-escuro .pesquisa input::placeholder {
+	color: #7f8da1;
+}
+
+/* Filtro */
+body.tema-escuro #filtro-categoria {
+	background: #182235;
+	border-color: #293548;
+	color: #f1f5f9;
+}
+
+/* Botão cancelar */
+body.tema-escuro .botao-cancelar {
+	background: #182235;
+	border-color: #293548;
+	color: #a8b3c2;
+}
+
+/* Tabela */
+body.tema-escuro .cabecalho-tabela {
+	border-color: #293548;
+}
+
+body.tema-escuro .cabecalho-tabela h2 {
+	color: #f1f5f9;
+}
+
+body.tema-escuro .cabecalho-tabela p {
+	color: #7f8da1;
+}
+
+body.tema-escuro thead {
+	background: #202b3d;
+}
+
+body.tema-escuro th {
+	color: #a8b3c2;
+}
+
+body.tema-escuro td {
+	border-color: #293548;
+	color: #c5cfdb;
+}
+
+body.tema-escuro tbody tr:hover {
+	background: #202b3d;
+}
+
+body.tema-escuro .produto-nome strong {
+	color: #f1f5f9;
+}
+
+body.tema-escuro .produto-nome span {
+	color: #7f8da1;
+}
+
+/* Botões de ação */
+body.tema-escuro .botao-acao {
+	background: #182235;
+	border-color: #293548;
+}
+
+body.tema-escuro .botao-editar {
+	color: #8fb4e8;
+}
+
+body.tema-escuro .botao-editar:hover {
+	background: #24344e;
+	border-color: #385273;
+}
+
+body.tema-escuro .botao-excluir:hover {
+	background: rgba(217, 54, 69, 0.14);
+}
+
+/* Sem produtos */
+body.tema-escuro .sem-produtos h3 {
+	color: #f1f5f9;
+}
+
+body.tema-escuro .sem-produtos p {
+	color: #7f8da1;
+}
+
+/* Modal */
+body.tema-escuro .modal {
+	background: #182235;
+}
+
+body.tema-escuro .modal-cabecalho {
+	border-color: #293548;
+}
+
+body.tema-escuro .modal-cabecalho h2 {
+	color: #f1f5f9;
+}
+
+body.tema-escuro .modal-cabecalho p {
+	color: #7f8da1;
+}
+
+body.tema-escuro .fechar-modal {
+	color: #a8b3c2;
+}
+
+body.tema-escuro .fechar-modal:hover {
+	background: #243044;
+	color: #f1f5f9;
+}
+
+/* Formulário */
+body.tema-escuro .campo label {
+	color: #f1f5f9;
+}
+
+body.tema-escuro .campo input {
+	background: #111827;
+	border-color: #293548;
+	color: #f1f5f9;
+}
+
+body.tema-escuro .campo input::placeholder {
+	color: #7f8da1;
+}
+
+body.tema-escuro .campo small {
+	color: #7f8da1;
+}
+
+/* Modal overlay */
+body.tema-escuro .modal-overlay {
+	background: rgba(0, 0, 0, 0.65);
 }
 
 body.tema-escuro .card,
