@@ -524,12 +524,13 @@ function aplicarTema(tema) {
 }
 
 
-function carregarTema() {
+function aplicarTemaConfiguracao(tema) {
+	localStorage.setItem("stockzap_tema", tema);
 
-	const temaSalvo =
-		localStorage.getItem("stockzap_tema") || "claro";
-
-	aplicarTema(temaSalvo);
+	document.body.classList.toggle(
+		"tema-escuro",
+		tema === "escuro"
+	);
 }
 
 

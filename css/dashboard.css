@@ -1223,3 +1223,226 @@ body.sidebar-recolhida .main-content {
 	color: #c93948;
 	font-weight: 800;
 }
+/* =====================================================
+   TEMA ESCURO
+   ===================================================== */
+
+body.tema-escuro {
+	background: #0f1720;
+	color: #e8edf3;
+}
+
+/* ===== ÁREA PRINCIPAL ===== */
+
+body.tema-escuro .main-content {
+	background: #0f1720;
+}
+
+/* ===== TOPBAR ===== */
+
+body.tema-escuro .topbar {
+	background: #151f2b;
+	border-bottom-color: #263442;
+}
+
+body.tema-escuro .botao-menu,
+body.tema-escuro .notificacoes {
+	color: #e8edf3;
+}
+
+body.tema-escuro .botao-menu:hover,
+body.tema-escuro .notificacoes:hover {
+	background: rgba(255, 255, 255, 0.07);
+}
+
+body.tema-escuro .notificacao-ponto {
+	border-color: #151f2b;
+}
+
+body.tema-escuro .usuario-topbar {
+	color: #e8edf3;
+}
+
+/* ===== SIDEBAR ===== */
+
+/*
+   A sidebar já é azul escura no tema claro.
+   No tema escuro deixamos apenas um pouco mais profunda.
+*/
+
+body.tema-escuro .sidebar {
+	background: #071426;
+	border-right-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== TÍTULOS ===== */
+
+body.tema-escuro .dashboard-cabecalho h1 {
+	color: #f1f5f9;
+}
+
+body.tema-escuro .saudacao {
+	color: #9aaabd;
+}
+
+body.tema-escuro .subtitulo {
+	color: #9aaabd;
+}
+
+body.tema-escuro .data-atual {
+	color: #9aaabd;
+}
+
+/* ===== CARDS ===== */
+
+body.tema-escuro .card {
+	background: #151f2b;
+	border-color: #293747;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+body.tema-escuro .resumo-conteudo > span {
+	color: #aebdcd;
+}
+
+body.tema-escuro .resumo-conteudo > strong {
+	color: #f1f5f9;
+}
+
+body.tema-escuro .variacao small {
+	color: #91a2b5;
+}
+
+/* ===== ÍCONES DOS CARDS ===== */
+
+body.tema-escuro .icone-card.verde {
+	background: rgba(4, 191, 69, 0.14);
+	color: #45d77b;
+}
+
+body.tema-escuro .icone-card.azul {
+	background: rgba(40, 120, 220, 0.16);
+	color: #72adff;
+}
+
+body.tema-escuro .icone-card.amarelo {
+	background: rgba(217, 154, 0, 0.15);
+	color: #f2bb45;
+}
+
+/* ===== TÍTULOS DOS CARDS ===== */
+
+body.tema-escuro .cabecalho-card h2 {
+	color: #edf2f7;
+}
+
+body.tema-escuro .verde-texto {
+	color: #45d77b;
+}
+
+body.tema-escuro .alerta-texto {
+	color: #f0b63e;
+}
+
+/* ===== SELECT ===== */
+
+body.tema-escuro .cabecalho-card select {
+	background: #101a25;
+	border-color: #344456;
+	color: #dbe5ef;
+}
+
+/* ===== GRÁFICO ===== */
+
+body.tema-escuro .linhas-grade span {
+	background: #293747;
+}
+
+body.tema-escuro .eixo-y,
+body.tema-escuro .eixo-x {
+	color: #8498ad;
+}
+
+/* ===== ESTOQUE BAIXO ===== */
+
+body.tema-escuro .estoque-cabecalho {
+	border-bottom-color: #2b3949;
+	color: #91a4b8;
+}
+
+body.tema-escuro .produto-tabela {
+	border-bottom-color: #263442;
+}
+
+body.tema-escuro .produto-mini-icone {
+	background: #202c39;
+	color: #9dafc1;
+}
+
+body.tema-escuro .produto-info strong {
+	color: #e5ecf3;
+}
+
+body.tema-escuro .produto-info span {
+	color: #8295aa;
+}
+
+body.tema-escuro .estoque-quantidade {
+	color: #dbe5ef !important;
+}
+
+/* ===== LANÇAMENTOS ===== */
+
+body.tema-escuro .tabela-lancamentos thead {
+	background: #101a25;
+	border-top-color: #293747;
+	border-bottom-color: #293747;
+}
+
+body.tema-escuro .tabela-lancamentos th {
+	color: #91a4b8;
+}
+
+body.tema-escuro .tabela-lancamentos td {
+	color: #dbe5ef;
+	border-bottom-color: #293747;
+}
+
+/* ===== SELETOR DO GRÁFICO ===== */
+
+body.tema-escuro .seletor-tipo-grafico {
+	background: #101a25;
+	border-color: #344456;
+}
+
+body.tema-escuro .tipo-grafico {
+	color: #91a4b8;
+}
+
+body.tema-escuro .tipo-grafico:hover {
+	color: #ffffff;
+}
+
+/* ===== BADGES ===== */
+
+body.tema-escuro .badge-baixo {
+	background: rgba(217, 154, 0, 0.18);
+	color: #f1bb4b !important;
+}
+
+body.tema-escuro .badge-entrada {
+	background: rgba(4, 191, 69, 0.18);
+	color: #4cdb82;
+}
+
+body.tema-escuro .badge-saida {
+	background: rgba(217, 54, 69, 0.16);
+	color: #ff7d88;
+}
+
+/* ===== SIDEBAR ATIVA ===== */
+
+body.tema-escuro .menu-item.ativo {
+	background: var(--primary);
+	color: #fff;
+}
