@@ -926,3 +926,35 @@ img.acao-icone {
 	height: 28px;
 	object-fit: contain;
 }
+
+/* =========================================
+   TEMA ESCURO
+   ========================================= */
+
+body.tema-escuro {
+	background: #111827;
+	color: #f1f5f9;
+}
+
+body.tema-escuro main {
+	background: #111827;
+	color: #f1f5f9;
+}
+
+body.tema-escuro .topbar {
+	background: #182235;
+	border-color: #293548;
+}
+
+body.tema-escuro .main-content {
+	background: #111827;
+	color: #f1f5f9;
+}
+
+body.tema-escuro .card,
+body.tema-escuro .config-card,
+body.tema-escuro .produto-card {
+	background: #182235;
+	color: #f1f5f9;
+	border-color: #293548;
+}
