@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="view-transition" content="same-origin">
+
+	<title>StockZap - Configurações</title>
+
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/dashboard.css">
+	<link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+
+<body>
+
+	<!-- SIDEBAR -->
+	<aside class="sidebar">
+
+		<div class="sidebar-logo">
+			<img src="../imagens/StockZap_logo.svg" alt="StockZap">
+		</div>
+
+		<nav class="menu">
+
+			<a href="dashboard.html" class="menu-item">
+				<img src="../imagens/icones/dashboard-sidebar.svg" class="menu-icon" alt="">
+				<span>Dashboard</span>
+			</a>
+
+			<a href="produtos.html" class="menu-item">
+				<img src="../imagens/icones/package-sidebar.svg" class="menu-icon" alt="">
+				<span>Produtos</span>
+			</a>
+
+			<a href="#" class="menu-item">
+				<img src="../imagens/icones/warehouse-sidebar.svg" class="menu-icon" alt="">
+				<span>Estoque</span>
+			</a>
+
+			<a href="#" class="menu-item">
+				<img src="../imagens/icones/whatsapp-sidebar.svg" class="menu-icon" alt="">
+				<span>WhatsApp</span>
+			</a>
+
+			<a href="#" class="menu-item">
+				<img src="../imagens/icones/relatorios-sidebar.svg" class="menu-icon" alt="">
+				<span>Relatórios</span>
+			</a>
+
+		</nav>
+
+		<div class="sidebar-bottom">
+
+			<a href="configuracoes.html" class="menu-item configuracoes ativo">
+				<img src="../imagens/icones/settings-sidebar.svg" class="menu-icon" alt="">
+				<span>Configurações</span>
+			</a>
+
+			<a href="../stockzap.html" class="menu-item sair">
+				<img src="../imagens/icones/logout-sidebar.svg" class="menu-icon" alt="">
+				<span>Sair</span>
+			</a>
+
+		</div>
+
+	</aside>
+
+
+	<!-- CONTEÚDO PRINCIPAL -->
+	<main class="main-content">
+
+		<!-- TOPBAR -->
+		<header class="topbar">
+
+			<button class="botao-menu" type="button" aria-label="Abrir menu">
+				☰
+			</button>
+
+			<div class="usuario-topbar">
+
+				<div class="avatar" id="avatar-usuario">
+					US
+				</div>
+
+				<div class="usuario-info">
+					<strong id="nome-usuario-topbar">
+						Usuário
+					</strong>
+				</div>
+
+				<img
+					src="../imagens/icones/chevron-navy.svg"
+					class="chevron"
+					alt=""
+				>
+
+			</div>
+
+		</header>
+
+
+		<!-- PÁGINA -->
+		<section class="configuracoes-page">
+
+			<div class="configuracoes-header">
+
+				<div>
+					<p class="configuracoes-eyebrow">
+						PREFERÊNCIAS
+					</p>
+
+					<h1>Configurações</h1>
+
+					<p>
+						Personalize sua conta e a forma como você usa o StockZap.
+					</p>
+				</div>
+
+			</div>
+
+
+			<!-- MINHA CONTA -->
+			<section class="config-card">
+
+				<div class="config-card-header">
+
+					<div class="config-icon">
+						👤
+					</div>
+
+					<div>
+						<h2>Minha conta</h2>
+						<p>
+							Informações pessoais da sua conta StockZap.
+						</p>
+					</div>
+
+				</div>
+
+
+				<div class="config-form-grid">
+
+					<div class="campo-config">
+
+						<label for="nome-usuario">
+							Nome
+						</label>
+
+						<input
+							type="text"
+							id="nome-usuario"
+							placeholder="Seu nome"
+						>
+
+					</div>
+
+
+					<div class="campo-config">
+
+						<label for="email-usuario">
+							E-mail
+						</label>
+
+						<input
+							type="email"
+							id="email-usuario"
+							placeholder="seu@email.com"
+							disabled
+						>
+
+						<small>
+							O e-mail da conta é gerenciado pelo sistema de autenticação.
+						</small>
+
+					</div>
+
+
+					<div class="campo-config">
+
+						<label for="whatsapp-usuario">
+							WhatsApp
+						</label>
+
+						<input
+							type="tel"
+							id="whatsapp-usuario"
+							placeholder="(61) 99999-9999"
+						>
+
+					</div>
+
+				</div>
+
+				<div class="config-actions">
+
+					<button
+						type="button"
+						class="btn-salvar"
+						id="btn-salvar-conta"
+					>
+						Salvar alterações
+					</button>
+
+				</div>
+
+			</section>
+
+
+			<!-- EMPRESA -->
+			<section class="config-card">
+
+				<div class="config-card-header">
+
+					<div class="config-icon">
+						🏢
+					</div>
+
+					<div>
+						<h2>Minha empresa</h2>
+						<p>
+							Informações da empresa vinculada à sua conta.
+						</p>
+					</div>
+
+				</div>
+
+
+				<div class="config-form-grid">
+
+					<div class="campo-config">
+
+						<label for="nome-empresa">
+							Nome da empresa
+						</label>
+
+						<input
+							type="text"
+							id="nome-empresa"
+							placeholder="Nome da empresa"
+						>
+
+					</div>
+
+
+					<div class="campo-config">
+
+						<label for="cnpj-empresa">
+							CNPJ
+							<span>(opcional)</span>
+						</label>
+
+						<input
+							type="text"
+							id="cnpj-empresa"
+							placeholder="00.000.000/0000-00"
+							maxlength="18"
+						>
+
+						<small>
+							Essa informação não é necessária para criar sua conta.
+						</small>
+
+					</div>
+
+				</div>
+
+				<div class="config-actions">
+
+					<button
+						type="button"
+						class="btn-salvar"
+						id="btn-salvar-empresa"
+					>
+						Salvar empresa
+					</button>
+
+				</div>
+
+			</section>
+
+
+			<!-- APARÊNCIA -->
+			<section class="config-card">
+
+				<div class="config-card-header">
+
+					<div class="config-icon">
+						🎨
+					</div>
+
+					<div>
+						<h2>Aparência</h2>
+						<p>
+							Escolha como o StockZap será exibido.
+						</p>
+					</div>
+
+				</div>
+
+
+				<div class="tema-opcoes">
+
+					<label class="tema-opcao">
+
+						<input
+							type="radio"
+							name="tema"
+							value="claro"
+							id="tema-claro"
+						>
+
+						<div class="tema-preview tema-preview-claro">
+							<div></div>
+						</div>
+
+						<div>
+							<strong>Claro</strong>
+							<span>Interface clara</span>
+						</div>
+
+					</label>
+
+
+					<label class="tema-opcao">
+
+						<input
+							type="radio"
+							name="tema"
+							value="escuro"
+							id="tema-escuro"
+						>
+
+						<div class="tema-preview tema-preview-escuro">
+							<div></div>
+						</div>
+
+						<div>
+							<strong>Escuro</strong>
+							<span>Interface escura</span>
+						</div>
+
+					</label>
+
+				</div>
+
+			</section>
+
+
+			<!-- NOTIFICAÇÕES -->
+			<section class="config-card">
+
+				<div class="config-card-header">
+
+					<div class="config-icon">
+						🔔
+					</div>
+
+					<div>
+						<h2>Notificações</h2>
+						<p>
+							Escolha quais avisos você deseja receber.
+						</p>
+					</div>
+
+				</div>
+
+
+				<div class="config-opcoes">
+
+					<label class="config-opcao">
+
+						<div>
+							<strong>
+								Alertas de estoque baixo
+							</strong>
+
+							<span>
+								Receber avisos quando um produto atingir o estoque mínimo.
+							</span>
+						</div>
+
+						<input
+							type="checkbox"
+							id="notificacao-estoque"
+						>
+
+					</label>
+
+
+					<label class="config-opcao">
+
+						<div>
+							<strong>
+								Resumo de movimentações
+							</strong>
+
+							<span>
+								Receber um resumo das entradas e saídas.
+							</span>
+						</div>
+
+						<input
+							type="checkbox"
+							id="notificacao-movimentacoes"
+						>
+
+					</label>
+
+				</div>
+
+			</section>
+
+
+			<!-- SEGURANÇA -->
+			<section class="config-card">
+
+				<div class="config-card-header">
+
+					<div class="config-icon">
+						🔐
+					</div>
+
+					<div>
+						<h2>Segurança</h2>
+						<p>
+							Gerencie a segurança da sua conta.
+						</p>
+					</div>
+
+				</div>
+
+
+				<div class="seguranca-item">
+
+					<div>
+
+						<strong>
+							Senha
+						</strong>
+
+						<span>
+							Altere a senha utilizada para entrar no StockZap.
+						</span>
+
+					</div>
+
+					<button
+						type="button"
+						class="btn-secundario"
+						id="btn-alterar-senha"
+					>
+						Alterar senha
+					</button>
+
+				</div>
+
+			</section>
+
+
+			<div
+				class="mensagem-config"
+				id="mensagem-config"
+			></div>
+
+		</section>
+
+	</main>
+
+
+	<!-- SUPABASE -->
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+	<script src="../js/supabase.js"></script>
+	<script src="../js/configuracoes.js"></script>
+
+</body>
+
+</html>

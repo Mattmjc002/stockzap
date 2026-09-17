@@ -421,11 +421,11 @@ window.addEventListener("storage", (event) => {
 async function carregarDadosUsuario() {
 	const {
 		data: { user },
-		error,
+		error: erroAuth,
 	} = await stockzapSupabase.auth.getUser();
 
-	if (error) {
-		console.error("Erro ao carregar usuário:", error);
+	if (erroAuth) {
+		console.error("Erro ao carregar usuário:", erroAuth);
 		return;
 	}
 
@@ -434,28 +434,59 @@ async function carregarDadosUsuario() {
 		return;
 	}
 
-	const nome = user.user_metadata?.nome || "Usuário";
+	// Busca os dados do usuário na tabela usuario
+	const { data: usuario, error: erroUsuario } = await stockzapSupabase
+		.from("usuario")
+		.select("nome_usuario")
+		.eq("auth_id", user.id)
+		.single();
+
+	if (erroUsuario) {
+		console.error(
+			"Erro ao buscar dados do usuário na tabela usuario:",
+			erroUsuario
+		);
+		return;
+	}
+
+	const nome = usuario?.nome_usuario || "Usuário";
 
 	const nomeTopbar = document.getElementById("nome-usuario-topbar");
 	const nomeDashboard = document.getElementById("nome-usuario-dashboard");
 	const avatarUsuario = document.getElementById("avatar-usuario");
 
+	// Nome no topo
 	if (nomeTopbar) {
 		nomeTopbar.textContent = nome;
 	}
 
+	// Nome na saudação do Dashboard
 	if (nomeDashboard) {
 		nomeDashboard.textContent = nome;
 	}
 
+	// Iniciais do avatar
 	if (avatarUsuario) {
-		const iniciais = nome
-			.split(" ")
-			.filter(Boolean)
-			.slice(0, 2)
-			.map((parte) => parte[0])
-			.join("")
-			.toUpperCase();
+		const partesNome = nome
+			.trim()
+			.split(/\s+/)
+			.filter(Boolean);
+
+		let iniciais = "";
+
+		if (partesNome.length === 1) {
+			// Exemplo: João → JO
+			iniciais = partesNome[0]
+				.substring(0, 2)
+				.toUpperCase();
+		} else {
+			// Exemplo: João Silva → JS
+			iniciais =
+				partesNome[0][0] +
+				partesNome[partesNome.length - 1][0];
+
+			iniciais = iniciais.toUpperCase();
+		}
 
 		avatarUsuario.textContent = iniciais || "US";
 	}

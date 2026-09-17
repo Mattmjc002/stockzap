@@ -1,0 +1,656 @@
+/* =========================================================
+   STOCKZAP - CONFIGURAÇÕES
+   Compatível com base.css + dashboard.css
+   ========================================================= */
+
+
+/* =========================================================
+   PÁGINA
+   ========================================================= */
+
+.configuracoes-page {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 36px 42px 60px;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.configuracoes-header {
+	margin-bottom: 30px;
+}
+
+.configuracoes-eyebrow {
+	margin: 0 0 6px;
+
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+
+	color: var(--cor-principal, #1f3b5b);
+}
+
+.configuracoes-header h1 {
+	margin: 0;
+
+	font-size: 30px;
+	font-weight: 700;
+
+	color: var(--cor-texto, #172b4d);
+}
+
+.configuracoes-header p:not(.configuracoes-eyebrow) {
+	margin: 8px 0 0;
+
+	font-size: 14px;
+
+	color: var(--cor-texto-secundario, #718096);
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.config-card {
+	margin-bottom: 22px;
+	padding: 26px;
+
+	background: var(--cor-fundo-card, #ffffff);
+
+	border: 1px solid var(--cor-borda, #e5e9ef);
+	border-radius: 14px;
+
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.config-card-header {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+
+	margin-bottom: 24px;
+}
+
+.config-icon {
+	width: 42px;
+	height: 42px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	flex-shrink: 0;
+
+	border-radius: 10px;
+
+	background: var(--cor-fundo-icon, #eef3f8);
+
+	font-size: 19px;
+}
+
+.config-card-header h2 {
+	margin: 0;
+
+	font-size: 17px;
+	font-weight: 700;
+
+	color: var(--cor-texto, #172b4d);
+}
+
+.config-card-header p {
+	margin: 4px 0 0;
+
+	font-size: 13px;
+
+	color: var(--cor-texto-secundario, #718096);
+}
+
+
+/* =========================================================
+   FORMULÁRIOS
+   ========================================================= */
+
+.config-form-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px;
+}
+
+.campo-config {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+}
+
+.campo-config label {
+	font-size: 13px;
+	font-weight: 600;
+
+	color: var(--cor-texto, #172b4d);
+}
+
+.campo-config label span {
+	font-weight: 400;
+
+	color: var(--cor-texto-secundario, #8a94a6);
+}
+
+.campo-config input {
+	width: 100%;
+	height: 44px;
+
+	padding: 0 13px;
+
+	border: 1px solid var(--cor-borda, #dfe4ea);
+	border-radius: 8px;
+
+	background: var(--cor-input, #ffffff);
+	color: var(--cor-texto, #172b4d);
+
+	font-family: inherit;
+	font-size: 14px;
+
+	outline: none;
+
+	transition:
+		border-color 0.2s ease,
+		box-shadow 0.2s ease,
+		background 0.2s ease;
+}
+
+.campo-config input:focus {
+	border-color: var(--cor-principal, #1f3b5b);
+
+	box-shadow: 0 0 0 3px rgba(31, 59, 91, 0.08);
+}
+
+.campo-config input:disabled {
+	background: var(--cor-input-desabilitado, #f4f6f8);
+	color: var(--cor-texto-secundario, #7c8796);
+
+	cursor: not-allowed;
+}
+
+.campo-config small {
+	font-size: 11px;
+	line-height: 1.4;
+
+	color: var(--cor-texto-secundario, #8a94a6);
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.config-actions {
+	display: flex;
+	justify-content: flex-end;
+
+	margin-top: 24px;
+}
+
+.btn-salvar {
+	height: 42px;
+
+	padding: 0 20px;
+
+	border: none;
+	border-radius: 8px;
+
+	background: var(--cor-principal, #1f3b5b);
+	color: #ffffff;
+
+	font-family: inherit;
+	font-size: 13px;
+	font-weight: 600;
+
+	cursor: pointer;
+
+	transition:
+		background 0.2s ease,
+		transform 0.15s ease,
+		opacity 0.2s ease;
+}
+
+.btn-salvar:hover {
+	opacity: 0.92;
+}
+
+.btn-salvar:active {
+	transform: translateY(1px);
+}
+
+.btn-salvar:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+
+/* =========================================================
+   APARÊNCIA
+   ========================================================= */
+
+.tema-opcoes {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.tema-opcao {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	gap: 14px;
+
+	padding: 15px;
+
+	border: 1px solid var(--cor-borda, #dfe4ea);
+	border-radius: 10px;
+
+	background: var(--cor-input, #ffffff);
+
+	cursor: pointer;
+
+	transition:
+		border-color 0.2s ease,
+		background 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.tema-opcao:hover {
+	border-color: var(--cor-principal, #1f3b5b);
+}
+
+.tema-opcao input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.tema-opcao:has(input:checked) {
+	border-color: var(--cor-principal, #1f3b5b);
+
+	box-shadow: 0 0 0 2px rgba(31, 59, 91, 0.08);
+}
+
+.tema-opcao strong {
+	display: block;
+
+	font-size: 13px;
+
+	color: var(--cor-texto, #172b4d);
+}
+
+.tema-opcao span {
+	display: block;
+
+	margin-top: 3px;
+
+	font-size: 11px;
+
+	color: var(--cor-texto-secundario, #8a94a6);
+}
+
+
+/* =========================================================
+   MINI PREVIEW DOS TEMAS
+   ========================================================= */
+
+.tema-preview {
+	width: 58px;
+	height: 42px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	flex-shrink: 0;
+
+	border-radius: 7px;
+
+	border: 1px solid var(--cor-borda, #dfe4ea);
+}
+
+.tema-preview div {
+	width: 32px;
+	height: 5px;
+
+	border-radius: 10px;
+}
+
+.tema-preview-claro {
+	background: #f7f9fb;
+}
+
+.tema-preview-claro div {
+	background: #1f3b5b;
+}
+
+.tema-preview-escuro {
+	background: #1d2630;
+}
+
+.tema-preview-escuro div {
+	background: #8ea7c0;
+}
+
+
+/* =========================================================
+   NOTIFICAÇÕES
+   ========================================================= */
+
+.config-opcoes {
+	display: flex;
+	flex-direction: column;
+}
+
+.config-opcao {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+
+	padding: 17px 0;
+
+	border-bottom: 1px solid var(--cor-borda, #edf0f3);
+
+	cursor: pointer;
+}
+
+.config-opcao:first-child {
+	padding-top: 0;
+}
+
+.config-opcao:last-child {
+	padding-bottom: 0;
+
+	border-bottom: none;
+}
+
+.config-opcao strong {
+	display: block;
+
+	font-size: 13px;
+
+	color: var(--cor-texto, #172b4d);
+}
+
+.config-opcao span {
+	display: block;
+
+	margin-top: 4px;
+
+	font-size: 12px;
+	line-height: 1.4;
+
+	color: var(--cor-texto-secundario, #8a94a6);
+}
+
+
+/* =========================================================
+   SWITCH
+   ========================================================= */
+
+.config-opcao input[type="checkbox"] {
+	position: relative;
+
+	width: 42px;
+	height: 23px;
+
+	flex-shrink: 0;
+
+	appearance: none;
+
+	border: none;
+	border-radius: 20px;
+
+	background: #cbd2da;
+
+	cursor: pointer;
+
+	transition: background 0.2s ease;
+}
+
+.config-opcao input[type="checkbox"]::after {
+	content: "";
+
+	position: absolute;
+
+	width: 17px;
+	height: 17px;
+
+	top: 3px;
+	left: 3px;
+
+	border-radius: 50%;
+
+	background: #ffffff;
+
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+	transition: transform 0.2s ease;
+}
+
+.config-opcao input[type="checkbox"]:checked {
+	background: var(--cor-principal, #1f3b5b);
+}
+
+.config-opcao input[type="checkbox"]:checked::after {
+	transform: translateX(19px);
+}
+
+
+/* =========================================================
+   SEGURANÇA
+   ========================================================= */
+
+.seguranca-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.seguranca-item strong {
+	display: block;
+
+	font-size: 13px;
+
+	color: var(--cor-texto, #172b4d);
+}
+
+.seguranca-item span {
+	display: block;
+
+	margin-top: 4px;
+
+	font-size: 12px;
+
+	color: var(--cor-texto-secundario, #8a94a6);
+}
+
+.btn-secundario {
+	height: 40px;
+
+	padding: 0 17px;
+
+	border: 1px solid var(--cor-borda, #dfe4ea);
+	border-radius: 8px;
+
+	background: var(--cor-input, #ffffff);
+	color: var(--cor-texto, #172b4d);
+
+	font-family: inherit;
+	font-size: 12px;
+	font-weight: 600;
+
+	cursor: pointer;
+
+	transition:
+		border-color 0.2s ease,
+		background 0.2s ease;
+}
+
+.btn-secundario:hover {
+	border-color: var(--cor-principal, #1f3b5b);
+	background: var(--cor-fundo-icon, #f4f7fa);
+}
+
+
+/* =========================================================
+   MENSAGENS
+   ========================================================= */
+
+.mensagem-config {
+	position: fixed;
+
+	right: 28px;
+	bottom: 28px;
+
+	z-index: 1000;
+
+	max-width: 360px;
+
+	padding: 13px 17px;
+
+	border-radius: 9px;
+
+	background: var(--cor-principal, #1f3b5b);
+	color: #ffffff;
+
+	font-size: 13px;
+	font-weight: 500;
+
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+	opacity: 0;
+	pointer-events: none;
+
+	transform: translateY(10px);
+
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease;
+}
+
+.mensagem-config.sucesso,
+.mensagem-config.erro {
+	opacity: 1;
+	pointer-events: auto;
+
+	transform: translateY(0);
+}
+
+.mensagem-config.erro {
+	background: #a94442;
+}
+
+
+/* =========================================================
+   MODO ESCURO
+   ========================================================= */
+
+body.tema-escuro {
+	--cor-fundo-card: #202a35;
+	--cor-input: #1b242e;
+	--cor-input-desabilitado: #252f39;
+
+	--cor-borda: #35414e;
+
+	--cor-texto: #edf2f7;
+	--cor-texto-secundario: #9aa7b5;
+
+	--cor-fundo-icon: #293542;
+
+	background: #151c24;
+}
+
+body.tema-escuro .config-card {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+body.tema-escuro .campo-config input:focus {
+	box-shadow: 0 0 0 3px rgba(142, 167, 192, 0.12);
+}
+
+body.tema-escuro .btn-secundario:hover {
+	background: #26313c;
+}
+
+body.tema-escuro .config-opcao {
+	border-bottom-color: #303b47;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+	.configuracoes-page {
+		padding: 30px 25px 50px;
+	}
+
+	.config-form-grid {
+		grid-template-columns: 1fr;
+	}
+
+}
+
+
+@media (max-width: 640px) {
+
+	.configuracoes-page {
+		padding: 24px 16px 40px;
+	}
+
+	.configuracoes-header h1 {
+		font-size: 25px;
+	}
+
+	.config-card {
+		padding: 20px;
+	}
+
+	.config-card-header {
+		margin-bottom: 20px;
+	}
+
+	.tema-opcoes {
+		grid-template-columns: 1fr;
+	}
+
+	.config-actions {
+		justify-content: stretch;
+	}
+
+	.btn-salvar {
+		width: 100%;
+	}
+
+	.seguranca-item {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.btn-secundario {
+		width: 100%;
+	}
+
+	.mensagem-config {
+		left: 16px;
+		right: 16px;
+		bottom: 16px;
+
+		max-width: none;
+	}
+
+}
