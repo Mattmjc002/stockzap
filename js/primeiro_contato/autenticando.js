@@ -53,9 +53,7 @@ async function verificarSessao() {
 
 
 			setTimeout(() => {
-
-				window.location.href = "zapchat-perguntas.html";
-
+				window.location.href = "zapchat.html";
 			}, 800);
 
 			return;

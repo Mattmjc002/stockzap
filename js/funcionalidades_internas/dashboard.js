@@ -220,7 +220,7 @@ function renderizarEstoqueBaixo() {
 		linha.innerHTML = `
 			<div class="produto-info">
 				<div class="produto-mini-icone">
-					<img src="../imagens/icones/package-neutral.svg" alt="">
+					<img src="../../imagens/icones/package-neutral.svg" alt="">
 				</div>
 				<div>
 					<strong>${produto.nome}</strong>
@@ -502,3 +502,17 @@ atualizarCards();
 renderizarEstoqueBaixo();
 renderizarLancamentos();
 renderizarGrafico();
+
+// LOGOUT
+const botoesSair = document.querySelectorAll(".menu-item.sair");
+botoesSair.forEach((btn) => {
+	btn.addEventListener("click", async (e) => {
+		e.preventDefault();
+		try {
+			await stockzapSupabase.auth.signOut();
+		} catch (err) {
+			console.error("Erro ao encerrar sessão:", err);
+		}
+		window.location.href = "../../stockzap.html";
+	});
+});

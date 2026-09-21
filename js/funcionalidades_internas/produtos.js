@@ -476,3 +476,17 @@ carregarDadosUsuario();
 atualizarCategorias();
 atualizarResumo();
 renderizarProdutos();
+
+// LOGOUT
+const botoesSair = document.querySelectorAll(".menu-item.sair");
+botoesSair.forEach((btn) => {
+	btn.addEventListener("click", async (e) => {
+		e.preventDefault();
+		try {
+			await stockzapSupabase.auth.signOut();
+		} catch (err) {
+			console.error("Erro ao encerrar sessão:", err);
+		}
+		window.location.href = "../../stockzap.html";
+	});
+});

@@ -124,7 +124,7 @@ async function carregarUsuario() {
 	if (!user) {
 		console.warn("Nenhum usuário autenticado.");
 
-		window.location.href = "../stockzap.html";
+		window.location.href = "../../stockzap.html";
 
 		return;
 	}
@@ -523,6 +523,10 @@ function aplicarTema(tema) {
 	);
 }
 
+function carregarTema() {
+	const tema = localStorage.getItem("stockzap_tema") || "claro";
+	aplicarTema(tema);
+}
 
 function aplicarTemaConfiguracao(tema) {
 	localStorage.setItem("stockzap_tema", tema);
@@ -700,3 +704,17 @@ if (botaoMenu) {
 carregarTema();
 carregarNotificacoes();
 carregarUsuario();
+
+// LOGOUT
+const botoesSair = document.querySelectorAll(".menu-item.sair");
+botoesSair.forEach((btn) => {
+	btn.addEventListener("click", async (e) => {
+		e.preventDefault();
+		try {
+			await stockzapSupabase.auth.signOut();
+		} catch (err) {
+			console.error("Erro ao encerrar sessão:", err);
+		}
+		window.location.href = "../../stockzap.html";
+	});
+});

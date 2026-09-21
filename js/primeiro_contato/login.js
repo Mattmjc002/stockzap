@@ -23,5 +23,5 @@ formLogin.addEventListener("submit", async (evento) => {
 	console.log("Login realizado:", data);
 
 	// Login concluído → vai direto para o Dashboard
-	window.location.href = "../html/dashboard.html";
+	window.location.href = "../funcionalidades_internas/dashboard.html";
 });
