@@ -1,0 +1,19 @@
+STOCKZAP — APRESENTAÇÃO
+
+1. Extraia o ZIP.
+2. Abra a pasta StockZap_Demo.
+3. No Windows, dê dois cliques em Iniciar_Windows.bat.
+
+Ou abra o terminal nessa pasta e execute:
+  npm.cmd start
+Depois abra:
+  http://localhost:3000
+
+Node.js 24 é necessário para o servidor.
+Não precisa instalar pacotes. Não precisa de e-mail ou senha.
+
+Sem servidor: abra index.html para usar a demonstração local.
+
+ZapCare funciona com consultas locais, sem chave.
+IA generativa: configure OPENAI_API_KEY no .env e reinicie.
+Os passos completos estão em README.md.
