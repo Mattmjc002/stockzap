@@ -68,7 +68,8 @@
     }
     movements.reverse();
     const conversations=customers.slice(0,5).map((c,i)=>({id:'w'+i,customerId:c.id,unread:i<2,messages:[{id:'w'+i+'a',from:'customer',text:['Olá! Vocês têm o Café Cerrado disponível?','Boa tarde, posso retirar meu pedido hoje?','Quero saber mais sobre os kits de café.','Minha entrega chegou, obrigado!','Vocês fazem entrega na Asa Sul?'][i],time:'2026-09-30T'+String(9+i).padStart(2,'0')+':15:00-03:00'}]}));
-    return {schema:1,revision:1,asOf:'2026-09-30',company,products,suppliers,customers,team,orders,transactions,tasks,movements,conversations,activity:[{id:'a1',date:'2026-09-30T09:00:00-03:00',text:'Demonstração Empório Aurora carregada.',kind:'Sistema'}]};
+    const Support=typeof module!=='undefined'?require('./support.js'):root.SZSupport;
+    return {schema:1,revision:1,asOf:'2026-09-30',company,products,suppliers,customers,team,orders,transactions,tasks,movements,conversations,support:Support.seed('2026-09-30',company),activity:[{id:'a1',date:'2026-09-30T09:00:00-03:00',text:'Demonstração Empório Aurora carregada.',kind:'Sistema'}]};
   }
   if(typeof module!=='undefined')module.exports={seed};else root.SZDemo={seed};
 })(typeof window!=='undefined'?window:globalThis);

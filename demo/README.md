@@ -32,6 +32,31 @@ Para uma apresentação rápida sem servidor, abra `index.html` na raiz do proje
 - Configurações: empresa, meta, tema claro/escuro/sistema, exportação completa e restauração da demonstração.
 - Busca geral, notificações, telas vazias, mensagens de erro, página 404 e navegação no celular.
 - ZapCare flutuante, expansão para a página completa, histórico, cópia de respostas e links para os módulos consultados.
+- Painel da equipe StockZap: empresas clientes, fila por prioridade, risco explicável, responsáveis, retornos, histórico e solicitações do chat.
+
+## Painel de atendimento da StockZap
+
+Na landing page, clique em **Equipe StockZap**. Dentro da empresa demonstrativa, use **Equipe StockZap → Atendimentos** no menu. O endereço da tela é `public/app.html#atendimentos` na hospedagem estática e `http://localhost:3000/app.html#atendimentos` no servidor local. O atalho `public/atendimentos.html` também abre o painel.
+
+O painel acompanha **10 empresas fictícias clientes da StockZap**, com 8 atendimentos iniciais (7 abertos e 1 resolvido). Esses clientes do aplicativo são distintos dos compradores e dos colaboradores do Empório Aurora. Os indicadores são calculados a partir dos registros.
+
+- Fila ordenada por prioridade e filtros por empresa/gestor/assunto, situação, risco, jornada e responsável.
+- Detalhes por empresa com atividade recente, comparação de duas janelas de 7 dias, motivo do risco e sugestão de próxima ação.
+- Jornadas de onboarding, engajamento e reativação. Sem eventos disponíveis, o risco aparece como **Sem dados**.
+- Criação de atendimento, atribuição a Matheus Milagres, Cauê Mathias ou Manuela Valone, definição de retorno, conclusão e reabertura.
+- Registro de notas, contatos e respostas simulados, com histórico por empresa e exportação CSV da fila filtrada.
+- Botão **Solicitar atendimento da StockZap** no ZapCare do cliente. A solicitação do Empório Aurora aparece no painel da equipe.
+- Operações como venda, movimentação de estoque e baixa financeira geram eventos de uso vinculados ao Empório Aurora.
+
+**Critérios iniciais do MVP:** risco alto após 7 dias sem atividade com histórico disponível (80 pontos); médio após queda de ao menos 50% entre dois períodos de 7 dias, com pelo menos 3 atividades no período anterior (55); baixo quando os critérios não são atingidos (10). Na fila, somam-se até 30 pontos pela prioridade do caso, 15 por retorno vencido e 10 durante os primeiros 7 dias de uso. O máximo é 100. A falta de eventos usa 25 pontos apenas para ordenar a investigação da coleta, sem confirmar risco de abandono. A janela e os limites precisam de validação por segmento. O botão **Como a prioridade funciona?** explica as regras na interface.
+
+Os canais de WhatsApp, e-mail e telefone **não enviam mensagens externas**. O painel registra a simulação revisada pela equipe. Contatos pausados e um contato já simulado na data bloqueiam repetição; notas internas continuam disponíveis. A data de referência permanece em 30/09/2026; para repetir o cenário inicial, use a restauração da demonstração.
+
+Os dados ficam no navegador quando a demo está hospedada como arquivos estáticos na Vercel. Com `server.cjs`, as alterações usam a API existente e são persistidas no JSON do servidor. Bases antigas recebem os dados do painel uma única vez, sem apagar pedidos, produtos ou lançamentos já cadastrados. A demonstração mantém entrada sem senha; o painel também é demonstrativo.
+
+O contexto enviado à IA do cliente contém apenas os dados do seu negócio. As outras empresas e os registros internos do painel não são incluídos na requisição ao modelo.
+
+Para publicar no projeto Vercel existente, substitua a pasta `demo/` pelos arquivos atualizados, faça commit e push na branch de produção (por exemplo, `main`). A rota `/demo/index.html` continua abrindo a landing page. Com essa estrutura, o acesso direto ao painel é `/demo/public/app.html#atendimentos`. O servidor Node não é iniciado automaticamente pela hospedagem estática; a demo usa o modo de navegador nesse endereço.
 
 ## Empresa fictícia
 

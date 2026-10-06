@@ -1,5 +1,6 @@
 (function(root) {
   'use strict';
+  const Support=typeof module!=='undefined'?require('./support.js'):root.SZSupport;
   const round=v=>Math.round((v+Number.EPSILON)*100)/100;
   const money=v=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v||0);
   const normalize=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -46,8 +47,11 @@
   ];}
   function mutate(input,action,p={}){
     const s=structuredClone(input);const now=new Date().toISOString();let log='';
+    Support.ensure(s);
     const movement=(product,type,quantity,reason)=>s.movements.unshift({id:uid('m'),productId:product.id,type,quantity,reason,date:s.asOf,balance:product.stock});
-    if(action==='product.save'){
+    if(action.startsWith('support.')){
+      log=Support.apply(s,action,p,now);
+    }else if(action==='product.save'){
       const id=p.id||uid('p');const old=p.id?find(s.products,p.id,'Produto'):null;
       const product={...old,id,name:str(p.name,'Nome'),sku:str(p.sku,'Código',60),category:str(p.category,'Categoria',60),price:num(p.price,'Preço'),cost:num(p.cost,'Custo'),minStock:num(p.minStock,'Estoque mínimo',0,1000000,true),targetStock:num(p.targetStock,'Estoque ideal',0,1000000,true),supplierId:p.supplierId||s.suppliers[0].id,visual:old?.visual||'grain',unit:'un.',stock:old?old.stock:num(p.stock,'Quantidade',0,1000000,true)};
       find(s.suppliers,product.supplierId,'Fornecedor');if(product.targetStock<product.minStock)fail('Estoque ideal deve ser igual ou superior ao mínimo.');
@@ -86,6 +90,7 @@
     }else if(action==='whatsapp.read'){
       find(s.conversations,p.id,'Conversa').unread=false;
     }else fail('Operação desconhecida.');
+    Support.recordBusinessEvent(s,action,now);
     if(log)s.activity.unshift({id:uid('a'),date:now,text:log,kind:action.split('.')[0]});s.activity=s.activity.slice(0,100);s.revision+=1;return s;
   }
   const api={round,money,normalize,uid,period,summary,alerts,mutate};if(typeof module!=='undefined')module.exports=api;else root.SZCore=api;

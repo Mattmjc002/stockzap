@@ -1,1 +1,353 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Página não encontrada · StockZap</title><link rel="stylesheet" href="/css/style.css"></head><body><main class="error-page"><div><h1>404</h1><h2>Esse caminho não está por aqui.</h2><p>Volte ao início ou continue explorando o seu negócio.</p><a class="btn btn-primary" href="/">Página inicial</a> <a class="btn btn-secondary" href="/app.html#dashboard">Ir para o aplicativo</a></div></main></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#052759">
+  <title>Página não encontrada · StockZap</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #052759;
+      --green: #008646;
+      --text: #152a47;
+      --muted: #5c6d83;
+      --border: #e2eaf0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      background: #f7f9fc;
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible {
+      outline: 3px solid #3478f6;
+      outline-offset: 5px;
+      border-radius: 8px;
+    }
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: -100px;
+      z-index: 2;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #fff;
+    }
+    .skip-link:focus { top: 16px; }
+    .site-header {
+      width: min(1180px, 100%);
+      margin-inline: auto;
+      min-height: 104px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: inline-flex; flex-shrink: 0; }
+    .brand-logo { width: 180px; height: auto; display: block; }
+    .header-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .header-link:hover { color: var(--green); }
+    .icon { width: 20px; height: 20px; flex-shrink: 0; }
+    main {
+      width: min(1180px, 100%);
+      flex: 1;
+      margin-inline: auto;
+      padding: 40px 32px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-content: center;
+      align-items: center;
+      gap: 64px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 24px;
+      padding: 8px 12px;
+      border: 1px solid #cce7da;
+      border-radius: 999px;
+      background: #eaf8f0;
+      color: #087640;
+      font-size: 11px;
+      line-height: 1.4;
+      font-weight: 700;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+    }
+    .eyebrow .icon { width: 14px; height: 14px; }
+    h1 {
+      margin: 0 0 22px;
+      color: var(--navy);
+      font-size: clamp(36px, 4.2vw, 54px);
+      line-height: 1.12;
+      font-weight: 750;
+      letter-spacing: -2px;
+    }
+    h1 span { color: var(--green); }
+    .description {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .btn {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 19px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 650;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease;
+    }
+    .btn-primary { color: #fff; background: var(--green); box-shadow: 0 5px 14px #0086461a; }
+    .btn-primary:hover { background: #006d38; transform: translateY(-2px); }
+    .btn-secondary { color: var(--navy); background: #fff; border-color: #dbe4ed; }
+    .btn-secondary:hover { background: #edf2f7; border-color: #bccbdc; transform: translateY(-2px); }
+    .care-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 430px;
+      padding-top: 26px;
+      margin-top: 30px;
+      border-top: 1px solid var(--border);
+    }
+    .care-symbol {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      color: #b0efcc;
+      background: var(--navy);
+      border-radius: 12px;
+    }
+    .care-note p { margin: 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
+    .care-note strong { color: var(--navy); font-weight: 650; }
+    .visual {
+      position: relative;
+      min-height: 440px;
+      padding: 48px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid #d8e9e2;
+      border-radius: 32px;
+      background: radial-gradient(ellipse at 50% 40%, #fff 0%, #edf8f3 60%, #e0f1e8 100%);
+    }
+    .visual::before, .visual::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 360px;
+      height: 360px;
+      border: 1px solid #c9e5d6;
+      border-radius: 50%;
+      opacity: .7;
+    }
+    .visual::before { top: -220px; right: -130px; }
+    .visual::after { bottom: -225px; left: -140px; }
+    .visual-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 18px;
+      color: #47745f;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .visual-label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    .error-code { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; }
+    .digit { color: var(--navy); font-size: clamp(115px, 12vw, 160px); line-height: 1; font-weight: 800; letter-spacing: -10px; }
+    .zero {
+      width: clamp(102px, 11vw, 146px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 15px solid var(--green);
+      border-radius: 50%;
+      background: #f3fcf7;
+      box-shadow: 0 12px 28px #00864614;
+      transform: rotate(-9deg);
+    }
+    .box-illustration { width: 106%; overflow: visible; }
+    .visual-caption { margin: 26px 0 0; color: #527763; font-size: 13px; line-height: 1.7; text-align: center; }
+    .visual-caption strong { color: var(--navy); display: block; font-size: 16px; font-weight: 650; }
+    .route-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 23px;
+      padding: 9px 13px;
+      border: 1px solid #d5e8dd;
+      border-radius: 10px;
+      background: #ffffffba;
+      color: #49745e;
+      font-size: 11px;
+    }
+    .route-tag .icon { width: 15px; height: 15px; }
+    .site-footer {
+      width: min(1116px, calc(100% - 64px));
+      margin-inline: auto;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+    .site-footer p { margin: 0; }
+    .site-footer a { font-weight: 600; color: var(--navy); }
+    .site-footer a:hover { color: var(--green); text-decoration: underline; }
+    @media (min-width: 1600px) { main { flex: 0 1 auto; margin-block: auto; } }
+    @media (max-width: 900px) {
+      main { gap: 30px; }
+      .visual { min-height: 390px; padding-inline: 16px; }
+      .digit { font-size: 112px; letter-spacing: -8px; }
+      .zero { width: 102px; border-width: 12px; }
+      h1 { font-size: 40px; }
+    }
+    @media (max-width: 720px) {
+      .site-header { min-height: 84px; padding: 20px 24px; }
+      .brand-logo { width: 146px; }
+      .header-link { font-size: 12px; }
+      main { padding: 30px 24px 40px; grid-template-columns: 1fr; gap: 36px; }
+      .copy { text-align: center; }
+      h1 { max-width: 500px; margin-inline: auto; font-size: clamp(34px, 7vw, 44px); letter-spacing: -1.5px; }
+      .eyebrow { margin-bottom: 20px; font-size: 10px; }
+      .description { margin-inline: auto; font-size: 14px; }
+      .actions { justify-content: center; margin-top: 25px; }
+      .care-note { margin-inline: auto; text-align: left; }
+      .visual { width: min(480px, 100%); min-height: 310px; margin-inline: auto; padding: 28px 20px; border-radius: 24px; }
+      .digit { font-size: clamp(112px, 26vw, 140px); }
+      .zero { width: clamp(98px, 23vw, 125px); }
+      .visual-label { margin-bottom: 12px; }
+      .visual-caption { margin-top: 16px; }
+      .route-tag { margin-top: 16px; }
+      .site-footer { width: calc(100% - 48px); padding-block: 20px; flex-direction: column; text-align: center; gap: 8px; }
+    }
+    @media (max-width: 380px) {
+      .site-header { padding-inline: 20px; gap: 12px; }
+      .brand-logo { width: 124px; }
+      .header-link { font-size: 11px; gap: 5px; }
+      .header-link .icon { width: 16px; }
+      main { padding-inline: 20px; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .visual { padding-inline: 12px; }
+      .digit { font-size: 104px; }
+      .zero { width: 92px; border-width: 11px; }
+      .error-code { gap: 3px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="/demo/public/index.html" aria-label="StockZap — página inicial">
+      <svg class="brand-logo" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1648 375"><g transform="translate(-63,-251)" fill-rule="evenodd"><path d="M 683.0,414.0 L 671.0,418.0 L 587.0,456.0 L 587.0,533.0 L 666.0,502.0 L 677.0,496.0 Z M 488.0,408.0 L 488.0,411.0 L 484.0,416.0 L 482.0,431.0 L 482.0,497.0 L 574.0,533.0 L 574.0,436.0 L 538.0,423.0 L 538.0,458.0 L 533.0,459.0 L 521.0,455.0 L 518.0,452.0 L 518.0,416.0 L 494.0,408.0 Z M 737.0,376.0 L 727.0,385.0 L 719.0,398.0 L 686.0,479.0 L 685.0,496.0 L 688.0,502.0 L 694.0,508.0 L 708.0,513.0 L 819.0,513.0 L 835.0,476.0 L 750.0,476.0 L 744.0,472.0 L 744.0,463.0 L 764.0,416.0 L 771.0,407.0 L 778.0,404.0 L 862.0,404.0 L 877.0,369.0 L 755.0,369.0 Z M 683.0,377.0 L 644.0,365.0 L 551.0,406.0 L 543.0,411.0 L 581.0,423.0 Z M 631.0,360.0 L 599.0,349.0 L 592.0,349.0 L 489.0,393.0 L 527.0,405.0 Z M 916.0,317.0 L 839.0,513.0 L 891.0,513.0 L 911.0,464.0 L 916.0,456.0 L 918.0,456.0 L 969.0,513.0 L 1027.0,513.0 L 998.0,474.0 L 975.0,447.0 L 973.0,442.0 L 1049.0,398.0 L 1107.0,367.0 L 1023.0,367.0 L 1012.0,372.0 L 937.0,418.0 L 929.0,421.0 L 928.0,418.0 L 970.0,317.0 Z M 460.0,314.0 L 399.0,330.0 L 387.0,359.0 L 382.0,367.0 L 350.0,367.0 L 333.0,404.0 L 365.0,404.0 L 366.0,409.0 L 333.0,486.0 L 332.0,495.0 L 334.0,502.0 L 343.0,511.0 L 354.0,514.0 L 441.0,514.0 L 457.0,477.0 L 404.0,476.0 L 399.0,472.0 L 398.0,464.0 L 424.0,404.0 L 478.0,404.0 L 494.0,367.0 L 439.0,366.0 Z M 378.0,303.0 L 186.0,303.0 L 167.0,311.0 L 157.0,320.0 L 151.0,328.0 L 130.0,378.0 L 130.0,382.0 L 139.0,389.0 L 249.0,451.0 L 261.0,460.0 L 261.0,462.0 L 255.0,467.0 L 231.0,472.0 L 132.0,472.0 L 112.0,486.0 L 75.0,516.0 L 268.0,516.0 L 279.0,513.0 L 290.0,507.0 L 301.0,497.0 L 306.0,490.0 L 325.0,446.0 L 325.0,438.0 L 316.0,431.0 L 194.0,364.0 L 192.0,362.0 L 192.0,358.0 L 198.0,353.0 L 216.0,348.0 L 322.0,348.0 Z " fill="#001B5C"></path><path d="M 686.0,390.0 L 650.0,405.0 L 588.0,434.0 L 587.0,455.0 L 671.0,417.0 L 683.0,413.0 Z M 1694.0,379.0 L 1686.0,373.0 L 1673.0,370.0 L 1524.0,370.0 L 1518.0,371.0 L 1510.0,375.0 L 1504.0,386.0 L 1480.0,444.0 L 1418.0,583.0 L 1487.0,557.0 L 1554.0,406.0 L 1629.0,406.0 L 1635.0,411.0 L 1636.0,416.0 L 1617.0,462.0 L 1611.0,470.0 L 1602.0,475.0 L 1596.0,476.0 L 1540.0,476.0 L 1524.0,514.0 L 1621.0,514.0 L 1635.0,511.0 L 1646.0,505.0 L 1655.0,497.0 L 1664.0,484.0 L 1698.0,405.0 L 1699.0,389.0 Z M 1270.0,404.0 L 1408.0,404.0 L 1413.0,408.0 L 1413.0,412.0 L 1408.0,421.0 L 1313.0,421.0 L 1296.0,424.0 L 1283.0,430.0 L 1267.0,446.0 L 1252.0,480.0 L 1251.0,494.0 L 1258.0,506.0 L 1267.0,511.0 L 1276.0,513.0 L 1426.0,513.0 L 1473.0,406.0 L 1475.0,399.0 L 1475.0,388.0 L 1469.0,377.0 L 1461.0,372.0 L 1454.0,370.0 L 1306.0,369.0 L 1301.0,370.0 Z M 1313.0,471.0 L 1315.0,463.0 L 1318.0,458.0 L 1330.0,451.0 L 1396.0,452.0 L 1391.0,466.0 L 1385.0,477.0 L 1318.0,477.0 Z M 1376.0,263.0 L 1260.0,284.0 L 1094.0,311.0 L 1004.0,329.0 L 1226.0,329.0 L 1227.0,332.0 L 1117.0,407.0 L 1033.0,467.0 L 1095.0,467.0 L 1096.0,470.0 L 1031.0,519.0 L 845.0,614.0 L 1091.0,560.0 L 1165.0,545.0 L 1234.0,533.0 L 1274.0,523.0 L 1232.0,519.0 L 1226.0,517.0 L 1227.0,511.0 L 1242.0,479.0 L 1098.0,510.0 L 1093.0,510.0 L 1092.0,507.0 L 1188.0,423.0 L 1313.0,318.0 Z " fill="#00B84A"></path></g></svg>
+    </a>
+    <a class="header-link" href="/demo/public/index.html">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M5 12h14"/></svg>
+      Voltar ao início
+    </a>
+  </header>
+  <main id="conteudo">
+    <section class="copy" aria-labelledby="error-title">
+      <p class="eyebrow">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5m0 3h.01"/></svg>
+        Erro 404 · Página não encontrada
+      </p>
+      <h1 id="error-title">Ops, esse caminho<br><span>não está no estoque.</span></h1>
+      <p class="description">O endereço pode ter mudado ou ter sido digitado incorretamente. Volte ao início ou continue cuidando do seu negócio no aplicativo.</p>
+      <nav class="actions" aria-label="Encontrar o próximo caminho">
+        <a class="btn btn-primary" href="/demo/public/app.html#dashboard">
+          Ir para o aplicativo
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 5 7 7-7 7M5 12h14"/></svg>
+        </a>
+        <a class="btn btn-secondary" href="/demo/public/index.html">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v11h14V9M9 20v-7h6v7"/></svg>
+          Página inicial
+        </a>
+      </nav>
+      <div class="care-note">
+        <span class="care-symbol" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3Z"/></svg>
+        </span>
+        <p><strong>O ZapCare te espera no aplicativo.</strong><br>Abra o assistente para consultar os dados do seu negócio.</p>
+      </div>
+    </section>
+    <div class="visual" aria-hidden="true">
+      <p class="visual-label">Busca encerrada</p>
+      <div class="error-code">
+        <span class="digit">4</span>
+        <div class="zero">
+          <svg class="box-illustration" viewBox="0 0 120 120" fill="none">
+            <ellipse cx="60" cy="97" rx="39" ry="7" fill="#052759" opacity=".08"/>
+            <path d="m25 47 35-16 35 16-35 17-35-17Z" fill="#fff" stroke="#052759" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M25 47v35l35 17V64L25 47Z" fill="#d8f1e4" stroke="#052759" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M95 47v35L60 99V64l35-17Z" fill="#b8e5cd" stroke="#052759" stroke-width="3" stroke-linejoin="round"/>
+            <path d="m42 39 35 17v16l-12 6V62L30 45" fill="#fff" stroke="#052759" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="m35 71 9 4m-9 4 9 4" stroke="#4a8464" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="m94 37 15-15" stroke="#052759" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="88" cy="43" r="16" fill="#fff" stroke="#052759" stroke-width="4"/>
+            <path d="m83 38 10 10m0-10L83 48" stroke="#008646" stroke-width="3" stroke-linecap="round"/>
+            <path d="M17 27v10m-5-5h10M98 94v8m-4-4h8" stroke="#008646" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="digit">4</span>
+      </div>
+      <p class="visual-caption"><strong>Uma rota fora do lugar.</strong>Seu próximo destino está logo ali.</p>
+      <div class="route-tag">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18H6a4 4 0 0 1 0-8h12a4 4 0 0 0 0-8h-3M15 18h6m-3-3 3 3-3 3"/><circle cx="12" cy="18" r="2"/></svg>
+        De volta à gestão, em um clique
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <p>StockZap · Gestão simples para negócios reais.</p>
+    <a href="/demo/public/app.html#atendimentos">Painel da equipe StockZap</a>
+  </footer>
+</body>
+</html>

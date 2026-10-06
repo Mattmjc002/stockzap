@@ -1,9 +1,10 @@
 (function(){
   'use strict';
-  const C=window.SZCore,U=window.SZUI,V=window.SZViews,{esc:e,icon:i,date:d,badge:b,statusBadge:sb,initials}=U,money=C.money;
+  const C=window.SZCore,U=window.SZUI,V=window.SZViews,S=window.SZSupport,SV=window.SZSupportViews,{esc:e,icon:i,date:d,badge:b,statusBadge:sb,initials}=U,money=C.money;
   const routes=[['dashboard','Visão geral','dashboard'],['produtos','Produtos','box'],['estoque','Estoque','inventory'],['pedidos','Pedidos','orders'],['financeiro','Financeiro','finance'],['prazos','Prazos','calendar'],['equipe','Equipe','users'],['whatsapp','WhatsApp','chat'],['zapcare','ZapCare','spark']];
   const key='stockzap:aurora:v1',chatKey='stockzap:zapcare:v1';
   let state,mode='local',aiEnabled=false,saving=false,filters={},page=1,period='month',stockTab='products',settingsTab='company',wa='w0',route='',theme='light',messages=[],chatOpen=false,chatBusy=false,chatDraft='',localRaw=null;
+  let supportAccount='';
   try{theme=localStorage.getItem('stockzap:theme')||'light';const saved=JSON.parse(localStorage.getItem(chatKey)||'[]');if(Array.isArray(saved))messages=saved.filter(m=>['user','assistant'].includes(m.role)&&typeof m.text==='string').slice(-40);}catch{}
   const app=document.getElementById('app'),modalRoot=document.getElementById('modal-root'),chatRoot=document.getElementById('chat-root');
   const toast=(text,error=false)=>{const node=document.createElement('div');node.className='toast'+(error?' error':'');node.innerHTML=i(error?'warning':'circleCheck')+'<span>'+e(text)+'</span>';document.getElementById('toasts').append(node);setTimeout(()=>node.remove(),4500);};
@@ -14,6 +15,7 @@
   }
   function loadLocal(){
     localRaw=localStorage.getItem(key);if(localRaw===null){state=window.SZDemo.seed();localRaw=JSON.stringify(state);localStorage.setItem(key,localRaw);}else{state=JSON.parse(localRaw);if(state.schema!==1||!Array.isArray(state.products))throw new Error('Os dados locais não puderam ser lidos. Exporte ou preserve o armazenamento antes de restaurar.');}
+    if(S.ensure(state)){state.revision+=1;localRaw=JSON.stringify(state);localStorage.setItem(key,localRaw);}
   }
   async function init(){
     try{
@@ -28,18 +30,19 @@
       if(mode==='local')toast('Demonstração salva neste navegador.');
     }catch(err){app.innerHTML=`<main class="error-page"><div><h2>Não foi possível abrir a demonstração</h2><p>${e(err.message)}</p><button class="btn btn-primary" data-act="reload">Tentar novamente</button><a class="btn btn-secondary" href="index.html">Voltar ao início</a></div></main>`;}
   }
-  const readRoute=()=>{const value=location.hash.slice(1).split('?')[0];return [...routes.map(r=>r[0]),'configuracoes'].includes(value)?value:'dashboard';};
-  const context=()=>({state,route,filters,page,period,stockTab,settingsTab,wa,theme,mode,aiEnabled});
+  const readRoute=()=>{const value=location.hash.slice(1).split('?')[0];return [...routes.map(r=>r[0]),'configuracoes','atendimentos'].includes(value)?value:'dashboard';};
+  const context=()=>({state,route,filters,page,period,stockTab,settingsTab,wa,theme,mode,aiEnabled,supportAccount});
   function render(){
     if(!state)return;
+    if(route==='atendimentos'){document.title='Atendimentos · Equipe StockZap';app.innerHTML=SV.shell(context());renderContent();renderDock();return;}
     const title=routes.find(x=>x[0]===route)?.[1]||'Configurações';document.title=title+' · '+state.company.name+' · StockZap';
     const name=state.company.owner,notices=C.alerts(state).length;
-    app.innerHTML=`<div class="sidebar-scrim" data-act="menu-close"></div><aside class="sidebar" aria-label="Menu principal"><div class="sidebar-brand"><a href="#dashboard" aria-label="StockZap, visão geral"><img class="logo" src="imagens/StockZap_logo.svg" alt="StockZap"></a><button class="icon-btn sidebar-close" data-act="menu-close" aria-label="Fechar menu">${i('close')}</button></div><div class="workspace"><span class="avatar">${initials(state.company.name)}</span><div><strong>${e(state.company.name)}</strong><small>Seu espaço de gestão</small></div></div><div class="nav-label">SEU NEGÓCIO</div><nav>${routes.map(([id,label,icon])=>`<a class="nav-item ${route===id?'active':''}" href="#${id}" ${route===id?'aria-current="page"':''}>${i(icon)}<span>${label}</span>${id==='pedidos'&&C.summary(state).activeOrders.length?'<span class="nav-count">'+C.summary(state).activeOrders.length+'</span>':id==='whatsapp'&&state.conversations.some(c=>c.unread)?'<span class="nav-count">'+state.conversations.filter(c=>c.unread).length+'</span>':''}${id==='zapcare'?'<span class="nav-count" style="color:var(--green-dark)">AI</span>':''}</a>`).join('')}</nav><div class="sidebar-bottom"><div class="care-promo"><strong>${i('spark')}Um próximo passo mais claro</strong><p>Converse com os dados do seu negócio.</p><button class="btn" data-act="care-open">Abrir ZapCare ${i('arrow')}</button></div><a class="nav-item ${route==='configuracoes'?'active':''}" href="#configuracoes">${i('settings')}Configurações</a><button class="nav-item" data-act="logout">${i('logout')}Sair da demonstração</button><div class="sidebar-foot">STOCKZAP · VERSÃO DE APRESENTAÇÃO</div></div></aside><div class="app-main"><header class="topbar"><div class="topbar-title"><button class="icon-btn mobile-menu" data-act="menu-open" aria-label="Abrir menu" aria-expanded="false">${i('menu')}</button><span class="breadcrumb-company">${e(state.company.name)}</span><span class="breadcrumb-company">/</span><strong>${title}</strong></div><div class="topbar-right"><span class="demo-pill"><i class="dot"></i>Demonstração</span><button class="top-search" data-act="search" aria-label="Buscar no negócio">${i('search')}<span>Buscar no negócio…</span><kbd>Ctrl K</kbd></button><button class="icon-btn ${notices?'bell':''}" data-act="notifications" aria-label="Notificações, ${notices} alertas">${i('bell')}</button><a class="profile-link" href="#configuracoes" aria-label="Perfil de ${e(name)}"><span class="avatar">${initials(name)}</span><div><strong>${e(name)}</strong><small>Proprietária</small></div></a></div></header><main class="app-content" id="page-content"></main></div>`;
+    app.innerHTML=`<div class="sidebar-scrim" data-act="menu-close"></div><aside class="sidebar" aria-label="Menu principal"><div class="sidebar-brand"><a href="#dashboard" aria-label="StockZap, visão geral"><img class="logo" src="imagens/StockZap_logo.svg" alt="StockZap"></a><button class="icon-btn sidebar-close" data-act="menu-close" aria-label="Fechar menu">${i('close')}</button></div><div class="workspace"><span class="avatar">${initials(state.company.name)}</span><div><strong>${e(state.company.name)}</strong><small>Seu espaço de gestão</small></div></div><div class="nav-label">SEU NEGÓCIO</div><nav>${routes.map(([id,label,icon])=>`<a class="nav-item ${route===id?'active':''}" href="#${id}" ${route===id?'aria-current="page"':''}>${i(icon)}<span>${label}</span>${id==='pedidos'&&C.summary(state).activeOrders.length?'<span class="nav-count">'+C.summary(state).activeOrders.length+'</span>':id==='whatsapp'&&state.conversations.some(c=>c.unread)?'<span class="nav-count">'+state.conversations.filter(c=>c.unread).length+'</span>':''}${id==='zapcare'?'<span class="nav-count" style="color:var(--green-dark)">AI</span>':''}</a>`).join('')}</nav><div class="nav-label">EQUIPE STOCKZAP</div><nav><a class="nav-item" href="#atendimentos">${i('chat')}<span>Atendimentos</span><span class="nav-count">${S.summary(state).open}</span></a></nav><div class="sidebar-bottom"><div class="care-promo"><strong>${i('spark')}Um próximo passo mais claro</strong><p>Converse com os dados do seu negócio.</p><button class="btn" data-act="care-open">Abrir ZapCare ${i('arrow')}</button></div><a class="nav-item ${route==='configuracoes'?'active':''}" href="#configuracoes">${i('settings')}Configurações</a><button class="nav-item" data-act="logout">${i('logout')}Sair da demonstração</button><div class="sidebar-foot">STOCKZAP · VERSÃO DE APRESENTAÇÃO</div></div></aside><div class="app-main"><header class="topbar"><div class="topbar-title"><button class="icon-btn mobile-menu" data-act="menu-open" aria-label="Abrir menu" aria-expanded="false">${i('menu')}</button><span class="breadcrumb-company">${e(state.company.name)}</span><span class="breadcrumb-company">/</span><strong>${title}</strong></div><div class="topbar-right"><span class="demo-pill"><i class="dot"></i>Demonstração</span><button class="top-search" data-act="search" aria-label="Buscar no negócio">${i('search')}<span>Buscar no negócio…</span><kbd>Ctrl K</kbd></button><button class="icon-btn ${notices?'bell':''}" data-act="notifications" aria-label="Notificações, ${notices} alertas">${i('bell')}</button><a class="profile-link" href="#configuracoes" aria-label="Perfil de ${e(name)}"><span class="avatar">${initials(name)}</span><div><strong>${e(name)}</strong><small>Proprietária</small></div></a></div></header><main class="app-content" id="page-content"></main></div>`;
     renderContent();renderDock();
   }
   function renderContent(){
     const active=document.activeElement,filter=active?.dataset?.filter,position=active?.selectionStart;
-    const content=document.getElementById('page-content');if(!content)return;content.innerHTML=V[route](context());
+    const content=document.getElementById('page-content');if(!content)return;content.innerHTML=route==='atendimentos'?SV.panel(context()):V[route](context());
     if(route==='zapcare'){chatOpen=false;drawChat(document.getElementById('care-full'),true);}
     if(filter){const input=content.querySelector('[data-filter="'+filter+'"]');input?.focus();if(typeof position==='number')try{input.setSelectionRange(position,position);}catch{}}
     const w=document.getElementById('wa-messages');if(w)w.scrollTop=w.scrollHeight;
@@ -63,6 +66,30 @@
   const selectField=(label,name,values,current='',full=false)=>`<label class="field ${full?'full':''}">${label}<select name="${name}" required>${values.map(x=>{const value=typeof x==='string'?x:x.id,txt=typeof x==='string'?x:x.name;return `<option value="${e(value)}" ${value===current?'selected':''}>${e(txt)}</option>`;}).join('')}</select></label>`;
   const dataOf=form=>Object.fromEntries(new FormData(form));
   const numeric=(obj,names)=>{for(const name of names)obj[name]=Number(obj[name]);return obj;};
+  const supportOwnerSelect=(value='')=>`<label class="field">Responsável<select name="ownerId"><option value="">Sem responsável</option>${state.support.members.map(m=>`<option value="${e(m.id)}" ${m.id===value?'selected':''}>${e(m.name)}</option>`).join('')}</select></label>`;
+  function supportNew(accountId,client=false){
+    if(client)accountId='sz-aurora';
+    const chosen=accountId||supportAccount||S.queue(state,filters)[0]?.account.id||'sz-aurora';
+    const account=state.support.accounts.find(a=>a.id===chosen)||state.support.accounts[0];
+    openModal(client?'Solicitar atendimento da StockZap':'Novo atendimento',`<form id="support-new-form"><input type="hidden" name="origin" value="${client?'client':'team'}">${client?`<input type="hidden" name="accountId" value="${e(account.id)}"><p class="support-form-intro">Conte sua dúvida sobre o aplicativo. A solicitação aparecerá no painel da equipe StockZap com os dados de ${e(account.name)}.</p>`:''}<div class="fields">${!client?selectField('Empresa cliente','accountId',state.support.accounts,account.id,true):''}${field('Assunto','title','','text','required maxlength="140"',true)}<label class="field full">Descreva a dúvida ou a próxima ação<textarea name="description" required maxlength="2000" rows="4"></textarea></label>${!client?selectField('Prioridade do atendimento','priority',S.priorities,'Média')+field('Data do retorno','dueDate',S.shift(state.asOf,1),'date','required')+supportOwnerSelect(account.ownerId):''}</div><p class="section-note">Registro demonstrativo. A solicitação não envia mensagens externas.</p>${footer(client?'Registrar solicitação':'Criar atendimento')}</form>`);
+  }
+  function supportEdit(id){
+    const t=state.support.tickets.find(x=>x.id===id);if(!t)throw new Error('Atendimento não encontrado.');
+    const a=state.support.accounts.find(x=>x.id===t.accountId);
+    supportAccount=a.id;
+    openModal('Atualizar atendimento',`<form id="support-edit-form" data-id="${e(id)}"><div class="support-form-intro"><strong>${e(a.name)}</strong><p>${e(t.title)}</p></div><div class="fields">${selectField('Status','status',S.statuses,t.status)}${selectField('Prioridade','priority',S.priorities,t.priority)}${supportOwnerSelect(t.ownerId)}${field('Data do retorno','dueDate',t.dueDate,'date','required')}<label class="field full">Resumo da atualização<textarea name="note" required maxlength="2000" rows="4" placeholder="Registre o que foi feito, o resultado e o próximo passo."></textarea></label></div><p class="section-note">Para concluir ou acompanhar um caso, escolha um responsável. A atualização fica no histórico desta empresa.</p>${footer('Salvar atualização')}</form>`);
+  }
+  function supportInteraction(id,note=false){
+    const account=state.support.accounts.find(x=>x.id===id);if(!account)throw new Error('Empresa não encontrada.');
+    const r=S.analyze(state,account),ticket=r.open[0]||r.tickets[0];supportAccount=id;
+    openModal(note?'Adicionar nota interna':'Registrar contato simulado',`<form id="support-interaction-form"><input type="hidden" name="accountId" value="${e(id)}"><input type="hidden" name="ticketId" value="${e(ticket?.id||'')}"><div class="support-form-intro"><strong>${e(account.name)}</strong><p>${note?'Anotação para a equipe StockZap.':'Revise a sugestão antes de registrar a simulação. Nenhuma mensagem será enviada.'}</p></div><div class="fields">${note?'<input type="hidden" name="kind" value="Nota interna"><input type="hidden" name="channel" value="Interno">':selectField('Tipo de registro','kind',['Contato simulado','Resposta simulada'],'Contato simulado')+selectField('Canal da simulação','channel',['WhatsApp','E-mail','Telefone'],account.preferredChannel)}${selectField('Registrado por','actorId',state.support.members,r.ownerId||state.support.members[0].id,true)}<label class="field full">${note?'Nota':'Mensagem ou resposta'}<textarea name="text" required maxlength="2000" rows="6">${note?'':e(S.suggestion(state,id))}</textarea></label></div>${footer(note?'Salvar nota':'Registrar simulação')}</form>`);
+  }
+  function supportExport(){
+    const rows=S.queue(state,filters),header=['Empresa','Gestor','Prioridade da fila','Risco','Jornada','Última atividade','Atendimentos abertos','Responsável'];
+    const escape=v=>{let t=String(v??'');if(/^[=+@-]/.test(t))t="'"+t;return '"'+t.replace(/"/g,'""')+'"';};
+    const values=rows.map(r=>[r.account.name,r.account.contact,r.priorityScore,r.risk,r.journey,r.lastActivity||'Sem dados',r.open.length,state.support.members.find(m=>m.id===r.ownerId)?.name||'Sem responsável']);
+    download('stockzap-atendimentos-'+state.asOf+'.csv','\ufeff'+[header,...values].map(row=>row.map(escape).join(';')).join('\r\n'),'text/csv;charset=utf-8');
+  }
   function productForm(id){
     const p=state.products.find(p=>p.id===id)||{name:'',sku:'',category:'Mercearia',price:'',cost:'',stock:0,minStock:5,targetStock:20,supplierId:state.suppliers[0].id};
     const categories=[...new Set(state.products.map(p=>p.category))];
@@ -135,12 +162,12 @@
     if(!target)return;
     const greeting=`<div class="care-greeting"><div class="care-symbol">${i('spark')}</div><h2>Seu negócio, em uma conversa.</h2><p>Olá, ${e(state.company.owner.split(' ')[0])}! Posso ajudar a entender os dados do ${e(state.company.name)}. Por onde começamos?</p><div class="care-prompts">${[['O que preciso repor?','inventory'],['Como estão minhas vendas este mês?','finance'],['Quais contas preciso pagar?','calendar'],['O que devo priorizar no negócio?','spark']].map(([q,icon])=>`<button class="care-prompt" data-act="care-ask" data-question="${q}"><span>${i(icon)} ${q}</span>${i('right')}</button>`).join('')}</div></div>`;
     const history=messages.map((m,j)=>m.role==='user'?`<div class="care-message user"><div class="message-text">${e(m.text)}</div></div>`:`<div class="care-message assistant"><div class="message-meta">${i('spark')}ZAPCARE · ${m.engine==='ai'?'IA generativa':'Consulta local'}</div><div class="message-text">${formatText(m.text)}</div>${m.notice?'<p class="section-note">'+e(m.notice)+'</p>':''}${m.sources?.length?'<div class="sources">Fontes: '+e(m.sources.join(' · '))+' · Base em '+d(m.asOf||state.asOf)+'</div>':''}${m.revision&&m.revision!==state.revision?'<div class="sources">Os dados mudaram após esta resposta. Pergunte novamente para atualizar.</div>':''}<div class="care-message-actions">${(m.actions||[]).map(a=>`<a href="#${e(a.route)}" class="btn btn-secondary" data-act="care-route">${e(a.label)}${i('right')}</a>`).join('')}<button class="btn btn-ghost" data-act="care-copy" data-id="${j}" aria-label="Copiar resposta">${i('copy')}</button></div></div>`).join('');
-    target.innerHTML=`${full?'<div class="care-dock-head"><span class="care-symbol">'+i('spark')+'</span><div><strong>ZapCare</strong><small>Assistente de '+e(state.company.name)+'</small></div><span class="badge green" style="margin-left:auto"><i class="dot"></i>'+ (aiEnabled?'IA conectada':'Demonstração')+'</span></div>':''}<div class="care-chat-body" role="log" aria-label="Conversa com ZapCare" aria-live="polite">${messages.length?history:greeting}${chatBusy?'<div class="care-loading" role="status"><span></span><span></span><span></span><em style="margin-left:7px;font-style:normal">Consultando os dados do negócio…</em></div>':''}</div><form class="care-compose" data-care-form><div class="care-input-wrap"><textarea data-care-input aria-label="Pergunta ao ZapCare" placeholder="Pergunte sobre seu negócio…" rows="1" maxlength="3000" ${chatBusy?'disabled':''}>${e(chatDraft)}</textarea><button class="btn btn-primary" aria-label="Enviar pergunta" type="submit" ${chatBusy?'disabled':''}>${i('send')}</button></div><div class="care-footnote">${aiEnabled?'Respostas geradas por IA. Confira os dados.':'Consulta local aos dados · Empresa fictícia'}</div></form>`;
+    target.innerHTML=`${full?'<div class="care-dock-head"><span class="care-symbol">'+i('spark')+'</span><div><strong>ZapCare</strong><small>Assistente de '+e(state.company.name)+'</small></div><span class="badge green" style="margin-left:auto"><i class="dot"></i>'+ (aiEnabled?'IA conectada':'Demonstração')+'</span></div>':''}<div class="care-chat-body" role="log" aria-label="Conversa com ZapCare" aria-live="polite">${messages.length?history:greeting}${chatBusy?'<div class="care-loading" role="status"><span></span><span></span><span></span><em style="margin-left:7px;font-style:normal">Consultando os dados do negócio…</em></div>':''}</div><form class="care-compose" data-care-form><div class="care-input-wrap"><textarea data-care-input aria-label="Pergunta ao ZapCare" placeholder="Pergunte sobre seu negócio…" rows="1" maxlength="3000" ${chatBusy?'disabled':''}>${e(chatDraft)}</textarea><button class="btn btn-primary" aria-label="Enviar pergunta" type="submit" ${chatBusy?'disabled':''}>${i('send')}</button></div><div class="care-footnote">${aiEnabled?'Respostas geradas por IA. Confira os dados.':'Consulta local aos dados · Empresa fictícia'}</div><button type="button" class="care-handoff" data-act="support-request">${i('users')}Solicitar atendimento da StockZap</button></form>`;
     const body=target.querySelector('.care-chat-body');body.scrollTop=body.scrollHeight;
   }
   function renderDock(){
     if(!state)return;
-    if(route==='zapcare'){chatRoot.innerHTML='';return;}
+    if(route==='zapcare'||route==='atendimentos'){chatRoot.innerHTML='';return;}
     if(!chatOpen){chatRoot.innerHTML=`<button class="care-launcher" data-act="care-open" aria-label="Abrir ZapCare">${i('spark')}<span><strong>ZapCare</strong><small>Vamos conversar?</small></span></button>`;return;}
     chatRoot.innerHTML=`<aside class="care-dock" aria-label="Assistente ZapCare"><div class="care-dock-head"><span class="care-symbol">${i('spark')}</span><div><strong>ZapCare</strong><small>Assistente do seu negócio</small></div><div class="care-dock-actions"><button class="icon-btn" data-act="care-clear" aria-label="Nova conversa">${i('plus')}</button><button class="icon-btn" data-act="care-expand" aria-label="Abrir ZapCare em tela cheia">${i('expand')}</button><button class="icon-btn" data-act="care-close" aria-label="Fechar ZapCare">${i('close')}</button></div></div><div id="dock-content" style="display:flex;flex-direction:column;flex:1;min-height:0"></div></aside>`;drawChat(document.getElementById('dock-content'));
   }
@@ -169,6 +196,19 @@
       if(action==='menu-open'){document.querySelector('.sidebar').classList.add('open');document.querySelector('.sidebar-scrim').classList.add('open');el.setAttribute('aria-expanded','true');return;}
       if(action==='menu-close'){document.querySelector('.sidebar')?.classList.remove('open');document.querySelector('.sidebar-scrim')?.classList.remove('open');document.querySelector('[data-act="menu-open"]')?.setAttribute('aria-expanded','false');return;}
       if(action==='modal-close')return closeModal();
+      if(action==='support-select'){supportAccount=id;renderContent();if(window.innerWidth<1180)document.getElementById('support-detail')?.scrollIntoView({behavior:'smooth',block:'start'});return;}
+      if(action==='support-new')return supportNew(id);
+      if(action==='support-request')return supportNew('sz-aurora',true);
+      if(action==='support-edit')return supportEdit(id);
+      if(action==='support-note'||action==='support-contact')return supportInteraction(id,action==='support-note');
+      if(action==='support-clear'){filters={};return renderContent();}
+      if(action==='support-rules')return openModal('Critérios de prioridade do ZapCare',SV.rules()+`<div class="form-actions"><button class="btn btn-primary" data-act="modal-close">Entendi</button></div>`,true);
+      if(action==='support-export')return supportExport();
+      if(action==='support-claim'){
+        const t=state.support.tickets.find(x=>x.id===id);if(!t)throw new Error('Atendimento não encontrado.');
+        supportAccount=t.accountId;el.disabled=true;
+        return await perform('support.update',{id,ownerId:state.support.members[0].id,status:'Em atendimento',priority:t.priority,dueDate:t.dueDate,note:'Atendimento assumido por '+state.support.members[0].name+'.'},{message:'Atendimento assumido.'});
+      }
       if(action==='product-new'||action==='product-edit')return productForm(action==='product-edit'?id:null);
       if(action==='product-archive'){const p=state.products.find(x=>x.id===id);return confirmModal('Arquivar produto','O produto <strong>'+e(p.name)+'</strong> sairá do catálogo ativo. Os pedidos e registros anteriores serão preservados.','product-archive-confirm',id,'Arquivar');}
       if(action==='product-archive-confirm'){el.disabled=true;await perform('product.archive',{id});return closeModal();}
@@ -247,8 +287,11 @@
       else if(form.id==='company-form'){action='company.save';numeric(data,['monthlyGoal']);}
       else if(form.id==='order-form'){action='order.create';data.items=orderItems();}
       else if(form.id==='wa-compose'){action='whatsapp.send';data={id:wa,text:data.message};}
+      else if(form.id==='support-new-form'){action='support.create';supportAccount=data.accountId;}
+      else if(form.id==='support-edit-form'){action='support.update';data.id=form.dataset.id;}
+      else if(form.id==='support-interaction-form')action='support.interaction';
       else return;
-      await perform(action,data,{message:action==='order.create'?'Venda registrada. Estoque e financeiro atualizados.':action==='whatsapp.send'?'Mensagem registrada na demonstração.':'Alteração salva.'});
+      await perform(action,data,{message:action==='order.create'?'Venda registrada. Estoque e financeiro atualizados.':action==='whatsapp.send'?'Mensagem registrada na demonstração.':action==='support.create'?'Atendimento registrado para a equipe StockZap.':action==='support.interaction'?'Interação registrada na demonstração.':'Alteração salva.'});
       if(form.closest('.modal'))closeModal();
     }catch(err){if(error){error.hidden=false;error.textContent=err.message;}else handleError(err);}
     finally{submit.disabled=false;}

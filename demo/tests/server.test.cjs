@@ -18,7 +18,15 @@ test('servidor persiste ações, protege revisões e responde com os dados atuai
 test('integração generativa recebe a base atual e lê a saída após itens de raciocínio',async()=>{
  await ready;process.env.OPENAI_API_KEY='test-key-never-sent';let received;
  global.fetch=async(url,options)=>{if(url==='https://api.openai.com/v1/responses'){received=JSON.parse(options.body);return new Response(JSON.stringify({output:[{type:'reasoning',summary:[]},{type:'message',role:'assistant',content:[{type:'output_text',text:'Resposta simulada para verificar o contrato da API.'}]}]}),{status:200,headers:{'Content-Type':'application/json'}});}return realFetch(url,options);};
- try{const response=await post('/api/zapcare',{message:'Quanto tenho em estoque?',history:[{role:'user',content:'Olá'}]});const output=await response.json();assert.equal(output.engine,'ai');assert.match(output.text,/Resposta simulada/);assert.match(received.instructions,/DADOS ATUAIS DO NEGÓCIO/);assert.match(received.instructions,/CAF-001/);assert.equal(received.store,false);assert.equal(received.input.at(-1).content,'Quanto tenho em estoque?');}finally{global.fetch=realFetch;delete process.env.OPENAI_API_KEY;}
+ try{const response=await post('/api/zapcare',{message:'Quanto tenho em estoque?',history:[{role:'user',content:'Olá'}]});const output=await response.json();assert.equal(output.engine,'ai');assert.match(output.text,/Resposta simulada/);assert.match(received.instructions,/DADOS ATUAIS DO NEGÓCIO/);assert.match(received.instructions,/CAF-001/);assert.doesNotMatch(received.instructions,/Café do Cerrado|Bela Flor|case-cafe|support/);assert.equal(received.store,false);assert.equal(received.input.at(-1).content,'Quanto tenho em estoque?');}finally{global.fetch=realFetch;delete process.env.OPENAI_API_KEY;}
+});
+test('painel grava atendimento na API e mantém proteção contra uma revisão antiga',async()=>{
+ await ready;let r=await realFetch(base+'/api/state');const initial=(await r.json()).state;
+ r=await post('/api/action',{revision:initial.revision,action:'support.create',payload:{accountId:'sz-tech',title:'Verificar coleta',description:'Confirmar registros de uso.',priority:'Média',dueDate:initial.asOf,ownerId:'sz-caue'}});
+ assert.equal(r.status,200);const next=(await r.json()).state;assert.equal(next.support.tickets[0].title,'Verificar coleta');
+ assert.equal(JSON.parse(fs.readFileSync(process.env.DATA_FILE,'utf8')).support.tickets[0].id,next.support.tickets[0].id);
+ r=await post('/api/action',{revision:initial.revision,action:'support.update',payload:{id:next.support.tickets[0].id}});assert.equal(r.status,409);
+ r=await realFetch(base+'/js/support.js');assert.equal(r.status,200);r=await realFetch(base+'/atendimentos.html');assert.equal(r.status,200);
 });
 test('falha do provedor usa consulta local com identificação explícita',async()=>{
  await ready;process.env.OPENAI_API_KEY='test-key-never-sent';global.fetch=async(url,options)=>url==='https://api.openai.com/v1/responses'?new Response('{}',{status:503}):realFetch(url,options);
